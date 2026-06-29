@@ -1,0 +1,157 @@
+/* ============================================================
+   BTS Group Travel — mobil adaptiv qat (bütün səhifələr)
+   ============================================================ */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,video{max-width:100%}
+
+/* ===== Qlobal: əlçatanlıq (a11y) + token düzəlişləri ===== */
+/* kontrast: muted2 #97A0AE (2.5:1) -> #6B7685 (~4.6:1, WCAG AA) */
+:root{--muted2:#6B7685}
+/* klaviatura üçün görünən focus halqası (yalnız klaviatura ilə fokuslananda) */
+:focus-visible{outline:2.5px solid var(--indigo,#3534F0);outline-offset:2px}
+.cat:focus-visible,.deal-card:focus-visible,.tcard:focus-visible,.fcard:focus-visible{outline:3px solid var(--indigo,#3534F0);outline-offset:3px}
+/* tap gecikməsini (300ms) və ikiqat-toxunuş zoomunu söndür */
+a,button,.cat,.deal-card,.tcard,.fcard,.deal-arrow,.cat-go,.btn-call,.mnav-btn,.chip,.reg-submit,.reg-retry{touch-action:manipulation}
+
+/* ---------- hamburger düyməsi + drawer ---------- */
+.mnav-btn{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:46px;height:46px;border:1.5px solid #E8EBF2;border-radius:13px;background:#fff;cursor:pointer;flex:none;-webkit-tap-highlight-color:transparent}
+.mnav-btn span{display:block;width:20px;height:2px;background:#0D2035;border-radius:2px;transition:transform .28s cubic-bezier(.2,.7,.2,1),opacity .2s}
+.mnav-btn.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mnav-btn.on span:nth-child(2){opacity:0}
+.mnav-btn.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mnav-overlay{position:fixed;inset:0;z-index:400;background:rgba(13,32,53,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.mnav-overlay.on{opacity:1;visibility:visible}
+.mnav-panel{position:absolute;top:0;right:0;height:100%;width:min(84vw,330px);background:#fff;box-shadow:-24px 0 70px -24px rgba(13,32,53,.45);transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding:20px 22px 26px}
+.mnav-overlay.on .mnav-panel{transform:none}
+.mnav-head{display:flex;align-items:center;margin-bottom:12px}
+.mnav-head img{height:34px;width:auto;display:block}
+.mnav-head b{font-size:16px;font-weight:800;color:#0D2035}
+.mnav-close{margin-left:auto;width:42px;height:42px;border:none;border-radius:12px;background:#F4F6FB;color:#5E6B7D;font-size:23px;line-height:1;cursor:pointer}
+.mnav-close:active{background:#E8EBF2}
+.mnav-links{display:flex;flex-direction:column}
+.mnav-links a{padding:16px 4px;font-size:18px;font-weight:700;color:#0D2035;border-bottom:1px solid #EEF1F6;text-decoration:none}
+.mnav-links a:active{color:#3534F0}
+.mnav-call{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:9px;padding:16px;border-radius:14px;background:#3534F0;color:#fff;font-size:16px;font-weight:700;text-decoration:none}
+.mnav-call svg{width:18px;height:18px;flex:none}
+
+@media(max-width:900px){
+  .site-header .nav{display:none!important}
+  .mnav-btn{display:flex}
+  .hdr{gap:10px}
+  .hdr .brand{margin-right:auto}
+  .hdr .btn-call{font-size:0!important;gap:0!important;width:46px;height:46px;min-width:0!important;padding:0!important;justify-content:center;border-radius:13px!important;flex:none}
+  .hdr .btn-call svg{margin:0!important}
+}
+
+/* ---------- hero ---------- */
+@media(max-width:760px){
+  .hero{min-height:74vh}
+  /* şəkli daha dolğun göstər (zoom söndür) + bir az qaralt */
+  .hero-bg{animation:none!important;transform:none!important;object-position:center;filter:brightness(.9) saturate(1.05)!important}
+  /* mətnin oxunaqlığı üçün daha sıx skrim */
+  .hero-veil{background:linear-gradient(180deg,rgba(11,26,44,.45),rgba(11,26,44,.20) 35%,rgba(11,26,44,.78))!important}
+  .hero-inner{padding-left:22px;padding-right:22px}
+  .hero-title{max-width:100%}
+  .hero-title .line1{font-size:clamp(28px,8vw,46px)!important;line-height:1.12!important;margin:0!important;letter-spacing:-.5px!important}
+  .hero-title .line2{font-size:clamp(34px,11vw,72px)!important;line-height:.98!important;margin:2px 0 0!important;letter-spacing:-1px!important;white-space:normal!important}
+  .hero-sub{width:100%!important;max-width:540px;font-size:16px!important;line-height:1.55!important;margin:18px 0 0!important}
+  .hero-eyebrow{font-size:13px!important}
+  /* düymələr alt-alta, tam enində */
+  .hero-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin-top:26px;width:100%;max-width:440px;align-self:center}
+  .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%!important;max-width:none!important}
+}
+
+/* ---------- şəbəkələr (grids) ---------- */
+@media(max-width:860px){
+  .cat-grid{grid-template-columns:1fr 1fr!important}
+  .deal-grid{grid-template-columns:1fr 1fr!important}
+}
+/* mobil: üfüqi sürüşmə — kateqoriyalar, yanan turlar, kataloq (Turlar) */
+@media(max-width:600px){
+  .cat-grid,.deal-grid,.tour-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px}
+  .cat-grid::-webkit-scrollbar,.deal-grid::-webkit-scrollbar,.tour-grid::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 76%;scroll-snap-align:start}
+  .deal-card{flex:0 0 82%;scroll-snap-align:start}
+  .tcard{flex:0 0 76%;scroll-snap-align:start}
+  .deal-grid{margin-top:30px}
+}
+/* mobil: filtr çipləri tək sətirdə üfüqi sürüşmə (Turlar) */
+@media(max-width:620px){
+  .filters{flex:1 1 100%;min-width:0;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  .filters::-webkit-scrollbar{display:none}
+  .filters .chip{flex:0 0 auto}
+}
+
+/* ---------- başlıqlar / boşluqlar ---------- */
+@media(max-width:600px){
+  .sec-title,.about-title{font-size:clamp(26px,8vw,34px)!important;line-height:1.14!important}
+  .phero-title{font-size:clamp(26px,8.5vw,44px)!important;line-height:1.1!important;white-space:normal!important;overflow-wrap:break-word}
+  .ttl-h1{font-size:clamp(28px,8.5vw,40px)!important;line-height:1.12!important}
+  .sec-sub,.phero-sub,.about-text{font-size:15px!important}
+  .section{padding-top:54px!important;padding-bottom:54px!important}
+  .sec-head{margin-bottom:30px!important}
+}
+
+/* ---------- tur detalı ---------- */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr!important}
+}
+@media(max-width:600px){
+  .ttl-meta{flex-wrap:wrap}
+}
+
+/* ---------- qeydiyyat modalı ---------- */
+@media(max-width:560px){
+  .reg-overlay{padding:0}
+  .reg-sheet{max-width:100%;min-height:100%;border-radius:0;padding:64px 20px 28px}
+  .reg-row{grid-template-columns:1fr!important}
+  .reg-title{font-size:26px!important}
+  .reg-result .reg-actions{flex-direction:column}
+}
+
+/* ---------- footer ---------- */
+@media(max-width:560px){
+  .footer-grid{grid-template-columns:1fr!important;gap:26px}
+}
+
+/* ---------- CTA banner ---------- */
+@media(max-width:680px){
+  .ctab{min-height:0}
+  .ctab-veil{background:linear-gradient(180deg,rgba(13,32,53,.45),rgba(13,32,53,.82))!important}
+  .ctab-inner{max-width:none;width:100%;padding:26px 22px}
+  .ctab-title{font-size:clamp(22px,6.2vw,28px)!important}
+  .ctab-sub{font-size:14px!important;max-width:none;margin-top:10px}
+  .ctab-btn{display:flex;width:100%;justify-content:center;margin-top:20px;padding:15px}
+}
+
+/* ---------- haqqımızda (about): alçaq foto + 2×2 mini kartlar ---------- */
+@media(max-width:600px){
+  .about-media{min-height:0!important;height:190px!important}
+  .values{grid-template-columns:1fr 1fr!important;gap:10px;margin-top:22px}
+  .value{padding:14px;gap:8px}
+  .value-ic{width:38px;height:38px}
+  .value-t{font-size:14px!important}
+  .value-d{font-size:12px!important;margin-top:2px}
+}
+
+/* ---------- tur detalı: sabit aşağı CTA bar (mobil) ---------- */
+.book-bar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;gap:10px;align-items:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line,#E8EBF2);box-shadow:0 -12px 34px -20px rgba(13,32,53,.5);transform:translateY(0);transition:transform .32s cubic-bezier(.2,.7,.2,1)}
+.book-bar.hide{transform:translateY(130%)}
+.bb-wa{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 16px;border-radius:14px;border:1.5px solid rgba(31,164,99,.35);background:#fff;color:#1FA463;font-size:15px;font-weight:700;text-decoration:none;touch-action:manipulation}
+.bb-wa svg{width:20px;height:20px;flex:none}
+.bb-reg{flex:1;height:54px;border:none;border-radius:14px;background:var(--indigo,#3534F0);color:#fff;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 14px 30px -14px rgba(53,52,240,.85);touch-action:manipulation}
+.bb-reg:active{background:var(--indigo-d,#2725C7)}
+@media(max-width:900px){
+  body.has-book-bar .book-bar{display:flex}
+  body.has-book-bar{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:360px){
+  .bb-wa span{display:none}
+  .bb-wa{padding:0 15px}
+}
+
+/* ---------- ümumi ---------- */
+@media(max-width:600px){
+  .container{padding-left:20px!important;padding-right:20px!important}
+}

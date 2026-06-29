@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roma–Milan–Paris turu — BTS Group Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#3534F0;
+    --indigo-d:#2725C7;
+    --navy:#0D2035;
+    --ink:#16263A;
+    --green:#1FA463;
+    --red:#E5484D;
+    --paper:#FFFFFF;
+    --mist:#F4F6FB;
+    --line:#E8EBF2;
+    --muted:#5E6B7D;
+    --muted2:#97A0AE;
+    --shadow:0 26px 60px -30px rgba(13,32,53,.4);
+    --ease:cubic-bezier(.2,.7,.2,1);
+    --container:1536px;
+    --gutter:clamp(24px,5vw,80px);
+    --sy:clamp(52px,7vh,80px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--mist);color:var(--ink);overflow-x:hidden}
+  ::selection{background:var(--indigo);color:#fff}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  .container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+  .reveal{animation:revUp .7s var(--ease) both}
+  @keyframes revUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){.reveal{animation:none}html{scroll-behavior:auto}}
+
+  /* ===== HEADER ===== */
+  .site-header{position:fixed;top:0;left:0;right:0;z-index:60;padding-top:16px;transition:padding .35s var(--ease)}
+  .site-header.scrolled{padding-top:10px}
+  .hdr-wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+  .hdr{height:68px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(1.4);border:1px solid rgba(255,255,255,.8);border-radius:18px;box-shadow:0 20px 50px -26px rgba(13,32,53,.5);transition:box-shadow .35s,border-color .35s,height .35s}
+  .site-header.scrolled .hdr{border-color:var(--line);box-shadow:0 14px 36px -20px rgba(13,32,53,.35);height:60px}
+  .brand img{height:44px;width:auto}
+  .nav{display:flex;align-items:center;gap:clamp(18px,2.6vw,38px)}
+  .nav a{position:relative;font-size:15px;font-weight:600;color:#3C4858;padding:6px 0;transition:color .2s}
+  .nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;border-radius:2px;background:var(--indigo);transition:width .28s var(--ease)}
+  .nav a.active{color:var(--navy)}
+  .nav a.active::after,.nav a:hover::after{width:100%}
+  .nav a:hover{color:var(--indigo)}
+  .btn-call{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:12px;background:var(--indigo);color:#fff;font-size:14px;font-weight:700;box-shadow:0 12px 26px -12px rgba(53,52,240,.7);transition:transform .2s,background .2s}
+  .btn-call:hover{transform:translateY(-2px);background:var(--indigo-d)}
+
+  /* ===== PAGE TOP ===== */
+  .page{padding-top:118px}
+  .crumbs{display:flex;align-items:center;flex-wrap:wrap;gap:9px;color:var(--muted);font-size:13.5px;font-weight:600;margin-bottom:22px}
+  .crumbs a{transition:color .2s}
+  .crumbs a:hover{color:var(--indigo)}
+  .crumbs svg{opacity:.5}
+  .crumbs .cur{color:var(--navy)}
+
+  .ttl-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:26px}
+  .ttl-h1{color:var(--navy);font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(32px,4.4vw,56px);line-height:1.02;letter-spacing:-.01em}
+  .ttl-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px}
+  .meta-pill{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:14.5px;font-weight:600}
+  .meta-pill svg{stroke:var(--muted2)}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 6px 16px -10px rgba(13,32,53,.4);color:var(--navy);font-size:12.5px;font-weight:800;letter-spacing:.02em}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--indigo)}
+
+  /* ===== LAYOUT ===== */
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 392px;gap:36px;align-items:start;padding-bottom:var(--sy)}
+
+  .hero-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;box-shadow:var(--shadow)}
+  .hero-media img{width:100%;height:100%;object-fit:cover}
+  .hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,32,53,.22),rgba(13,32,53,0) 36%)}
+
+  .block{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,34px);margin-top:24px;box-shadow:0 18px 44px -34px rgba(13,32,53,.4)}
+  .block-h{display:flex;align-items:center;gap:11px;color:var(--navy);font-size:21px;font-weight:800;letter-spacing:-.015em;margin-bottom:22px}
+  .block-h .hi{width:38px;height:38px;border-radius:11px;background:rgba(53,52,240,.1);display:flex;align-items:center;justify-content:center;flex:none}
+
+  .lead{color:var(--muted);font-size:16px;line-height:1.7;text-wrap:pretty}
+
+  /* included / not */
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .incl-card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--mist)}
+  .incl-title{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin-bottom:16px}
+  .incl-title.ok{color:var(--green)}
+  .incl-title.no{color:#C2535A}
+  .incl-list{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .incl-list li{display:flex;align-items:center;gap:12px;color:var(--ink);font-size:15px;font-weight:600}
+  .ic{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+  .ic.ok{background:rgba(31,164,99,.12)}
+  .ic.no{background:rgba(229,72,77,.1)}
+  .guide{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+  .guide-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),#6E6DF7);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;flex:none}
+  .guide b{display:block;color:var(--navy);font-size:15px;font-weight:800}
+  .guide span{color:var(--muted);font-size:12.5px;font-weight:600}
+
+  /* itinerary */
+  .city{padding:20px 0;border-bottom:1px solid var(--line)}
+  .city:last-child{border-bottom:none;padding-bottom:0}
+  .city:first-of-type{padding-top:0}
+  .city-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+  .city-no{width:30px;height:30px;border-radius:9px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none}
+  .city-name{color:var(--navy);font-size:18px;font-weight:800;letter-spacing:-.01em}
+  .spots{display:flex;flex-wrap:wrap;gap:9px}
+  .spot{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:#3C4858;font-size:13.5px;font-weight:600}
+  .spot svg{stroke:var(--indigo);opacity:.8}
+
+  /* ===== SIDEBAR ===== */
+  .side{position:sticky;top:104px;display:flex;flex-direction:column;gap:20px}
+  .book{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 30px 60px -34px rgba(13,32,53,.5)}
+  .book-label{color:var(--muted2);font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .book-price{display:flex;align-items:baseline;gap:8px;margin-top:6px}
+  .book-price b{color:var(--navy);font-family:'Playfair Display',serif;font-weight:600;font-size:40px;line-height:1;letter-spacing:-.01em}
+  .book-price span{color:var(--muted);font-size:15px;font-weight:700}
+  .book-date{display:flex;align-items:center;gap:9px;margin-top:16px;padding:13px 15px;border-radius:13px;background:var(--mist);border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:700}
+  .book-date svg{stroke:var(--indigo)}
+  .visa{display:flex;gap:11px;margin-top:14px;padding:14px 16px;border-radius:13px;background:rgba(53,52,240,.06);border:1px solid rgba(53,52,240,.16)}
+  .visa svg{flex:none;stroke:var(--indigo);margin-top:1px}
+  .visa p{color:#3C4858;font-size:13px;line-height:1.5;font-weight:500}
+  .visa b{color:var(--indigo);font-weight:800}
+  .visa em{font-style:normal;color:var(--navy);font-weight:800}
+  .book-cta{display:flex;flex-direction:column;gap:11px;margin-top:20px}
+  .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:17px;border-radius:14px;background:var(--indigo);color:#fff;font-size:15.5px;font-weight:800;border:none;cursor:pointer;box-shadow:0 18px 38px -16px rgba(53,52,240,.75);transition:transform .2s,background .2s}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--indigo-d)}
+  .btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;border-radius:14px;background:#fff;color:var(--green);border:1.5px solid rgba(31,164,99,.4);font-size:15px;font-weight:800;cursor:pointer;transition:background .2s,border-color .2s}
+  .btn-wa:hover{background:rgba(31,164,99,.07);border-color:var(--green)}
+  .book-note{margin-top:14px;text-align:center;color:var(--muted2);font-size:12px;font-weight:600}
+
+  .mini{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 44px -34px rgba(13,32,53,.4)}
+  .mini-h{color:var(--navy);font-size:16px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+  .mini-list{display:flex;flex-direction:column}
+  .mini-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:padding .2s}
+  .mini-item:last-child{border-bottom:none;padding-bottom:0}
+  .mini-item:first-child{padding-top:14px}
+  .mini-item:hover{padding-left:4px}
+  .mini-item .d{color:var(--muted2);font-size:12px;font-weight:700;margin-bottom:3px}
+  .mini-item .n{color:var(--navy);font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+  .mini-item .go{color:var(--indigo);flex:none;transition:transform .2s}
+  .mini-item:hover .go{transform:translateX(3px)}
+
+  /* ===== BOTTOM ===== */
+  .more{background:#fff;border-top:1px solid var(--line);padding:var(--sy) 0}
+  .more-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px)}
+  .more-h{display:inline-block;color:var(--navy);font-size:22px;font-weight:800;letter-spacing:-.015em;margin-bottom:8px;position:relative}
+  .more-h::after{content:'';position:absolute;left:-4px;right:-4px;bottom:3px;height:9px;background:rgba(53,52,240,.14);border-radius:3px;z-index:-1}
+  .more-sub{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:6px}
+  .more-stat{color:var(--navy);font-size:17px;font-weight:700;margin:8px 0 22px}
+  .more-stat b{color:var(--indigo);font-weight:800}
+  .more-link{display:inline-flex;align-items:center;gap:9px;color:var(--indigo);font-size:15px;font-weight:800;transition:gap .2s}
+  .more-link:hover{gap:13px}
+
+  /* ===== FOOTER ===== */
+  .footer{background:var(--mist);border-top:1px solid var(--line)}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1.1fr;gap:clamp(36px,5vw,72px);padding:clamp(54px,7vh,80px) 0 40px}
+  .footer-logo{height:48px}
+  .footer-tag{color:var(--muted);font-size:14.5px;line-height:1.7;margin-top:18px;max-width:320px}
+  .fcol-title{color:var(--indigo);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+  .fcol a,.fcol span{display:flex;align-items:center;gap:10px;color:#3C4858;font-size:14.5px;font-weight:500;margin-bottom:13px;width:fit-content;transition:color .2s}
+  .fcol a:hover{color:var(--ink)}
+  .fcol svg{stroke:var(--indigo);flex:none}
+  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 34px;border-top:1px solid var(--line);color:var(--muted2);font-size:13px}
+
+  @media(max-width:920px){
+    .layout{grid-template-columns:1fr}
+    .side{position:static;flex-direction:column}
+    .more-grid{grid-template-columns:1fr;gap:36px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .nav{display:none}
+  }
+  @media(max-width:560px){
+    .incl-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr}
+  }
+
+  /* ===== TURA QEYDIYYAT (modal) ===== */
+  .reg-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(13,32,53,.55);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+  .reg-overlay.open{opacity:1;visibility:visible}
+  .reg-sheet{position:relative;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:#fff;border-radius:24px;padding:clamp(28px,4vw,42px);box-shadow:0 50px 100px -40px rgba(13,32,53,.6);transform:translateY(16px) scale(.985);transition:transform .35s var(--ease)}
+  .reg-overlay.open .reg-sheet{transform:none}
+  .reg-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:none;border-radius:11px;background:#F4F6FB;color:#5E6B7D;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s}
+  .reg-close:hover{background:#E8EBF2;color:#0D2035}
+  .reg-head{margin-bottom:20px;padding-right:30px}
+  .reg-eyebrow{display:inline-block;color:#3534F0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .reg-title{color:#0D2035;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(30px,3.8vw,42px);line-height:1.1;letter-spacing:-.01em;margin-top:8px}
+  .reg-meta{color:#5E6B7D;font-size:14px;font-weight:500;margin-top:8px}
+  .reg-field{display:block;margin-bottom:15px}
+  .reg-field .fl{display:block;color:#0D2035;font-size:14px;font-weight:700;margin-bottom:8px}
+  .reg-field .fl .req{color:#E5484D;font-style:normal}
+  .reg-field input{width:100%;padding:15px 17px;border:1.5px solid transparent;border-radius:14px;background:#F4F6FB;color:#0D2035;font-family:inherit;font-size:15px;transition:border-color .2s,background .2s}
+  .reg-field input:focus{outline:none;border-color:#3534F0;background:#fff}
+  .reg-field input::placeholder{color:#AEB6C2;transition:color .2s}
+  .reg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .reg-upload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:30px 16px;border:1.6px dashed #CFD6E2;border-radius:16px;background:#F8FAFC;cursor:pointer;text-align:center;transition:border-color .2s,background .2s}
+  .reg-upload:hover{border-color:#3534F0;background:#F4F6FB}
+  .reg-upload b{color:#0D2035;font-size:15px;font-weight:700}
+  .reg-upload .uhint{color:#97A0AE;font-size:12.5px}
+  .reg-upload input[type=file]{display:none}
+  .reg-err-msg{display:none;color:#E5484D;font-size:12px;font-weight:600;margin-top:6px}
+  .reg-field.err input{border-color:#E5484D;background:#FEF2F2}
+  .reg-field.err input::placeholder{color:#E5484D}
+  .reg-field.err .reg-err-msg{display:block}
+  #regForm .reg-submit{width:100%;margin-top:6px}
+  @media(max-width:520px){.reg-row{grid-template-columns:1fr}}
+  .reg-submit{position:relative;height:54px;border:none;border-radius:14px;background:#3534F0;color:#fff;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 16px 34px -16px rgba(53,52,240,.8);transition:transform .2s,background .2s;margin-top:4px}
+  .reg-submit:hover{transform:translateY(-2px);background:#2725C7}
+  .reg-submit:disabled{cursor:default;transform:none;opacity:.92}
+  .reg-submit .reg-spin{display:none;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:regSpin .7s linear infinite;vertical-align:-4px}
+  .reg-submit.loading .reg-btn-text{display:none}
+  .reg-submit.loading .reg-spin{display:inline-block}
+  @keyframes regSpin{to{transform:rotate(360deg)}}
+  .reg-note{color:#97A0AE;font-size:12px;line-height:1.5;text-align:center}
+  .reg-result{display:none;flex-direction:column;align-items:center;text-align:center;padding:18px 6px 6px}
+  .reg-result.show{display:flex;animation:regFade .4s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes regFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .reg-badge{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:22px;animation:regPop .5s cubic-bezier(.2,1.3,.5,1) both}
+  @keyframes regPop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+  .reg-badge.ok{background:#1FA463;box-shadow:0 16px 34px -16px rgba(31,164,99,.7)}
+  .reg-badge.err{background:#E5484D;box-shadow:0 16px 34px -16px rgba(229,72,77,.7);animation:regPop .5s cubic-bezier(.2,1.3,.5,1) both,regShake .5s .35s ease both}
+  @keyframes regShake{0%,100%{margin-left:0}15%{margin-left:-9px}30%{margin-left:8px}45%{margin-left:-6px}60%{margin-left:5px}75%{margin-left:-3px}}
+  .reg-badge svg path,.reg-badge svg line{stroke-dasharray:48;stroke-dashoffset:48;animation:regDraw .45s .25s cubic-bezier(.2,.7,.2,1) forwards}
+  .reg-badge.err svg line:last-child{animation-delay:.42s}
+  @keyframes regDraw{to{stroke-dashoffset:0}}
+  .reg-result h3{color:#0D2035;font-family:'Playfair Display',serif;font-weight:600;font-size:26px;letter-spacing:-.01em}
+  .reg-result p{color:#5E6B7D;font-size:14.5px;line-height:1.6;margin:12px 0 26px;max-width:36ch}
+  .reg-result .reg-actions{display:flex;gap:12px;width:100%}
+  .reg-result .reg-submit{flex:1;margin-top:0}
+  .reg-retry{flex:1;height:54px;border:1.5px solid #E8EBF2;border-radius:14px;background:#fff;color:#0D2035;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:border-color .2s,background .2s}
+  .reg-retry:hover{border-color:#3534F0;background:#F4F6FB}
+</style>
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body id="top" data-cms="tour">
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="hdr-wrap">
+  <div class="hdr">
+    <a href="hilal.html#top" class="brand"><img src="uploads/лого тур.png" alt="BTS Group Travel"></a>
+    <nav class="nav">
+      <a href="hilal.html#top">Ana səhifə</a>
+      <a href="Turlar.html">Turlar</a>
+      <a href="hilal.html#haqqimizda">Haqqımızda</a>
+      <a href="Əlaqə.html">Əlaqə</a>
+    </nav>
+    <a href="tel:+994120000000" class="btn-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Bizimlə əlaqə
+    </a>
+  </div>
+  </div>
+</header>
+
+<!-- ===== PAGE ===== -->
+<main class="page">
+  <div class="container">
+    <nav class="crumbs reveal">
+      <a href="hilal.html#top">Əsas səhifə</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      <a href="Avropa turları.html">Avropa turları</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      <span class="cur">Roma–Milan–Paris turu</span>
+    </nav>
+
+    <div class="ttl-row reveal">
+      <div>
+        <h1 class="ttl-h1">Roma–Milan–Paris turu</h1>
+        <div class="ttl-meta">
+          <span class="meta-pill"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</span>
+          <span class="meta-pill"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avropa · 3 ölkə</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <!-- ===== MAIN ===== -->
+      <div>
+        <div class="hero-media reveal">
+          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1400&q=80&auto=format&fit=crop" alt="Roma–Milan–Paris">
+        </div>
+
+        <div class="block reveal">
+          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>Tur haqqında</div>
+          <p class="lead">Üç böyük Avropa paytaxtı bir səyahətdə — antik Romanın küçələri, Milanın moda və memarlıq ruhu və Parisin romantikası. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə 8 günlük diqqətlə qurulmuş marşrut.</p>
+        </div>
+
+        <div class="block reveal">
+          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Qiymətə nələr daxildir</div>
+          <div class="incl-grid">
+            <div class="incl-card">
+              <div class="incl-title ok">Qiymətə daxildir</div>
+              <ul class="incl-list">
+                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Aviabilet</li>
+                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Hotel</li>
+                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Səhər yeməyi</li>
+                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Səyahət sığortası</li>
+              </ul>
+              <div class="guide">
+                <span class="guide-av">RM</span>
+                <div><b>Renat Majidov</b><span>Tur rəhbəri</span></div>
+              </div>
+            </div>
+            <div class="incl-card">
+              <div class="incl-title no">Qiymətə daxil deyil</div>
+              <ul class="incl-list">
+                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Şəhərdaxili nəqliyyat</li>
+                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Giriş biletləri</li>
+                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Qidalanma</li>
+                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Şəxsi xərclər</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="block reveal">
+          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Gedəcəyimiz yerlərin bir hissəsi</div>
+
+          <div class="city">
+            <div class="city-h"><span class="city-no">1</span><span class="city-name">Roma</span></div>
+            <div class="spots">
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Kolizey</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Vatikan</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Trevi fəvvarəsi</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>İspan pilləkənləri</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Panteon</span>
+            </div>
+          </div>
+          <div class="city">
+            <div class="city-h"><span class="city-no">2</span><span class="city-name">Milan</span></div>
+            <div class="spots">
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Duomo katedralı</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Galleria Vittorio Emanuele II</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>La Scala teatrı</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Sforza qəsri</span>
+            </div>
+          </div>
+          <div class="city">
+            <div class="city-h"><span class="city-no">3</span><span class="city-name">Paris</span></div>
+            <div class="spots">
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Eyfel qülləsi</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Luvr muzeyi</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Notr-Dam</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Şanzelize</span>
+              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Monmartr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="side">
+        <div class="book reveal">
+          <span class="book-label">1 nəfər üçün</span>
+          <div class="book-price"><b>2 790</b><span>AZN</span></div>
+          <div class="book-date"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</div>
+          <div class="visa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 7-9 9-5-2-9-4-9-9V5l9-3 9 3z"/></svg>
+            <p><b>Visum.az</b> bu tura <em>ödənişsiz viza dəstəyi</em> xidməti göstərir.</p>
+          </div>
+          <div class="book-cta">
+            <button class="btn-primary" onclick="openReg()">Tura qeydiyyat</button>
+            <a class="btn-wa" href="https://wa.me/994120000000" target="_blank" rel="noopener">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="#1FA463"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.4-1.5-.8-2.1-1.8-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.5-.3z"/></svg>
+              WhatsApp ilə yaz
+            </a>
+          </div>
+          <div class="book-note">Yerlər məhduddur · təsdiq 24 saat ərzində</div>
+        </div>
+
+        <div class="mini reveal">
+          <div class="mini-h">Bu istiqamətdə gələcək turlar</div>
+          <div class="mini-list">
+            <div class="mini-item">
+              <div><div class="d">5–12 Sentyabr, 2026</div><div class="n">İtaliya–Amalfi sahilləri turu</div></div>
+              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <div class="mini-item">
+              <div><div class="d">22–30 Avqust, 2026</div><div class="n">Budapeşt–Praqa–Vyana turu</div></div>
+              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <div class="mini-item">
+              <div><div class="d">26 Sentyabr – 4 Oktyabr, 2026</div><div class="n">Avropa yol sərgüzəştləri turu</div></div>
+              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ===== BOTTOM ===== -->
+  <section class="more">
+    <div class="container">
+      <div class="more-grid">
+        <div class="reveal">
+          <h2 class="more-h">İyul ayında digər turlar</h2>
+          <div class="mini-list" style="margin-top:18px">
+            <div class="mini-item">
+              <div><div class="d">13–19 İyul, 2026</div><div class="n">Skandinaviya turu</div></div>
+              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <div class="mini-item">
+              <div><div class="d">4–12 İyul, 2026</div><div class="n">Benelüks turu</div></div>
+              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <h2 class="more-h">Bu istiqamətdə təcrübəmiz</h2>
+          <p class="more-stat">Bu günə kimi bu istiqamətdə <b>11</b> turumuz olub.</p>
+          <a href="Turlar.html?cat=Avropa" class="more-link">Keçmiş turlar səhifəsində daha ətraflı
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="uploads/лого тур.png" alt="BTS Group Travel" class="footer-logo">
+        <p class="footer-tag">Dünyanı kəşf etmək üçün düşünülmüş səyahət təcrübəsi. Kiçik qruplar, əsl yerlər, hər detal sizin üçün.</p>
+      </div>
+      <div class="fcol">
+        <div class="fcol-title">Naviqasiya</div>
+        <a href="hilal.html#top">Ana səhifə</a>
+        <a href="Turlar.html">Turlar</a>
+        <a href="Avropa turları.html">Avropa turları</a>
+        <a href="hilal.html#haqqimizda">Haqqımızda</a>
+        <a href="Əlaqə.html">Əlaqə</a>
+      </div>
+      <div class="fcol">
+        <div class="fcol-title">Əlaqə</div>
+        <a href="tel:+994120000000"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+994 12 000 00 00</a>
+        <a href="mailto:salam@btstravel.az"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>salam@btstravel.az</a>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bakı, Azərbaycan</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BTS Group Travel. Bütün hüquqlar qorunur.</span>
+      <span>Bakı, Azərbaycan</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== TURA QEYDIYYAT (modal) ===== -->
+<div class="reg-overlay" id="regOverlay">
+  <div class="reg-sheet">
+    <button class="reg-close" onclick="closeReg()" aria-label="Bağla"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+    <form id="regForm" onsubmit="submitReg(event)">
+      <div class="reg-head">
+        <span class="reg-eyebrow">Tura qeydiyyat</span>
+        <h3 class="reg-title">Roma · Milan · Paris</h3>
+        <p class="reg-meta">Formu doldurun — komandamız 24 saat ərzində sizinlə əlaqə saxlayacaq.</p>
+      </div>
+      <div class="reg-field"><span class="fl">Ad, Soyad <i class="req">*</i></span><input type="text" name="name" required autocomplete="name" placeholder="Adınız və soyadınız"></div>
+      <div class="reg-row">
+        <div class="reg-field"><span class="fl">Passport nömrəsi <i class="req">*</i></span><input type="text" name="passport" required placeholder="C01234567"></div>
+        <div class="reg-field"><span class="fl">FİN kod <i class="req">*</i></span><input type="text" name="fin" required maxlength="7" placeholder="7 simvol"></div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-field"><span class="fl">E-poçt <i class="req">*</i></span><input type="email" name="email" required inputmode="email" autocomplete="email" placeholder="ad@email.com"></div>
+        <div class="reg-field"><span class="fl">WhatsApp nömrəsi <i class="req">*</i></span><input type="tel" name="whatsapp" required inputmode="tel" autocomplete="tel" placeholder="+994 50 000 00 00" oninput="validatePhone(this)"><small class="reg-err-msg" role="alert">Yalnız rəqəm daxil edin</small></div>
+      </div>
+      <div class="reg-field">
+        <span class="fl">Pasportunuzun şəkli <i class="req">*</i></span>
+        <label class="reg-upload">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M7 8l5-5 5 5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
+          <b id="regUploadText">Şəkli yükləyin</b>
+          <span class="uhint">JPG və ya PNG · maks. 10MB</span>
+          <input type="file" name="passportPhoto" accept="image/png,image/jpeg" onchange="onFile(this)">
+        </label>
+      </div>
+      <button type="submit" class="reg-submit" id="regSubmit"><span class="reg-btn-text">Müraciəti göndər</span><span class="reg-spin"></span></button>
+      <p class="reg-note" style="margin-top:14px">Məlumatlarınız yalnız qeydiyyat üçün istifadə olunur və gizli saxlanılır.</p>
+    </form>
+    <div class="reg-result" id="regSuccess">
+      <div class="reg-badge ok"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Müraciətiniz qəbul edildi!</h3>
+      <p>Komandamız 24 saat ərzində sizinlə əlaqə saxlayacaq. Təşəkkür edirik.</p>
+      <button class="reg-submit" style="width:100%" onclick="closeReg()">Bağla</button>
+    </div>
+    <div class="reg-result" id="regError">
+      <div class="reg-badge err"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></div>
+      <h3>Nəsə səhv getdi</h3>
+      <p>Müraciətinizi göndərə bilmədik. Zəhmət olmasa yenidən cəhd edin və ya bizə zəng edin.</p>
+      <div class="reg-actions">
+        <button class="reg-retry" onclick="retryReg()">Yenidən cəhd et</button>
+        <button class="reg-submit" onclick="closeReg()">Bağla</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const _h=document.getElementById('siteHeader');
+addEventListener('scroll',()=>_h.classList.toggle('scrolled',scrollY>50),{passive:true});
+
+/* ===== TURA QEYDIYYAT (modal) ===== */
+var _ov=document.getElementById('regOverlay');
+function openReg(){_ov.classList.add('open');document.body.style.overflow='hidden';}
+function closeReg(){_ov.classList.remove('open');document.body.style.overflow='';setTimeout(resetReg,250);}
+function resetReg(){document.getElementById('regForm').style.display='';document.getElementById('regSuccess').classList.remove('show');document.getElementById('regError').classList.remove('show');document.getElementById('regSubmit').classList.remove('loading');document.getElementById('regSubmit').disabled=false;}
+function retryReg(){document.getElementById('regError').classList.remove('show');document.getElementById('regForm').style.display='';}
+function submitReg(e){e.preventDefault();var btn=document.getElementById('regSubmit');btn.classList.add('loading');btn.disabled=true;setTimeout(function(){var ok=true;document.getElementById('regForm').style.display='none';var el=document.getElementById(ok?'regSuccess':'regError');el.classList.remove('show');void el.offsetWidth;el.classList.add('show');btn.classList.remove('loading');btn.disabled=false;},1400);}
+function validatePhone(el){var f=el.closest('.reg-field');var bad=/[^\d+\s()\-]/.test(el.value)&&el.value.length>0;f.classList.toggle('err',bad);}
+function onFile(input){var t=document.getElementById('regUploadText');t.textContent=(input.files&&input.files[0])?input.files[0].name:'Şəkli yükləyin';}
+_ov.addEventListener('click',function(e){if(e.target===_ov)closeReg();});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&_ov.classList.contains('open'))closeReg();});
+</script>
+<script src="cms.js"></script>
+<script src="mobile.js"></script>
+</body>
+</html>
