@@ -357,5 +357,39 @@
       "timer": 0,
       "desc": "Afina · Santorini · Mikonos — 8 gün ərzində diqqətlə qurulmuş marşrut. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə unudulmaz təcrübə."
     }
+  ],
+  "sanatoriums": [
+    {
+      "name": "Naftalan Sağlamlıq",
+      "location": "Naftalan",
+      "tag": "Neft müalicəsi",
+      "nights": "7 gün",
+      "price": 520,
+      "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80&auto=format&fit=crop"
+    },
+    {
+      "name": "Qalaaltı Resort",
+      "location": "Şabran",
+      "tag": "Mineral sular",
+      "nights": "6 gün",
+      "price": 480,
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=80&auto=format&fit=crop"
+    },
+    {
+      "name": "Duzdağ Fizioterapiya",
+      "location": "Naxçıvan",
+      "tag": "Duz mağarası",
+      "nights": "5 gün",
+      "price": 450,
+      "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80&auto=format&fit=crop"
+    },
+    {
+      "name": "İstisu Termal",
+      "location": "Kəlbəcər",
+      "tag": "Termal sular",
+      "nights": "7 gün",
+      "price": 560,
+      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=80&auto=format&fit=crop"
+    }
   ]
 }

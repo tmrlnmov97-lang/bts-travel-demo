@@ -50,23 +50,36 @@
 
     renderCats(C);
     renderPop(C);
+    renderSana(C);
+    renderQrup(C);
   }
 
-  /* ---------- POPULYAR TURLAR (ana səhifə, Yanan turlar altında) ---------- */
-  function renderPop(C) {
-    var grid = $('.pop-grid'); if (!grid) return;
-    var list = (C.tours || []).filter(function (t) { return !t.featured; });
-    if (!list.length) list = (C.tours || []).slice();
-    list = list.slice(0, 4);
-    grid.innerHTML = list.map(function (t) {
-      return '<article class="deal-card" onclick="location.href=\'tur.html?id=' + esc(t.id || slugify(t.name)) + '\'">' +
-        '<div class="deal-media"><img class="deal-img" src="' + esc(t.image) + '" alt="' + esc(t.name) + '" loading="lazy"></div>' +
-        '<div class="deal-body"><div class="deal-region"><svg viewBox="0 0 24 24" fill="none" stroke="#6B7685" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>' + esc(t.cat) + ' · ' + esc(t.date) + '</div>' +
-        '<h3 class="deal-name">' + esc(t.name) + '</h3>' +
-        '<div class="deal-seats"><span class="deal-dot"></span>' + esc(t.seats || '') + '</div>' +
-        '<div class="deal-divider"></div>' +
-        '<div class="deal-foot"><div class="deal-price"><span class="deal-new">' + fmtPrice(t.price) + '</span></div>' +
-        '<button type="button" class="deal-arrow" aria-label="Ətraflı"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div></article>';
+  /* ---------- ana səhifə: tur kartı (badge/timer yox) + Pop/Qrup/Sana ---------- */
+  function tourCard(t) {
+    return '<article class="deal-card" onclick="location.href=\'tur.html?id=' + esc(t.id || slugify(t.name)) + '\'">' +
+      '<div class="deal-media"><img class="deal-img" src="' + esc(t.image) + '" alt="' + esc(t.name) + '" loading="lazy"></div>' +
+      '<div class="deal-body"><div class="deal-region"><svg viewBox="0 0 24 24" fill="none" stroke="#6B7685" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>' + esc(t.cat) + ' · ' + esc(t.date) + '</div>' +
+      '<h3 class="deal-name">' + esc(t.name) + '</h3>' +
+      '<div class="deal-seats"><span class="deal-dot"></span>' + esc(t.seats || '') + '</div>' +
+      '<div class="deal-divider"></div>' +
+      '<div class="deal-foot"><div class="deal-price"><span class="deal-new">' + fmtPrice(t.price) + '</span></div>' +
+      '<button type="button" class="deal-arrow" aria-label="Ətraflı"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div></article>';
+  }
+  function nonFeat(C) { var l = (C.tours || []).filter(function (t) { return !t.featured; }); return l.length ? l : (C.tours || []); }
+  function fillGrid(sel, list) { var g = $(sel); if (!g) return; g.innerHTML = (list || []).map(tourCard).join(''); }
+  function renderPop(C)  { fillGrid('.pop-grid', nonFeat(C).slice(0, 4)); }
+  function renderQrup(C) { var l = nonFeat(C).slice(4, 8); if (l.length < 4) l = nonFeat(C).slice(0, 4); fillGrid('.qrup-grid', l); }
+  function renderSana(C) {
+    var grid = $('.sana-grid'); if (!grid) return;
+    var list = (C.sanatoriums || []).slice(0, 4); if (!list.length) return;
+    grid.innerHTML = list.map(function (s) {
+      return '<a class="sana-card" href="Əlaqə.html">' +
+        '<img class="sana-img" src="' + esc(s.image) + '" alt="' + esc(s.name) + '" loading="lazy">' +
+        (s.tag ? '<span class="sana-tag">' + esc(s.tag) + '</span>' : '') +
+        '<div class="sana-body"><div class="sana-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>' + esc(s.location) + '</div>' +
+        '<h3 class="sana-name">' + esc(s.name) + '</h3>' +
+        '<div class="sana-foot"><span class="sana-price">' + fmtPrice(s.price) + (s.nights ? ' <span>· ' + esc(s.nights) + '</span>' : '') + '</span>' +
+        '<span class="sana-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div></a>';
     }).join('');
   }
 

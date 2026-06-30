@@ -300,6 +300,30 @@
   .pop-more-btn svg{width:18px;height:18px}
   @media(max-width:1100px){.pop-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.pop-grid{grid-template-columns:1fr}}
+  /* ===== SANATORIYALAR (fərqli kart) ===== */
+  .sana{background:var(--mist);padding:var(--sy) 0}
+  .sana-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}
+  .sana-card{position:relative;display:block;aspect-ratio:3/4;border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:0 24px 50px -28px rgba(13,32,53,.5)}
+  .sana-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .sana-card:hover .sana-img{transform:scale(1.07)}
+  .sana-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,32,53,0) 28%,rgba(13,32,53,.5) 62%,rgba(13,32,53,.92) 100%)}
+  .sana-tag{position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);color:var(--indigo);font-size:12px;font-weight:700}
+  .sana-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px}
+  .sana-loc{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.85);font-size:12.5px;font-weight:600}
+  .sana-loc svg{width:13px;height:13px}
+  .sana-name{color:#fff;font-size:18px;font-weight:800;line-height:1.18;letter-spacing:-.01em;margin-top:6px}
+  .sana-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+  .sana-price{color:#fff;font-size:15.5px;font-weight:800}
+  .sana-price span{font-weight:600;font-size:12px;opacity:.82}
+  .sana-go{flex:none;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.42);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center}
+  .sana-go svg{width:17px;height:17px;stroke:#fff}
+  @media(max-width:1100px){.sana-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.sana-grid{grid-template-columns:1fr}}
+  /* ===== QRUP TURLARI (eyni kart) ===== */
+  .qrup{background:var(--paper);padding:var(--sy) 0}
+  .qrup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}
+  @media(max-width:1100px){.qrup-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.qrup-grid{grid-template-columns:1fr}}
 </style>
 <link id="gfont-Pacifico" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico:wght@300;400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="mobile.css">
@@ -483,6 +507,30 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ===== SANATORIYALAR ===== -->
+<section class="section sana">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Sağlamlıq və istirahət</span>
+      <h2 class="sec-title" style="font-family: 'Playfair Display', serif; font-weight: 600">Sanatoriyalar</h2>
+      <p class="sec-sub">Müalicə, mineral sular və dincəlik — Azərbaycanın ən yaxşı sağlamlıq mərkəzləri.</p>
+    </div>
+    <div class="sana-grid"></div>
+  </div>
+</section>
+
+<!-- ===== QRUP TURLARI ===== -->
+<section class="section qrup">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Birlikdə daha yaxşı</span>
+      <h2 class="sec-title" style="font-family: 'Playfair Display', serif; font-weight: 600">Qrup Turları</h2>
+      <p class="sec-sub">Kiçik qruplarla, yeni dostlarla və peşəkar bələdçi ilə unudulmaz səyahətlər.</p>
+    </div>
+    <div class="qrup-grid"></div>
   </div>
 </section>
 
