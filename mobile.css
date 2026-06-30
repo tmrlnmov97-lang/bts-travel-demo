@@ -69,8 +69,8 @@ a,button,.cat,.deal-card,.tcard,.fcard,.deal-arrow,.cat-go,.btn-call,.mnav-btn,.
 }
 /* mobil: üfüqi sürüşmə — kateqoriyalar, yanan turlar, kataloq (Turlar) */
 @media(max-width:600px){
-  .cat-grid,.deal-grid,.tour-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px}
-  .cat-grid::-webkit-scrollbar,.deal-grid::-webkit-scrollbar,.tour-grid::-webkit-scrollbar{display:none}
+  .cat-grid,.deal-grid,.pop-grid,.tour-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px}
+  .cat-grid::-webkit-scrollbar,.deal-grid::-webkit-scrollbar,.pop-grid::-webkit-scrollbar,.tour-grid::-webkit-scrollbar{display:none}
   .cat{flex:0 0 76%;scroll-snap-align:start}
   .deal-card{flex:0 0 82%;scroll-snap-align:start}
   .tcard{flex:0 0 76%;scroll-snap-align:start}

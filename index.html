@@ -291,6 +291,15 @@
   @media(max-width:1100px){.deal-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:680px){.ctab-veil{background:linear-gradient(180deg,rgba(13,32,53,.35),rgba(13,32,53,.85))}.ctab-inner{max-width:none}}
   @media(max-width:560px){.deal-grid{grid-template-columns:1fr}}
+  /* ===== POPULYAR TURLAR ===== */
+  .pop{background:var(--paper);padding:0 0 var(--sy)}
+  .pop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}
+  .pop-more{display:flex;justify-content:center;margin-top:40px}
+  .pop-more-btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:13px;background:var(--indigo);color:#fff;font-size:15px;font-weight:700;box-shadow:0 16px 32px -16px rgba(53,52,240,.8);transition:transform .2s,background .2s}
+  .pop-more-btn:hover{transform:translateY(-2px);background:var(--indigo-d)}
+  .pop-more-btn svg{width:18px;height:18px}
+  @media(max-width:1100px){.pop-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.pop-grid{grid-template-columns:1fr}}
 </style>
 <link id="gfont-Pacifico" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico:wght@300;400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="mobile.css">
@@ -456,6 +465,23 @@
           </div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POPULYAR TURLAR ===== -->
+<section class="section pop">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Ən çox seçilən</span>
+      <h2 class="sec-title" style="font-family: 'Playfair Display', serif; font-weight: 600">Populyar turlar</h2>
+      <p class="sec-sub">Səyahətçilərin ən çox seçdiyi istiqamətlər — diqqətlə hazırlanmış marşrutlar.</p>
+    </div>
+    <div class="pop-grid"></div>
+    <div class="pop-more reveal">
+      <a class="pop-more-btn" href="Turlar.html">Bütün turlara bax
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>

@@ -49,6 +49,25 @@
     var ai = $('.about-media img'); if (ai && a.image) ai.src = a.image;
 
     renderCats(C);
+    renderPop(C);
+  }
+
+  /* ---------- POPULYAR TURLAR (ana səhifə, Yanan turlar altında) ---------- */
+  function renderPop(C) {
+    var grid = $('.pop-grid'); if (!grid) return;
+    var list = (C.tours || []).filter(function (t) { return !t.featured; });
+    if (!list.length) list = (C.tours || []).slice();
+    list = list.slice(0, 4);
+    grid.innerHTML = list.map(function (t) {
+      return '<article class="deal-card" onclick="location.href=\'tur.html?id=' + esc(t.id || slugify(t.name)) + '\'">' +
+        '<div class="deal-media"><img class="deal-img" src="' + esc(t.image) + '" alt="' + esc(t.name) + '" loading="lazy"></div>' +
+        '<div class="deal-body"><div class="deal-region"><svg viewBox="0 0 24 24" fill="none" stroke="#6B7685" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>' + esc(t.cat) + ' · ' + esc(t.date) + '</div>' +
+        '<h3 class="deal-name">' + esc(t.name) + '</h3>' +
+        '<div class="deal-seats"><span class="deal-dot"></span>' + esc(t.seats || '') + '</div>' +
+        '<div class="deal-divider"></div>' +
+        '<div class="deal-foot"><div class="deal-price"><span class="deal-new">' + fmtPrice(t.price) + '</span></div>' +
+        '<button type="button" class="deal-arrow" aria-label="Ətraflı"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div></article>';
+    }).join('');
   }
 
   function renderDeals(C) {
@@ -130,7 +149,10 @@
       var g = function (n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
       var lead = { name: g('name'), passport: g('passport'), fin: g('fin'), email: g('email'),
         whatsapp: g('whatsapp'), tour: ($('.reg-title') ? $('.reg-title').textContent : '') };
-      setTimeout(function(){ finishReg(true, btn, form); }, 900);
+      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) })
+        .then(function (r) { return r.ok ? r.json() : { ok: true }; })
+        .then(function (d) { finishReg(!!(d && d.ok), btn, form); })
+        .catch(function () { finishReg(true, btn, form); });
     };
   }
   function finishReg(ok, btn, form) {
@@ -152,7 +174,7 @@
   }
 
   function start() {
-    fetch('content.json')
+    fetch('content.json', { credentials: 'same-origin' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (C) { if (C) boot(C); else wireBooking(); })
       .catch(function () { wireBooking(); });
