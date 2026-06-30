@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Avropa turları — BTS Group Travel</title>
+<title>Erkən Rezervasiyalar — BTS Group Travel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -63,7 +63,7 @@
      radial-gradient(120% 90% at 88% 4%,rgba(53,52,240,.12),transparent 58%),
      radial-gradient(80% 70% at 2% 100%,rgba(53,52,240,.07),transparent 60%)}
   .phero-inner{position:relative;z-index:2;width:100%;max-width:var(--container);margin:0 auto;padding:140px var(--gutter) 52px}
-  .crumbs{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:13px;font-weight:600;margin-bottom:22px}
+  .crumbs{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:13px;font-weight:600;margin-bottom:24px}
   .crumbs a{transition:color .2s}
   .crumbs a:hover{color:var(--indigo)}
   .crumbs svg{opacity:.55}
@@ -71,15 +71,10 @@
   .phero-eyebrow{display:inline-flex;align-items:center;gap:13px;color:var(--indigo);font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;margin-bottom:18px}
   .phero-eyebrow::before{content:'';width:32px;height:1px;background:var(--indigo)}
   .phero-title{color:var(--navy);font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(40px,6.4vw,82px);line-height:1;letter-spacing:-.01em}
-  .phero-sub{margin-top:22px;max-width:56ch;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.62;font-weight:500}
-  .phero-stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-  .pstat{display:flex;align-items:center;gap:13px;padding:14px 20px;border-radius:14px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.28)}
-  .pstat-ic{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none}
-  .pstat b{display:block;color:#fff;font-size:19px;font-weight:800;line-height:1.05;font-family:'Playfair Display',serif}
-  .pstat span{color:rgba(255,255,255,.82);font-size:12.5px;font-weight:600}
+  .phero-sub{margin-top:18px;max-width:56ch;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.62;font-weight:500}
 
   /* ===== TOOLBAR ===== */
-  .toolbar{position:sticky;top:88px;z-index:40;margin-top:100px;background:rgba(244,246,251,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:16px 0}
+  .toolbar{position:sticky;top:88px;z-index:40;margin-top:48px;background:rgba(244,246,251,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:16px 0}
   .toolbar-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:space-between}
   .filters{display:flex;flex-wrap:wrap;gap:10px}
   .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:13.5px;font-weight:600;white-space:nowrap;cursor:pointer;transition:all .2s}
@@ -94,43 +89,37 @@
 
   /* ===== GRID ===== */
   .grid-wrap{padding:clamp(34px,5vh,52px) 0 var(--sy)}
-  .result-line{display:flex;align-items:baseline;gap:10px;margin-bottom:22px}
+  .result-line{display:flex;align-items:baseline;gap:10px;margin-bottom:24px}
   .result-line b{color:var(--navy);font-size:16px;font-weight:800}
   .result-line span{color:var(--muted);font-size:14px;font-weight:500}
   .tour-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 
-  .tcard{position:relative;aspect-ratio:3/3.7;border-radius:16px;overflow:hidden;cursor:pointer;background:var(--navy);box-shadow:0 18px 42px -24px rgba(13,32,53,.55);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
-  .tcard:hover{transform:translateY(-8px);box-shadow:0 44px 70px -30px rgba(13,32,53,.55)}
-  .tcard:hover .tcard-img{transform:scale(1.08)}
+  .tcard{display:block;background:#fff;border-radius:18px;overflow:hidden;cursor:pointer;box-shadow:0 20px 44px -26px rgba(13,32,53,.45);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+  .tcard:hover{transform:translateY(-8px);box-shadow:0 40px 70px -32px rgba(13,32,53,.5)}
+  .tcard:hover .tcard-img{transform:scale(1.07)}
   .tcard:hover .tcard-arrow{background:var(--indigo);border-color:var(--indigo)}
   .tcard:hover .tcard-arrow svg{stroke:#fff}
+  .tcard-media{position:relative;aspect-ratio:16/12;overflow:hidden}
   .tcard-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s var(--ease)}
-  .tcard-tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,32,53,.34) 0%,rgba(13,32,53,0) 30%,rgba(13,32,53,0) 54%,rgba(13,32,53,.3) 100%);pointer-events:none}
-  .tcard-badge{position:absolute;top:13px;left:13px;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);box-shadow:0 6px 16px -8px rgba(13,32,53,.5)}
-  .badge-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-  .badge-text{color:var(--navy);font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-  .tcard-glass{position:absolute;left:10px;right:10px;bottom:10px;padding:14px;border-radius:14px;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.7);box-shadow:0 20px 44px -20px rgba(13,32,53,.55)}
-  .tcard-pricetag{position:absolute;top:-14px;right:13px;display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:var(--indigo);color:#fff;font-size:12px;font-weight:800;letter-spacing:-.01em;box-shadow:0 12px 26px -10px rgba(53,52,240,.75)}
-  .tcard-region{display:inline-flex;align-items:center;gap:6px;color:var(--muted2);font-size:11.5px;font-weight:700;letter-spacing:.02em;margin-bottom:6px}
-  .tcard-name{color:var(--navy);font-size:15.5px;font-weight:800;line-height:1.22;letter-spacing:-.015em;padding-right:52px;text-wrap:balance}
-  .tcard-divider{height:1px;background:var(--line);margin:12px 0}
+  .tcard-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;box-shadow:0 8px 20px -10px rgba(13,32,53,.55)}
+  .badge-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:#fff}
+  .badge-text{color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .tcard-body{padding:18px 18px 18px}
+  .tcard-region{display:inline-flex;align-items:center;gap:6px;color:#42505F;font-size:13px;font-weight:600;letter-spacing:.01em}
+  .tcard-name{color:var(--navy);font-size:16px;font-weight:800;line-height:1.22;letter-spacing:-.015em;margin-top:7px;text-wrap:balance}
+  .tcard-divider{height:1px;background:var(--line);margin:14px 0}
   .tcard-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .tcard-date{display:flex;align-items:center;gap:6px;color:#42505F;font-size:12.5px;font-weight:600;white-space:nowrap}
-  .tcard-arrow{flex:none;width:40px;height:40px;border-radius:12px;border:1.5px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s}
+  .tcard-price{color:var(--indigo);font-size:18px;font-weight:800;letter-spacing:-.01em}
+  .tcard-arrow{flex:none;width:42px;height:42px;border-radius:12px;border:1.5px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s}
   .tcard-arrow svg{stroke:var(--navy);transition:stroke .25s}
 
   .tcard.sold{cursor:default}
-  .tcard.sold .tcard-img{filter:grayscale(1) brightness(.82) contrast(.92)}
-  .tcard.sold .tcard-glass{background:rgba(244,246,249,.92)}
-  .tcard.sold .tcard-pricetag{background:#AEB6C2;box-shadow:none}
+  .tcard.sold .tcard-img{filter:grayscale(1) brightness(.9) contrast(.95)}
   .tcard.sold .tcard-name{color:#8A93A3}
-  .tcard.sold .tcard-badge{background:rgba(244,246,249,.94)}
-  .tcard.sold .badge-text{color:#8A93A3}
-  .tcard.sold .tcard-region,.tcard.sold .tcard-date{color:#AEB6C2}
-  .tcard.sold .tcard-region svg,.tcard.sold .tcard-date svg{stroke:#C2C8D2}
+  .tcard.sold .tcard-price{color:#AEB6C2}
   .tcard.sold .tcard-arrow{border-color:#E6E9EF;background:#F2F4F7}
   .tcard.sold .tcard-arrow svg{stroke:#C2C8D2}
-  .tcard.sold:hover{transform:none;box-shadow:0 18px 42px -24px rgba(13,32,53,.55)}
+  .tcard.sold:hover{transform:none;box-shadow:0 20px 44px -26px rgba(13,32,53,.45)}
   .tcard.sold:hover .tcard-img{transform:none}
   .tcard.sold:hover .tcard-arrow{background:#F2F4F7;border-color:#E6E9EF}
   .tcard.sold:hover .tcard-arrow svg{stroke:#C2C8D2}
@@ -138,16 +127,18 @@
   .empty-msg{padding:64px 0;text-align:center;color:var(--muted2);font-size:16px;grid-column:1/-1}
 
   /* ===== CTA BAND ===== */
-  .cta{position:relative;overflow:hidden;background:var(--navy);border-radius:24px;padding:clamp(40px,6vw,64px);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:var(--shadow)}
-  .cta::before{content:'';position:absolute;top:-40%;right:-6%;width:440px;height:440px;border-radius:50%;background:radial-gradient(closest-side,rgba(53,52,240,.45),transparent 70%);pointer-events:none}
-  .cta-txt{position:relative;z-index:1;max-width:560px}
-  .cta-txt h3{color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.01em}
-  .cta-txt p{color:rgba(255,255,255,.78);font-size:clamp(14px,1.4vw,16px);line-height:1.6;margin-top:14px}
-  .cta-act{position:relative;z-index:1;display:flex;gap:12px;flex-wrap:wrap}
+  .cta{position:relative;overflow:hidden;border-radius:24px;min-height:clamp(330px,40vw,430px);display:flex;align-items:center;box-shadow:var(--shadow);background:#0B1422}
+  .cta-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&auto=format&fit=crop");background-size:cover;background-position:center 58%;transition:transform 1s var(--ease)}
+  .cta:hover .cta-bg{transform:scale(1.05)}
+  .cta::after{content:'';position:absolute;inset:0;background:linear-gradient(95deg,rgba(8,17,30,.78) 0%,rgba(8,17,30,.5) 42%,rgba(8,17,30,.06) 74%,rgba(8,17,30,0) 100%)}
+  .cta-inner{position:relative;z-index:2;padding:clamp(34px,5vw,64px);max-width:600px}
+  .cta-txt h3{color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+  .cta-txt p{color:rgba(255,255,255,.82);font-size:clamp(14px,1.4vw,16.5px);line-height:1.6;margin-top:16px;max-width:46ch}
+  .cta-act{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
   .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:13px;background:var(--indigo);color:#fff;font-size:15px;font-weight:700;cursor:pointer;border:none;box-shadow:0 16px 34px -16px rgba(53,52,240,.8);transition:transform .2s,background .2s}
   .cta-btn:hover{transform:translateY(-2px);background:var(--indigo-d)}
-  .cta-btn.ghost{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.5)}
-  .cta-btn.ghost:hover{background:rgba(255,255,255,.18)}
+  .cta-btn.ghost{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(6px);box-shadow:none}
+  .cta-btn.ghost:hover{background:rgba(255,255,255,.2)}
 
   /* ===== FOOTER ===== */
   .footer{background:#fff;color:var(--ink);position:relative;overflow:hidden;border-top:1px solid var(--line);margin-top:var(--sy)}
@@ -188,10 +179,29 @@
   @media(max-width:460px){
     .tour-grid{grid-template-columns:1fr}
   }
+  /* ===== ERKƏN REZERVASİYA ===== */
+  .erk-ben-sec{padding:clamp(40px,6vh,64px) 0 0}
+  .erk-ben-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .erk-ben{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 20px 44px -30px rgba(13,32,53,.4)}
+  .erk-ben-ic{width:48px;height:48px;border-radius:14px;background:#EEF0FE;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .erk-ben-ic svg{width:24px;height:24px;stroke:var(--indigo)}
+  .erk-ben h3{color:var(--navy);font-size:17px;font-weight:800;letter-spacing:-.01em}
+  .erk-ben p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:7px}
+  .erk-cta-sec{padding:clamp(48px,7vh,80px) 0}
+  .erk-cta{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,var(--indigo),var(--indigo-d));padding:clamp(34px,5vw,56px);text-align:center;box-shadow:0 32px 64px -34px rgba(53,52,240,.7)}
+  .erk-cta h2{color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,3.4vw,40px);line-height:1.1;letter-spacing:-.01em}
+  .erk-cta p{color:rgba(255,255,255,.9);font-size:clamp(14px,1.5vw,17px);line-height:1.6;margin:12px auto 0;max-width:60ch}
+  .erk-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .erk-cta-btns a{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 24px;border-radius:13px;font-size:15px;font-weight:700;transition:transform .2s}
+  .erk-cta-btns a:hover{transform:translateY(-2px)}
+  .erk-cta-btns .p{background:#fff;color:var(--indigo)}
+  .erk-cta-btns .g{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+  @media(max-width:860px){.erk-ben-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.erk-ben-grid{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="mobile.css">
 </head>
-<body id="top">
+<body id="top" data-cms="catalog">
 
 <!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader">
@@ -200,8 +210,8 @@
     <a href="hilal.html#top" class="brand"><img src="uploads/лого тур.png" alt="BTS Group Travel"></a>
     <nav class="nav">
       <a href="hilal.html#top">Ana səhifə</a>
-      <a href="hilal.html#turlar">Turlar</a>
-      <a href="Erkən Rezervasiyalar.html">Erkən Rezervasiyalar</a>
+      <a href="Turlar.html">Turlar</a>
+      <a href="" class="active">Erkən Rezervasiyalar</a>
       <a href="hilal.html#haqqimizda">Haqqımızda</a>
       <a href="Əlaqə.html">Əlaqə</a>
     </nav>
@@ -218,12 +228,40 @@
   <div class="phero-veil"></div>
   <div class="phero-inner">
     <nav class="crumbs">
-      <a href="hilal.html#top" style="color: rgb(0, 0, 0)">Ana səhifə</a>
+      <a href="hilal.html#top">Ana səhifə</a>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      <span class="cur" style="color: rgb(53, 52, 240)">Avropa turları</span>
+      <span class="cur">Erkən Rezervasiyalar</span>
     </nav>
-    <h1 class="phero-title">Avropa turları</h1>
-    <p class="phero-sub">Şimal işıqlarından Aralıq dənizi sahillərinə qədər — kiçik qruplar üçün diqqətlə qurulmuş Avropa marşrutları. Hər tur əl ilə seçilmiş otellər və yerli bələdçilərlə.</p>
+    <h1 class="phero-title">Erkən Rezervasiyalar</h1>
+    <p class="phero-sub">İndidən planlayın, daha sərfəli səyahət edin. Qarşıdan gələn turlara erkən rezervasiya ilə ən yaxşı qiymət və zəmanətli yer əldə edin.</p>
+  </div>
+</section>
+
+<!-- ===== ERKƏN REZERVASİYA — ÜSTÜNLÜKLƏR ===== -->
+<section class="erk-ben-sec">
+  <div class="container">
+    <div class="erk-ben-grid">
+      <div class="erk-ben reveal">
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></div>
+        <h3>Ən sərfəli qiymət</h3>
+        <p>Nə qədər tez rezervasiya etsəniz, qiymət bir o qədər sərfəli olur.</p>
+      </div>
+      <div class="erk-ben reveal">
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Yeriniz zəmanətli</h3>
+        <p>Qruplar məhduddur — yerinizi indidən təsdiqləyin, gec olmasın.</p>
+      </div>
+      <div class="erk-ben reveal">
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Rahat ödəniş</h3>
+        <p>Hissə-hissə ödəniş imkanı ilə səyahətinizi rahat planlaşdırın.</p>
+      </div>
+      <div class="erk-ben reveal">
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
+        <h3>Geniş seçim</h3>
+        <p>Bütün tarixlər və istiqamətlər açıqdır — istədiyinizi seçin.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -232,11 +270,12 @@
   <div class="container">
     <div class="toolbar-row">
       <div class="filters" id="filterBar">
-        <button class="chip active" data-sub="all">Bütün regionlar</button>
-        <button class="chip" data-sub="Qərb">Qərbi Avropa</button>
-        <button class="chip" data-sub="Şimal">Şimali Avropa</button>
-        <button class="chip" data-sub="Cənub">Cənubi Avropa</button>
-        <button class="chip" data-sub="Mərkəz">Mərkəzi Avropa</button>
+        <button class="chip active" data-cat="all">Bütün turlar</button>
+        <button class="chip" data-cat="Afrika">Afrika turları</button>
+        <button class="chip" data-cat="Amerika">Amerika ölkələri</button>
+        <button class="chip" data-cat="Asiya">Asiya turları</button>
+        <button class="chip" data-cat="Avropa">Avropa turları</button>
+        <button class="chip" data-cat="Passiv">Passiv istirahət</button>
       </div>
       <div class="sortwrap">
         <label for="sortSel">Sıralama</label>
@@ -254,7 +293,7 @@
 <!-- ===== GRID ===== -->
 <section class="grid-wrap">
   <div class="container">
-    <div class="result-line"><b id="resCount">9 tur</b><span id="resLabel">— bütün Avropa istiqamətləri</span></div>
+    <div class="result-line"><b id="resCount">13 tur</b><span id="resLabel">— bütün istiqamətlər</span></div>
     <div class="tour-grid" id="tourGrid"></div>
   </div>
 </section>
@@ -262,21 +301,37 @@
 <!-- ===== CTA ===== -->
 <section class="container">
   <div class="cta reveal">
-    <div class="cta-txt">
-      <h3>Axtardığınız marşrutu tapmadınız?</h3>
-      <p>Avropa üzrə fərdi marşrut da qura bilərik — istədiyiniz şəhərlər, tarixlər və büdcəyə uyğun. Bizimlə əlaqə saxlayın, qalanını biz düşünək.</p>
-    </div>
-    <div class="cta-act">
-      <a href="tel:+994120000000" class="cta-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Bizə zəng et
-      </a>
-      <a href="hilal.html#turlar" class="cta-btn ghost">Bütün turlar</a>
+    <div class="cta-bg"></div>
+    <div class="cta-inner">
+      <div class="cta-txt">
+        <h3>Axtardığınız marşrutu tapmadınız?</h3>
+        <p>İstədiyiniz şəhərlər, tarixlər və büdcəyə uyğun fərdi marşrut da qura bilərik. Bizimlə əlaqə saxlayın, qalanını biz düşünək.</p>
+      </div>
+      <div class="cta-act">
+        <a href="tel:+994120000000" class="cta-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Bizə zəng et
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
+<!-- ===== CTA ===== -->
+<section class="erk-cta-sec">
+  <div class="container">
+    <div class="erk-cta reveal">
+      <h2>Tez tərpənin — ən yaxşı yerlər tez bitir</h2>
+      <p>İstədiyiniz tarixə yerinizi indidən tutun. Komandamız sizə ən uyğun marşrutu seçməkdə kömək edəcək.</p>
+      <div class="erk-cta-btns">
+        <a class="p" href="Turlar.html">Bütün turlara bax</a>
+        <a class="g" href="Əlaqə.html">Bizimlə əlaqə</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -293,6 +348,7 @@
         <div class="fcol-title">Naviqasiya</div>
         <a href="hilal.html#top">Ana səhifə</a>
         <a href="Turlar.html">Turlar</a>
+        <a href="Avropa turları.html">Avropa turları</a>
         <a href="hilal.html#haqqimizda">Haqqımızda</a>
         <a href="Əlaqə.html">Əlaqə</a>
       </div>
@@ -315,28 +371,34 @@
 
 <script>
 function _slug(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,'i').replace(/ə/g,'e').replace(/Ə/g,'e').replace(/ç/g,'c').replace(/Ç/g,'c').replace(/ş/g,'s').replace(/Ş/g,'s').replace(/ö/g,'o').replace(/Ö/g,'o').replace(/ü/g,'u').replace(/Ü/g,'u').replace(/ğ/g,'g').replace(/Ğ/g,'g').toLowerCase().replace(/[–—]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
-const tours = [
-  { name:'Benelüks turu', cities:'Brüssel · Brugge · Amsterdam', days:'8 gün', date:'4–12 İyul, 2026', dateKey:20260704, price:3290, badge:'SON 1 YER', status:'last', sub:'Qərb', src:'https://images.unsplash.com/photo-1459679749680-18eb1eb37418?w=900&q=80&auto=format&fit=crop' },
-  { name:'Skandinaviya turu', cities:'Kopenhagen · Oslo · Stokholm', days:'7 gün', date:'13–19 İyul, 2026', dateKey:20260713, price:2950, badge:'4 YER QALIB', status:'open', sub:'Şimal', src:'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=900&q=80&auto=format&fit=crop' },
-  { name:'Fransız Rivierası turu', cities:'Nitsa · Kann · Monako', days:'10 gün', date:'21–31 İyul, 2026', dateKey:20260721, price:3290, badge:'YER QALMAYIB', status:'sold', sub:'Cənub', src:'https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=900&q=80&auto=format&fit=crop' },
-  { name:'Roma–Milan–Paris turu', cities:'Roma · Milan · Paris', days:'8 gün', date:'8–15 Avqust, 2026', dateKey:20260808, price:2790, badge:'9 YER QALIB', status:'open', sub:'Cənub', url:'Tur — Roma-Milan-Paris.html', src:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&q=80&auto=format&fit=crop' },
-  { name:'Budapeşt–Praqa–Vyana turu', cities:'Budapeşt · Praqa · Vyana', days:'9 gün', date:'22–30 Avqust, 2026', dateKey:20260822, price:2380, badge:'9 YER QALIB', status:'open', sub:'Mərkəz', src:'https://images.unsplash.com/photo-1541849546-216549ae216d?w=900&q=80&auto=format&fit=crop' },
-  { name:'İspaniya turu', cities:'Barselona · Madrid · Sevilya', days:'9 gün', date:'5–13 Sentyabr, 2026', dateKey:20260905, price:2890, badge:'7 YER QALIB', status:'open', sub:'Cənub', src:'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=900&q=80&auto=format&fit=crop' },
-  { name:'İsveçrə Alpları turu', cities:'Sürix · Lüsern · İnterlaken', days:'6 gün', date:'12–18 Sentyabr, 2026', dateKey:20260912, price:3640, badge:'SON 2 YER', status:'last', sub:'Mərkəz', src:'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=900&q=80&auto=format&fit=crop' },
-  { name:'London–Edinburq turu', cities:'London · Edinburq', days:'7 gün', date:'20–27 Sentyabr, 2026', dateKey:20260920, price:3180, badge:'10 YER QALIB', status:'open', sub:'Qərb', src:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=80&auto=format&fit=crop' },
-  { name:'Yunanıstan adaları turu', cities:'Afina · Santorini · Mikonos', days:'8 gün', date:'1–9 Oktyabr, 2026', dateKey:20261001, price:3050, badge:'6 YER QALIB', status:'open', sub:'Cənub', src:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=900&q=80&auto=format&fit=crop' },
+var tours = [
+  { name:'Benelüks turu', date:'4–12 İyul, 2026', dateKey:20260704, price:3290, badge:'SON 1 YER', status:'last', cat:'Avropa', src:'https://images.unsplash.com/photo-1459679749680-18eb1eb37418?w=900&q=80&auto=format&fit=crop' },
+  { name:'Skandinaviya turu', date:'13–19 İyul, 2026', dateKey:20260713, price:2950, badge:'4 YER QALIB', status:'open', cat:'Avropa', src:'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=900&q=80&auto=format&fit=crop' },
+  { name:'Fransız Rivierası turu', date:'21–31 İyul, 2026', dateKey:20260721, price:3290, badge:'YER QALMAYIB', status:'sold', cat:'Avropa', src:'https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=900&q=80&auto=format&fit=crop' },
+  { name:'Roma–Milan–Paris turu', date:'8–15 Avqust, 2026', dateKey:20260808, price:2790, badge:'9 YER QALIB', status:'open', cat:'Avropa', url:'Tur — Roma-Milan-Paris.html', src:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&q=80&auto=format&fit=crop' },
+  { name:'Budapeşt–Praqa–Vyana turu', date:'22–30 Avqust, 2026', dateKey:20260822, price:2380, badge:'9 YER QALIB', status:'open', cat:'Avropa', src:'https://images.unsplash.com/photo-1541849546-216549ae216d?w=900&q=80&auto=format&fit=crop' },
+  { name:'ABŞ turu', date:'8–18 Avqust, 2026', dateKey:20260808, price:5280, badge:'SON 3 YER', status:'last', cat:'Amerika', src:'https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=900&q=80&auto=format&fit=crop' },
+  { name:'Braziliya–Argentina turu', date:'2–14 Sentyabr, 2026', dateKey:20260902, price:6450, badge:'8 YER QALIB', status:'open', cat:'Amerika', src:'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=900&q=80&auto=format&fit=crop' },
+  { name:'Keniya–Tanzaniya safari', date:'21–31 Avqust, 2026', dateKey:20260821, price:4980, badge:'9 YER QALIB', status:'open', cat:'Afrika', src:'https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=80&auto=format&fit=crop' },
+  { name:'Mərakeş–Səhra turu', date:'10–18 Oktyabr, 2026', dateKey:20261010, price:3290, badge:'7 YER QALIB', status:'open', cat:'Afrika', src:'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=900&q=80&auto=format&fit=crop' },
+  { name:'Bali macərası', date:'5–12 Sentyabr, 2026', dateKey:20260905, price:3480, badge:'6 YER QALIB', status:'open', cat:'Asiya', src:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&q=80&auto=format&fit=crop' },
+  { name:'Tailand macərası', date:'15–23 Sentyabr, 2026', dateKey:20260915, price:3180, badge:'9 YER QALIB', status:'open', cat:'Asiya', src:'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=900&q=80&auto=format&fit=crop' },
+  { name:'Maldiv lüksü', date:'1–7 Oktyabr, 2026', dateKey:20261001, price:5680, badge:'SON 2 YER', status:'last', cat:'Passiv', src:'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=900&q=80&auto=format&fit=crop' },
+  { name:'Antalya istirahəti', date:'12–19 Oktyabr, 2026', dateKey:20261012, price:1850, badge:'12 YER QALIB', status:'open', cat:'Passiv', src:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80&auto=format&fit=crop' },
 ];
 
-const subNames = { all:'Bütün regionlar', Qərb:'Qərbi Avropa', Şimal:'Şimali Avropa', Cənub:'Cənubi Avropa', Mərkəz:'Mərkəzi Avropa' };
+const catNames = { all:'Bütün turlar', Afrika:'Afrika turları', Amerika:'Amerika ölkələri', Asiya:'Asiya turları', Avropa:'Avropa turları', Passiv:'Passiv istirahət' };
+const regionLabel = { Afrika:'Afrika', Amerika:'Amerika', Asiya:'Asiya', Avropa:'Avropa', Passiv:'İstirahət' };
 const dotColor = s => s==='last' ? '#E53935' : s==='sold' ? '#9AA3B0' : '#3534F0';
+const badgeBg = s => s==='last' ? '#E5392F' : s==='sold' ? '#8A93A3' : '#3534F0';
 const fmtPrice = p => p.toLocaleString('ru-RU').replace(/,/g,' ') + ' AZN';
 
-let activeSub = 'all';
+let activeCat = 'all';
 let activeSort = 'featured';
 
 function render(){
   const grid = document.getElementById('tourGrid');
-  let list = activeSub === 'all' ? tours.slice() : tours.filter(t => t.sub === activeSub);
+  let list = activeCat === 'all' ? tours.slice() : tours.filter(t => t.cat === activeCat);
 
   if (activeSort === 'price-asc')  list.sort((a,b)=>a.price-b.price);
   if (activeSort === 'price-desc') list.sort((a,b)=>b.price-a.price);
@@ -345,53 +407,59 @@ function render(){
 
   grid.innerHTML = '';
   if (!list.length){
-    grid.innerHTML = '<div class="empty-msg">Bu regionda hələ tur yoxdur. Tezliklə əlavə olunacaq.</div>';
+    grid.innerHTML = '<div class="empty-msg">Bu kateqoriyada hələ tur yoxdur. Tezliklə əlavə olunacaq.</div>';
   } else {
     list.forEach((t,i)=>{
       const card = document.createElement('div');
       card.className = 'tcard reveal' + (t.status==='sold' ? ' sold' : '');
       if(t.status!=='sold') card.addEventListener('click',()=>location.href='tur.html?id='+_slug(t.name));
-      card.style.transitionDelay = (i*50) + 'ms';
+      card.style.transitionDelay = (i*45) + 'ms';
+      const showBadge = t.status === 'sold';
       card.innerHTML = `
-        <img class="tcard-img" src="${t.src}" alt="${t.name}" loading="lazy">
-        <div class="tcard-tint"></div>
-        <div class="tcard-badge"><span class="badge-dot" style="background:${dotColor(t.status)}"></span><span class="badge-text">${t.badge}</span></div>
-        <div class="tcard-glass">
-          <div class="tcard-pricetag">${fmtPrice(t.price)}</div>
-          <span class="tcard-region"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA3B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${subNames[t.sub]}</span>
+        <div class="tcard-media">
+          <img class="tcard-img" src="${t.src}" alt="${t.name}" loading="lazy">
+          ${showBadge ? `<span class="tcard-badge" style="background:${badgeBg(t.status)}"><span class="badge-dot"></span><span class="badge-text">${t.badge}</span></span>` : ''}
+        </div>
+        <div class="tcard-body">
+          <div class="tcard-region"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6B7685" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${regionLabel[t.cat]} · ${t.date}</div>
           <h3 class="tcard-name">${t.name}</h3>
           <div class="tcard-divider"></div>
           <div class="tcard-foot">
-            <div class="tcard-date"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#42505F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>${t.date}</div>
-            <div class="tcard-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D2035" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="tcard-price">${fmtPrice(t.price)}</div>
+            <span class="tcard-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D2035" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
         </div>`;
       grid.appendChild(card);
     });
   }
 
-  // result line
   const n = list.length;
   document.getElementById('resCount').textContent = n + ' tur';
-  document.getElementById('resLabel').textContent = activeSub==='all' ? '— bütün Avropa istiqamətləri' : '— ' + subNames[activeSub];
+  document.getElementById('resLabel').textContent = activeCat==='all' ? '— bütün istiqamətlər' : '— ' + catNames[activeCat];
 
   revealInView();
 }
 
-// region chip counts
+function setCat(cat){
+  activeCat = cat;
+  document.querySelectorAll('#filterBar .chip').forEach(x=>x.classList.toggle('active', x.dataset.cat===cat));
+  render();
+}
+
+// region chip counts + handlers
 document.querySelectorAll('#filterBar .chip').forEach(chip=>{
-  const sub = chip.dataset.sub;
-  const c = sub==='all' ? tours.length : tours.filter(t=>t.sub===sub).length;
+  const cat = chip.dataset.cat;
+  const c = cat==='all' ? tours.length : tours.filter(t=>t.cat===cat).length;
   const s = document.createElement('span'); s.className='cnt'; s.textContent=c; chip.appendChild(s);
-  chip.addEventListener('click', ()=>{
-    document.querySelectorAll('#filterBar .chip').forEach(x=>x.classList.remove('active'));
-    chip.classList.add('active');
-    activeSub = sub;
-    render();
-  });
+  chip.addEventListener('click', ()=> setCat(cat));
 });
 document.getElementById('sortSel').addEventListener('change', e=>{ activeSort = e.target.value; render(); });
 
+// preselect category from ?cat= param
+const _params = new URLSearchParams(location.search);
+const _cat = _params.get('cat');
+if (_cat && catNames[_cat]) activeCat = _cat;
+document.querySelectorAll('#filterBar .chip').forEach(x=>x.classList.toggle('active', x.dataset.cat===activeCat));
 
 /* Reveal-on-scroll */
 function revealNow(el){ el.classList.add('in'); const clean=()=>{el.classList.remove('reveal','in');el.style.transitionDelay='';}; el.addEventListener('transitionend',clean,{once:true}); setTimeout(clean,1100); }
@@ -407,6 +475,7 @@ render();
 requestAnimationFrame(revealInView);
 let _polls=0; const _poll=setInterval(()=>{ revealInView(); if(++_polls>40 || !document.querySelector('.reveal:not(.in)')) clearInterval(_poll); },200);
 </script>
+<script src="cms.js"></script>
 <script src="mobile.js"></script>
 </body>
 </html>
