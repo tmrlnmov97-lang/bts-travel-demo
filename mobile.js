@@ -86,3 +86,23 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* ============================================================
+   Şəbəkə overlay-i — səhifəni ?grid=1 ilə açanda 12 sütun görünür.
+   Yalnız yoxlama üçündür, istifadəçiyə heç bir təsiri yoxdur.
+   ============================================================ */
+(function () {
+  if (!/[?&]grid=1(&|$)/.test(location.search)) return;
+  function mount() {
+    if (document.querySelector('.grid-overlay')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'grid-overlay';
+    var cols = document.createElement('div');
+    cols.className = 'grid-overlay-cols';
+    for (var i = 0; i < 12; i++) cols.appendChild(document.createElement('i'));
+    wrap.appendChild(cols);
+    document.body.appendChild(wrap);
+  }
+  if (document.body) mount();
+  else document.addEventListener('DOMContentLoaded', mount);
+})();

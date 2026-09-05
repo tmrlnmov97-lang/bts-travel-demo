@@ -1,0 +1,96 @@
+/* ============================================================
+   BTS Group Travel — vahid layout şəbəkəsi (bütün səhifələr)
+
+   12 sütun · kontent 1600 · sütunlararası boşluq 24
+   Bu fayl mobile.css-dən SONRA qoşulur: burada şəbəkənin
+   yeganə mənbəyi saxlanılır, səhifədaxili <style> bloklarındakı
+   köhnə dəyərləri əvəz edir. Mobil davranış (≤600 üfüqi sürüşmə)
+   mobile.css-də !important ilə qaldığı üçün toxunulmur.
+   ============================================================ */
+
+/* ---------- 1. Tokenlər ---------- */
+:root{
+  --container:1600px;   /* kontentin eni — kənar boşluqlar daxil deyil */
+  --gutter:20px;        /* səhifənin kənar boşluğu */
+  --gap:16px;           /* sütunlar arası boşluq */
+}
+@media (min-width:768px) { :root{--gutter:32px;--gap:24px} }
+@media (min-width:1024px){ :root{--gutter:48px} }
+@media (min-width:1440px){ :root{--gutter:64px} }
+
+/* ---------- 2. Vahid konteyner ----------
+   max-width kənar boşluğu da içinə alır, ona görə 1920-də
+   kontent tam 1600 px olur (kənarda 160 + 160).            */
+.container,
+.hdr-wrap,
+.filters{
+  width:100%;
+  max-width:calc(var(--container) + 2 * var(--gutter));
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+/* Hero mətn bloku da eyni konteynerə oturur (mətn mərkəzdə qalır) */
+.hero-inner{
+  max-width:calc(var(--container) + 2 * var(--gutter));
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+/* ---------- 3. Kart şəbəkələri — vahid boşluq və breakpoint-lər ----------
+   Əvvəl: gap 20 (cat/tour) və 18 (deal/pop/sana/qrup),
+   sütunlar isə 1180 / 1100 / 980 / 920 / 880 kimi qeyri-vahid
+   nöqtələrdə dəyişirdi. İndi tək şkala: 768 / 1024 / 1280.     */
+.cat-grid,.tour-grid,.deal-grid,.pop-grid,.sana-grid,.qrup-grid{
+  gap:var(--gap);
+}
+@media (min-width:601px){
+  .cat-grid,.tour-grid,.deal-grid,.pop-grid,.sana-grid,.qrup-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media (min-width:1024px){
+  .cat-grid,.tour-grid,.deal-grid,.pop-grid,.sana-grid,.qrup-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+@media (min-width:1280px){
+  .deal-grid,.pop-grid,.sana-grid,.qrup-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+/* ---------- 4. 12 sütunlu sistem (asimmetrik bloklar üçün) ---------- */
+.grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.col-4,.col-8,.col-12{grid-column:span 12}
+@media (min-width:1024px){
+  .col-8{grid-column:span 8}
+  .col-4{grid-column:span 4}
+}
+
+/* Tur detalı: sağ sütun sərt 392 px yerinə şəbəkənin 4 sütunu (8 + 4) */
+@media (min-width:1024px){
+  .layout{
+    grid-template-columns:repeat(12,1fr);
+    gap:var(--gap);
+  }
+  .layout > :first-child{grid-column:span 8;min-width:0}
+  .layout > :nth-child(2){grid-column:span 4;min-width:0}
+}
+
+/* ---------- 5. Şəbəkəni yoxlamaq üçün overlay: ?grid=1 ---------- */
+.grid-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none}
+.grid-overlay-cols{
+  width:100%;height:100%;
+  max-width:calc(var(--container) + 2 * var(--gutter));
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:var(--gap);
+}
+.grid-overlay-cols i{
+  background:rgba(229,57,53,.10);
+  border-left:1px solid rgba(229,57,53,.22);
+  border-right:1px solid rgba(229,57,53,.22);
+}
