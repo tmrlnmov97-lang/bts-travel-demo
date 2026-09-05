@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Erkən Rezervasiyalar — BTS Group Travel</title>
+<title>Fərdi turlar — BTS Group Travel</title>
+<meta name="description" content="Sizin marşrutunuz, sizin tarixiniz, sizin büdcəniz. BTS Group Travel fərdi turları — sorğudan səyahətə qədər hər detal sizin üçün qurulur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -198,6 +199,98 @@
   .erk-cta-btns .g{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55)}
   @media(max-width:860px){.erk-ben-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:520px){.erk-ben-grid{grid-template-columns:1fr}}
+
+  /* ===== FƏRDİ TURLAR ===== */
+  .ft-hero-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+  .ft-hero-chips span{display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--muted);font-size:13px;font-weight:600}
+
+  .sec-head-l{max-width:70ch}
+  .ft-h2{color:var(--navy);font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+  .ft-lead{color:var(--muted);font-size:clamp(14.5px,1.5vw,17px);line-height:1.62;margin-top:14px;max-width:62ch}
+  .ft-block-h{color:var(--navy);font-size:17px;font-weight:800;letter-spacing:-.01em}
+
+  /* — addımlar — */
+  .ft-steps-sec{padding:clamp(48px,7vh,80px) 0 0}
+  .ft-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap,18px);margin-top:34px}
+  .ft-step{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:0 20px 44px -30px rgba(13,32,53,.4)}
+  .ft-step-n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:var(--indigo);color:#fff;font-size:15px;font-weight:800;margin-bottom:16px}
+  .ft-step h3{color:var(--navy);font-size:17px;font-weight:800;letter-spacing:-.01em}
+  .ft-step p{color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:8px}
+
+  /* — seçilmiş təklif — */
+  .ft-feat-sec{padding:clamp(48px,7vh,80px) 0 0}
+  .ft-feat{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--gap,24px);margin-top:34px;align-items:stretch}
+  .ft-feat-media{position:relative;border-radius:22px;overflow:hidden;min-height:420px;box-shadow:var(--shadow)}
+  .ft-feat-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ft-feat-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,30,.05) 40%,rgba(8,17,30,.82) 100%)}
+  .ft-feat-badge{position:absolute;top:16px;left:16px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;background:var(--red);box-shadow:0 10px 22px -10px rgba(13,32,53,.6)}
+  .ft-feat-facts{position:absolute;left:0;right:0;bottom:0;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:22px}
+  .ft-feat-facts b{display:block;color:#fff;font-size:15px;font-weight:800;letter-spacing:-.01em}
+  .ft-feat-facts span{display:block;color:rgba(255,255,255,.72);font-size:11.5px;font-weight:600;margin-top:3px}
+  .ft-feat-body{display:flex;flex-direction:column;gap:22px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 20px 44px -30px rgba(13,32,53,.4)}
+  .ft-list{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .ft-list li{position:relative;padding-left:28px;color:var(--muted);font-size:14px;line-height:1.55}
+  .ft-list li::before{content:'';position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:#EEF0FE url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233534F0' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg>") no-repeat center}
+  .ft-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .ft-tags span{padding:7px 13px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:#42505F;font-size:12.5px;font-weight:600}
+  .ft-note-sm{color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:14px}
+
+  /* — tarixlər — */
+  .ft-dates{margin-top:var(--gap,24px);background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 20px 44px -30px rgba(13,32,53,.4)}
+  .ft-dates-h{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  .ft-dates-h span{color:var(--muted2);font-size:13px;font-weight:600}
+  .ft-dates-scroll{overflow-x:auto;scrollbar-width:thin}
+  .ft-table{width:100%;min-width:560px;border-collapse:collapse}
+  .ft-table th{text-align:left;padding:11px 12px;color:var(--muted2);font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+  .ft-table td{padding:14px 12px;border-bottom:1px solid var(--line);color:var(--ink);font-size:14.5px;font-weight:600;white-space:nowrap}
+  .ft-table tr:last-child td{border-bottom:none}
+  .ft-table .r{text-align:right}
+  .ft-table td.r:nth-child(3){color:var(--indigo);font-size:17px;font-weight:800}
+  .ft-pill{display:inline-flex;padding:5px 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--muted);font-size:11.5px;font-weight:700}
+  .ft-pill.best{background:#EEF0FE;border-color:#D9DCFD;color:var(--indigo)}
+  .ft-pick{display:inline-flex;align-items:center;padding:8px 16px;border-radius:10px;border:1.5px solid var(--line);color:var(--navy);font-size:13px;font-weight:700;transition:all .2s}
+  .ft-pick:hover{background:var(--indigo);border-color:var(--indigo);color:#fff}
+  .ft-notes{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:8px}
+  .ft-notes li{position:relative;padding-left:16px;color:var(--muted);font-size:13px;line-height:1.55}
+  .ft-notes li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--muted2)}
+
+  /* — sorğu forması — */
+  .ft-form-sec{padding:clamp(48px,7vh,80px) 0 0;scroll-margin-top:110px}
+  .ft-form-card{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,56px);background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,48px);box-shadow:var(--shadow)}
+  .ft-form-intro .ft-list{margin-top:22px}
+  .ft-form{display:flex;flex-direction:column;gap:16px}
+  .ft-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .ft-field{display:flex;flex-direction:column;gap:7px}
+  .ft-field>span{color:var(--muted2);font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .ft-field input,.ft-field select,.ft-field textarea{width:100%;padding:14px 15px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:500;transition:border-color .2s}
+  .ft-field textarea{resize:vertical;min-height:92px}
+  .ft-field input::placeholder,.ft-field textarea::placeholder{color:#AEB6C2}
+  .ft-field input:focus,.ft-field select:focus,.ft-field textarea:focus{outline:none;border-color:var(--indigo)}
+  .ft-field select{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 13px center}
+  .ft-check{display:flex;align-items:center;gap:11px;color:var(--muted);font-size:13.5px;line-height:1.5;cursor:pointer}
+  .ft-check input{width:18px;height:18px;flex:none;accent-color:var(--indigo);cursor:pointer}
+  .ft-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+  .ft-actions .cta-btn{border:none}
+  .ft-alt{display:inline-flex;align-items:center;gap:9px;color:var(--muted);font-size:14px;font-weight:700;transition:color .2s}
+  .ft-alt:hover{color:var(--indigo)}
+  .ft-done{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 0}
+  .ft-form[hidden],.ft-done[hidden]{display:none}
+  .ft-done-ic{width:64px;height:64px;border-radius:50%;background:#EEF0FE;color:var(--indigo);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .ft-done-ic svg{width:30px;height:30px}
+  .ft-done h3{color:var(--navy);font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(24px,3vw,34px)}
+  .ft-done p{color:var(--muted);font-size:15.5px;line-height:1.6;margin-top:12px;max-width:52ch}
+
+  @media(max-width:1100px){
+    .ft-steps{grid-template-columns:1fr 1fr}
+    .ft-feat{grid-template-columns:1fr}
+    .ft-feat-media{min-height:320px}
+    .ft-form-card{grid-template-columns:1fr}
+  }
+  @media(max-width:620px){
+    .ft-steps{grid-template-columns:1fr}
+    .ft-row{grid-template-columns:1fr}
+    .ft-feat-facts{grid-template-columns:1fr 1fr;gap:14px}
+  }
 </style>
 <link rel="stylesheet" href="mobile.css">
 <link rel="stylesheet" href="grid.css">
@@ -212,8 +305,8 @@
     <nav class="nav">
       <a href="hilal.html#top">Ana səhifə</a>
       <a href="Turlar.html">Turlar</a>
-      <a href="Fərdi turlar.html">Fərdi turlar</a>
-      <a href="" class="active">Erkən Rezervasiyalar</a>
+      <a href="" class="active">Fərdi turlar</a>
+      <a href="Erkən Rezervasiyalar.html">Erkən Rezervasiyalar</a>
       <a href="hilal.html#haqqimizda">Haqqımızda</a>
       <a href="Əlaqə.html">Əlaqə</a>
     </nav>
@@ -232,10 +325,18 @@
     <nav class="crumbs">
       <a href="hilal.html#top">Ana səhifə</a>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      <span class="cur">Erkən Rezervasiyalar</span>
+      <span class="cur">Fərdi turlar</span>
     </nav>
-    <h1 class="phero-title">Erkən Rezervasiyalar</h1>
-    <p class="phero-sub">İndidən planlayın, daha sərfəli səyahət edin. Qarşıdan gələn turlara erkən rezervasiya ilə ən yaxşı qiymət və zəmanətli yer əldə edin.</p>
+    <span class="phero-eyebrow">Sizin marşrutunuz</span>
+    <h1 class="phero-title">Fərdi turlar</h1>
+    <p class="phero-sub">Hazır proqramlar sizə uyğun gəlmirsə — turu sıfırdan sizin üçün qururuq. İstiqaməti, tarixi, oteli və büdcəni siz seçirsiniz, marşrutu, biletləri və transferi biz düzəldirik.</p>
+    <div class="ft-hero-chips">
+      <span>Aviabilet daxil</span>
+      <span>4★ otel</span>
+      <span>VIP transfer</span>
+      <span>Peşəkar tur rəhbəri</span>
+      <span>24 saat ərzində cavab</span>
+    </div>
   </div>
 </section>
 
@@ -244,25 +345,135 @@
   <div class="container">
     <div class="erk-ben-grid">
       <div class="erk-ben reveal">
-        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></div>
-        <h3>Ən sərfəli qiymət</h3>
-        <p>Nə qədər tez rezervasiya etsəniz, qiymət bir o qədər sərfəli olur.</p>
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Sizin marşrutunuz</h3>
+        <p>Şəhərləri və gəzinti proqramını özünüz seçirsiniz — hazır siyahıya bağlı deyilsiniz.</p>
       </div>
       <div class="erk-ben reveal">
-        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3>Yeriniz zəmanətli</h3>
-        <p>Qruplar məhduddur — yerinizi indidən təsdiqləyin, gec olmasın.</p>
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>İstədiyiniz tarix</h3>
+        <p>Qrup cədvəlini gözləmirsiniz. Səyahət sizin təqviminizə uyğun planlaşdırılır.</p>
       </div>
       <div class="erk-ben reveal">
         <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
-        <h3>Rahat ödəniş</h3>
-        <p>Hissə-hissə ödəniş imkanı ilə səyahətinizi rahat planlaşdırın.</p>
+        <h3>Öz büdcəniz</h3>
+        <p>Otel sinfini və xidmət paketini büdcənizə uyğun birlikdə seçirik.</p>
       </div>
       <div class="erk-ben reveal">
-        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
-        <h3>Geniş seçim</h3>
-        <p>Bütün tarixlər və istiqamətlər açıqdır — istədiyinizi seçin.</p>
+        <div class="erk-ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Şəxsi tur rəhbəri</h3>
+        <p>Aviabilet, otel, transfer və bələdçi — hamısı bir paketdə, bir məsul şəxslə.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NECƏ İŞLƏYİR ===== -->
+<section class="ft-steps-sec">
+  <div class="container">
+    <div class="sec-head-l reveal">
+      <span class="phero-eyebrow">Necə işləyir</span>
+      <h2 class="ft-h2">Sorğudan səyahətə — dörd addım</h2>
+    </div>
+    <div class="ft-steps">
+      <div class="ft-step reveal">
+        <span class="ft-step-n">1</span>
+        <h3>Sorğu göndərirsiniz</h3>
+        <p>İstiqamət, təxmini tarix, nəfər sayı və büdcə — aşağıdakı formada bir dəqiqəlik iş.</p>
+      </div>
+      <div class="ft-step reveal">
+        <span class="ft-step-n">2</span>
+        <h3>Marşrut təklifi</h3>
+        <p>24 saat ərzində sizə otel variantları, proqram və dəqiq qiymətlə təklif göndəririk.</p>
+      </div>
+      <div class="ft-step reveal">
+        <span class="ft-step-n">3</span>
+        <h3>Təsdiq və ödəniş</h3>
+        <p>Detalları birlikdə dəqiqləşdiririk, müqavilə bağlanır və yeriniz təsdiqlənir.</p>
+      </div>
+      <div class="ft-step reveal">
+        <span class="ft-step-n">4</span>
+        <h3>Səyahət</h3>
+        <p>Biletlər, transferlər və bütün sənədlər hazır. Səyahət boyu əlaqədə qalırıq.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEÇİLMİŞ TƏKLİF ===== -->
+<section class="ft-feat-sec">
+  <div class="container">
+    <div class="sec-head-l reveal">
+      <span class="phero-eyebrow">Seçilmiş təklif</span>
+      <h2 class="ft-h2">Lüks &amp; macəra dolu Dubay turu</h2>
+      <p class="ft-lead">Qızıl şəhərdə unudulmaz anlar: VIP xidmət, əyləncə və rahatlıq — hamısı bir turda. Metrosuz, piyada gəzintisiz, tam VIP nəqliyyat xidməti ilə.</p>
+    </div>
+
+    <div class="ft-feat reveal">
+      <div class="ft-feat-media">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80&auto=format&fit=crop" alt="Dubay" loading="lazy">
+        <span class="ft-feat-badge"><span class="badge-dot"></span><span class="badge-text">Erkən rezervasiya</span></span>
+        <div class="ft-feat-facts">
+          <div><b>5 gün / 4 gecə</b><span>Müddət</span></div>
+          <div><b>Dubay, BƏƏ</b><span>İstiqamət</span></div>
+          <div><b>8 tarix</b><span>Seçim</span></div>
+          <div><b>799 $-dan</b><span>1 nəfər üçün</span></div>
+        </div>
+      </div>
+
+      <div class="ft-feat-body">
+        <div class="ft-block">
+          <h3 class="ft-block-h">Tur paketinə daxildir</h3>
+          <ul class="ft-list">
+            <li>Aviabilet</li>
+            <li>4★ lüks oteldə gecələmə</li>
+            <li>Otel xidmətləri: hovuz, sauna, spa, trenajor</li>
+            <li>VIP qrup transferi — rahat və sürətli nəqliyyat</li>
+            <li>Gündəlik ləzzətli səhər yeməyi</li>
+            <li>Peşəkar tur rəhbəri</li>
+          </ul>
+        </div>
+
+        <div class="ft-block">
+          <h3 class="ft-block-h">Möhtəşəm ekskursiyalar</h3>
+          <div class="ft-tags">
+            <span>Burj Khalifa</span><span>Dubai Mall</span><span>Cruise gəzintisi</span>
+            <span>Miracle Garden</span><span>Butterfly Garden</span><span>Jumeirah Beach</span>
+            <span>Marina Walk</span><span>Səhra safari</span><span>Global Village</span>
+            <span>Aya Universe</span><span>The View at The Palm</span>
+          </div>
+          <p class="ft-note-sm">Ödənişli ekskursiyalara transfer daxildir, giriş biletləri qiymətə daxil deyil.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-dates reveal">
+      <div class="ft-dates-h">
+        <h3 class="ft-block-h">Tarixlər və qiymətlər</h3>
+        <span>Qiymətlər dinamikdir, yerlər məhduddur</span>
+      </div>
+      <div class="ft-dates-scroll">
+        <table class="ft-table">
+          <thead><tr><th>Tarix</th><th>Qeyd</th><th class="r">Qiymət</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>05.09.2026 – 09.09.2026</td><td>—</td><td class="r">999 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>20.09.2026 – 24.09.2026</td><td>—</td><td class="r">899 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>06.10.2026 – 10.10.2026</td><td><span class="ft-pill best">Ən sərfəli</span></td><td class="r">799 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>26.10.2026 – 30.10.2026</td><td><span class="ft-pill best">Ən sərfəli</span></td><td class="r">799 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>07.11.2026 – 11.11.2026</td><td><span class="ft-pill">Zəfər Turu</span></td><td class="r">849 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>08.11.2026 – 12.11.2026</td><td><span class="ft-pill">Zəfər Turu</span></td><td class="r">849 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>16.12.2026 – 20.12.2026</td><td><span class="ft-pill best">Ən sərfəli</span></td><td class="r">799 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+            <tr><td>30.12.2026 – 03.01.2027</td><td><span class="ft-pill">Yeni İl</span></td><td class="r">999 $</td><td class="r"><a class="ft-pick" href="#ferdi-sorgu">Seç</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="ft-notes">
+        <li>Şəhər vergisi (torpaq basdı) qiymətə daxil deyil.</li>
+        <li>Qiymət 2 və ya 3 nəfərlik otaqda 1 nəfər üçün nəzərdə tutulub.</li>
+        <li>Ödənişlər yalnız manatla, günün məzənnəsinə uyğun qəbul edilir.</li>
+        <li>Məhdud yerlər — rezervasiya ardıcıllıqla təsdiqlənir.</li>
+        <li>Qrup turu olduğu üçün xidmətlərdə və tur proqramında dəyişiklik ola bilər.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -295,25 +506,93 @@
 <!-- ===== GRID ===== -->
 <section class="grid-wrap">
   <div class="container">
+    <div class="sec-head-l reveal" style="margin-bottom:22px">
+      <span class="phero-eyebrow">İstiqamətlər</span>
+      <h2 class="ft-h2">Hər biri fərdi qurula bilər</h2>
+      <p class="ft-lead">Aşağıdakı istiqamətlərin hamısını sizin tarixinizə və tərkibinizə uyğun ayrıca marşrut kimi hazırlaya bilərik.</p>
+    </div>
     <div class="result-line"><b id="resCount">13 tur</b><span id="resLabel">— bütün istiqamətlər</span></div>
     <div class="tour-grid" id="tourGrid"></div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<section class="container">
-  <div class="cta reveal">
-    <div class="cta-bg"></div>
-    <div class="cta-inner">
-      <div class="cta-txt">
-        <h3>Axtardığınız marşrutu tapmadınız?</h3>
-        <p>İstədiyiniz şəhərlər, tarixlər və büdcəyə uyğun fərdi marşrut da qura bilərik. Bizimlə əlaqə saxlayın, qalanını biz düşünək.</p>
+<!-- ===== FƏRDİ TUR SORĞUSU ===== -->
+<section class="ft-form-sec" id="ferdi-sorgu">
+  <div class="container">
+    <div class="ft-form-card reveal">
+      <div class="ft-form-intro">
+        <span class="phero-eyebrow">Fərdi tur sorğusu</span>
+        <h2 class="ft-h2">Turunuzu birlikdə quraq</h2>
+        <p class="ft-lead">Formanı doldurun — menecer 24 saat ərzində sizinlə əlaqə saxlayıb marşrut və dəqiq qiymət təklifi göndərəcək. Sorğu heç bir öhdəlik yaratmır.</p>
+        <ul class="ft-list">
+          <li>Aviabilet, otel və transfer bir paketdə</li>
+          <li>Rəsmi müqavilə və qəbz</li>
+          <li>Ödəniş manatla, günün məzənnəsi ilə</li>
+        </ul>
       </div>
-      <div class="cta-act">
-        <a href="tel:+994120000000" class="cta-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Bizə zəng et
-        </a>
+
+      <form class="ft-form" id="ftForm" novalidate>
+        <div class="ft-row">
+          <label class="ft-field">
+            <span>Ad, Soyad *</span>
+            <input type="text" name="name" required placeholder="Adınızı yazın">
+          </label>
+          <label class="ft-field">
+            <span>Telefon / WhatsApp *</span>
+            <input type="tel" name="phone" required placeholder="+994 __ ___ __ __">
+          </label>
+        </div>
+        <div class="ft-row">
+          <label class="ft-field">
+            <span>İstiqamət</span>
+            <input type="text" name="dest" placeholder="Məsələn: Dubay, İtaliya…">
+          </label>
+          <label class="ft-field">
+            <span>Təxmini tarix</span>
+            <input type="text" name="dates" placeholder="Oktyabr 2026 / 06.10–10.10">
+          </label>
+        </div>
+        <div class="ft-row">
+          <label class="ft-field">
+            <span>Nəfər sayı</span>
+            <select name="pax">
+              <option>1 nəfər</option><option selected>2 nəfər</option><option>3 nəfər</option>
+              <option>4 nəfər</option><option>5+ nəfər</option>
+            </select>
+          </label>
+          <label class="ft-field">
+            <span>Təxmini büdcə (1 nəfər)</span>
+            <select name="budget">
+              <option>Fərq etməz</option><option>800 $-a qədər</option><option>800–1500 $</option>
+              <option>1500–3000 $</option><option>3000 $-dan yuxarı</option>
+            </select>
+          </label>
+        </div>
+        <label class="ft-field">
+          <span>Əlavə qeyd</span>
+          <textarea name="note" rows="3" placeholder="Uşaq, yaş, otel tələbləri, xüsusi istəklər…"></textarea>
+        </label>
+        <label class="ft-check">
+          <input type="checkbox" name="agree" required>
+          <span>Şəxsi məlumatlarımın işlənməsi ilə razıyam</span>
+        </label>
+        <div class="ft-actions">
+          <button type="submit" class="cta-btn" id="ftSubmit">Sorğu göndər</button>
+          <a class="ft-alt" href="tel:+994120000000">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Və ya bizə zəng edin
+          </a>
+        </div>
+      </form>
+
+      <div class="ft-done" id="ftDone" hidden>
+        <div class="ft-done-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Sorğunuz qəbul edildi</h3>
+        <p id="ftDoneTxt">Menecer 24 saat ərzində sizinlə əlaqə saxlayacaq.</p>
+        <div class="ft-actions">
+          <a class="cta-btn" href="Turlar.html">Turlara bax</a>
+          <a class="ft-alt" href="tel:+994120000000">Bizə zəng et</a>
+        </div>
       </div>
     </div>
   </div>
@@ -324,11 +603,11 @@
 <section class="erk-cta-sec">
   <div class="container">
     <div class="erk-cta reveal">
-      <h2>Tez tərpənin — ən yaxşı yerlər tez bitir</h2>
-      <p>İstədiyiniz tarixə yerinizi indidən tutun. Komandamız sizə ən uyğun marşrutu seçməkdə kömək edəcək.</p>
+      <h2>Hara getmək istədiyinizi bilirsinizmi?</h2>
+      <p>İstiqaməti deyin — marşrutu, otelləri və qiyməti 24 saat ərzində sizin üçün hazırlayaq.</p>
       <div class="erk-cta-btns">
-        <a class="p" href="Turlar.html">Bütün turlara bax</a>
-        <a class="g" href="Əlaqə.html">Bizimlə əlaqə</a>
+        <a class="p" href="#ferdi-sorgu">Fərdi tur sorğusu</a>
+        <a class="g" href="Erkən Rezervasiyalar.html">Erkən rezervasiyalar</a>
       </div>
     </div>
   </div>
@@ -350,7 +629,6 @@
         <div class="fcol-title">Naviqasiya</div>
         <a href="hilal.html#top">Ana səhifə</a>
         <a href="Turlar.html">Turlar</a>
-        <a href="Fərdi turlar.html">Fərdi turlar</a>
         <a href="Avropa turları.html">Avropa turları</a>
         <a href="hilal.html#haqqimizda">Haqqımızda</a>
         <a href="Əlaqə.html">Əlaqə</a>
@@ -473,6 +751,45 @@ window.addEventListener('resize', revealInView);
 /* Header solidify */
 const _header = document.getElementById('siteHeader');
 window.addEventListener('scroll', ()=>{ _header.classList.toggle('scrolled', window.scrollY>50); }, {passive:true});
+
+/* Fərdi tur sorğusu */
+(function(){
+  var form = document.getElementById('ftForm');
+  if (!form) return;
+  var done = document.getElementById('ftDone');
+  var btn  = document.getElementById('ftSubmit');
+
+  // "Seç" düymələri tarixi formaya köçürür
+  document.querySelectorAll('.ft-pick').forEach(function(a){
+    a.addEventListener('click', function(){
+      var row = a.closest('tr'); if (!row) return;
+      var d = form.querySelector('[name=dates]'), dest = form.querySelector('[name=dest]');
+      if (d)    d.value = row.cells[0].textContent.trim();
+      if (dest && !dest.value) dest.value = 'Dubay, BƏƏ';
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var g = function(n){ var el = form.querySelector('[name='+n+']'); return el ? el.value.trim() : ''; };
+    var lead = { type:'ferdi-tur', name:g('name'), whatsapp:g('phone'), dest:g('dest'),
+                 dates:g('dates'), pax:g('pax'), budget:g('budget'), note:g('note') };
+    if (btn) { btn.disabled = true; btn.textContent = 'Göndərilir…'; }
+    fetch('/api/leads', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(lead) })
+      .then(function(r){ return r.ok; })
+      .catch(function(){ return false; })
+      .then(function(ok){
+        if (!ok) {
+          document.getElementById('ftDoneTxt').textContent =
+            'Sorğunu birbaşa göndərə bilmədik. Zəhmət olmasa bizə zəng edin və ya yazın — məlumatlarınız hazırdır.';
+        }
+        form.hidden = true;
+        done.hidden = false;
+        done.scrollIntoView({ behavior:'smooth', block:'center' });
+      });
+  });
+})();
 
 render();
 requestAnimationFrame(revealInView);

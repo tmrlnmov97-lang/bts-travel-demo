@@ -23,7 +23,8 @@
    kontent tam 1600 px olur (kənarda 160 + 160).            */
 .container,
 .hdr-wrap,
-.filters{
+.filters,
+.phero-inner{
   width:100%;
   max-width:calc(var(--container) + 2 * var(--gutter));
   margin-inline:auto;
@@ -55,7 +56,7 @@
   }
 }
 @media (min-width:1280px){
-  .deal-grid,.pop-grid,.sana-grid,.qrup-grid{
+  .tour-grid,.deal-grid,.pop-grid,.sana-grid,.qrup-grid{
     grid-template-columns:repeat(4,1fr);
   }
 }
