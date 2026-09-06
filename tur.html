@@ -309,6 +309,72 @@
   .book-total{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
   .book-total span{color:var(--muted);font-size:14px;font-weight:600}
   .book-total b{color:var(--navy);font-size:20px;font-weight:800}
+
+  /* ===== Varfreym B — dəqiqləşdirmələr ===== */
+  .book-lab{display:block;margin-top:16px;color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .book-sub{color:var(--muted2);font-size:12.5px;font-weight:600;margin-top:6px}
+  .book-hr{height:1px;background:var(--line);margin:18px 0 0}
+  .seg{display:flex;margin-top:8px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .seg button{flex:1;height:44px;border:none;background:#fff;color:var(--muted);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
+  .seg button.on{background:var(--navy);color:#fff}
+  .book-approx{color:var(--muted2);font-size:12px;font-weight:600;margin-top:8px}
+  .book-warn{display:flex;align-items:flex-start;gap:9px;margin-top:16px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--mist)}
+  .book-warn b{color:var(--navy);font-size:13px;line-height:1.4}
+  .book-warn span{color:var(--muted);font-size:12.5px;font-weight:600;line-height:1.45}
+
+  .mgr-row{display:flex;align-items:center;gap:12px;margin-top:12px}
+  .mgr-ava{width:48px;height:48px;border-radius:50%;background:var(--mist);border:1px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:10px;font-weight:800}
+  .mgr-row b{display:block;color:var(--navy);font-size:14px;font-weight:800}
+  .mgr-row span{display:block;color:var(--muted2);font-size:12px;font-weight:600;margin-top:2px}
+  .mgr-tel{display:block;margin-top:14px;color:var(--ink);font-size:13.5px;font-weight:700}
+  .why{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+  .why div{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-size:13px;line-height:1.5}
+  .why svg{flex:none;margin-top:2px;stroke:var(--indigo)}
+
+  /* rezervasiya sorğusu */
+  .rq-recap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--mist);margin-bottom:20px}
+  .rq-recap span{color:var(--ink);font-size:13.5px;font-weight:700}
+  .rq-recap b{color:var(--navy);font-size:14px;font-weight:800}
+  .rq-recap a{color:var(--indigo);font-size:13px;font-weight:800;cursor:pointer}
+  .rq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .rq-f{display:flex;flex-direction:column;gap:7px}
+  .rq-f.full{grid-column:1/-1}
+  .rq-f>span{color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .rq-f input,.rq-f select,.rq-f textarea{width:100%;padding:14px 15px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:500;transition:border-color .2s}
+  .rq-f textarea{min-height:92px;resize:vertical}
+  .rq-f input::placeholder,.rq-f textarea::placeholder{color:#AEB6C2}
+  .rq-f input:focus,.rq-f select:focus,.rq-f textarea:focus{outline:none;border-color:var(--indigo)}
+  .rq-f select{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;font-weight:700;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 13px center}
+  .rq-check{display:flex;align-items:center;gap:11px;margin-top:18px;color:var(--muted);font-size:13.5px;cursor:pointer}
+  .rq-check input{width:18px;height:18px;flex:none;accent-color:var(--indigo);cursor:pointer}
+  .rq-act{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:20px}
+  .rq-send{height:52px;padding:0 28px;border:none;border-radius:13px;background:var(--indigo);color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 14px 30px -14px rgba(53,52,240,.8)}
+  .rq-send:hover{background:var(--indigo-d)}
+  .rq-alt{color:var(--muted);font-size:13.5px;font-weight:600}
+  .rq-alt a{color:var(--ink);font-weight:800}
+  .rq-alt a:hover{color:var(--indigo)}
+  .rq-done{display:none;flex-direction:column;align-items:center;text-align:center;padding:22px 0}
+  .rq-done.on{display:flex}
+  .rq-done .ic{width:60px;height:60px;border-radius:50%;background:rgba(53,52,240,.1);color:var(--indigo);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .rq-done h3{color:var(--navy);font-size:22px;font-weight:800}
+  .rq-done p{color:var(--muted);font-size:15px;line-height:1.6;margin-top:10px;max-width:46ch}
+  @media(max-width:700px){.rq-grid{grid-template-columns:1fr}}
+
+  /* bənzər turlar */
+  .rel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .rel-head a{color:var(--indigo);font-size:14px;font-weight:800}
+  .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rel-card{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 44px -34px rgba(13,32,53,.4);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .rel-card:hover{transform:translateY(-6px);box-shadow:0 34px 60px -34px rgba(13,32,53,.45)}
+  .rel-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--mist)}
+  .rel-b{padding:16px 18px 18px}
+  .rel-b .m{color:var(--muted);font-size:12.5px;font-weight:600}
+  .rel-b .n{color:var(--navy);font-size:16px;font-weight:800;margin-top:6px;letter-spacing:-.01em}
+  .rel-f{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .rel-f .p{color:var(--indigo);font-size:17px;font-weight:800}
+  .rel-f .go{height:38px;padding:0 18px;border-radius:10px;background:var(--indigo);color:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center}
+  @media(max-width:900px){.rel-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.rel-grid{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="mobile.css">
 <link rel="stylesheet" href="grid.css">
@@ -357,7 +423,7 @@
         </div>
         <div class="ttl-facts"></div>
         <div class="ttl-cta">
-          <button class="btn-primary" onclick="openReg()">Tura qeydiyyat</button>
+          <button class="btn-primary" onclick="goReq()">Tura qeydiyyat</button>
           <a class="btn-wa" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə soruş</a>
           <small>Yerlər məhduddur · təsdiq 24 saat ərzində</small>
         </div>
@@ -366,14 +432,14 @@
 
     <div class="tabs">
       <div class="tabs-in">
-        <a href="#s-dates">Tarixlər</a>
+        <a href="#s-dates">Tarixlər və qiymətlər</a>
         <a href="#s-incl">Qiymətə daxildir</a>
         <a href="#s-exc">Ekskursiyalar</a>
         <a href="#s-prog">Tur proqramı</a>
         <a href="#s-hotel">Otel</a>
-        <a href="#s-notes">Qeydlər</a>
+        <a href="#s-notes">Vacib qeydlər</a>
         <a href="#s-faq">FAQ</a>
-        <div class="tabs-cta"><b id="tabPrice"></b><button type="button" onclick="openReg()">Rezerv et</button></div>
+        <div class="tabs-cta"><button type="button" id="tabBook"><span id="tabPrice"></span> · Rezerv et</button></div>
       </div>
     </div>
     
@@ -460,6 +526,38 @@
         <div class="block reveal" id="s-hotel" hidden></div>
         <div class="block reveal" id="s-notes" hidden></div>
         <div class="block reveal" id="s-faq" hidden></div>
+        <div class="block reveal" id="s-req">
+          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Rezervasiya sorğusu</div>
+          <p class="lead" style="margin-bottom:20px">Formu doldurun — menecer 24 saat ərzində əlaqə saxlayıb yeri təsdiqləyir.</p>
+
+          <div class="rq-recap">
+            <span>Seçiminiz: <b id="rqRecap">—</b></span>
+            <span><b id="rqRecapSum">—</b> · <a onclick="document.querySelector('.side').scrollIntoView({behavior:'smooth',block:'center'})">Dəyiş</a></span>
+          </div>
+
+          <form id="reqForm" novalidate>
+            <div class="rq-grid">
+              <label class="rq-f"><span>Ad, Soyad *</span><input type="text" name="name" placeholder="Adınızı yazın" required></label>
+              <label class="rq-f"><span>Telefon / WhatsApp *</span><input type="tel" name="phone" placeholder="+994 __ ___ __ __" required></label>
+              <label class="rq-f"><span>E-mail</span><input type="email" name="email" placeholder="ornek@mail.com"></label>
+              <label class="rq-f"><span>Tarix *</span><select name="date" id="rqDate"></select></label>
+              <label class="rq-f"><span>Nəfər sayı</span><select name="pax" id="rqPax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
+              <label class="rq-f"><span>Otaq tipi</span><select name="room" id="rqRoom"><option>2 nəfərlik</option><option>3 nəfərlik</option></select></label>
+              <label class="rq-f full"><span>Əlavə qeyd</span><textarea name="note" placeholder="Uşaq, yaş, xüsusi tələblər…"></textarea></label>
+            </div>
+            <label class="rq-check"><input type="checkbox" name="agree" required><span>Vacib qeydlər və ləğvetmə şərtləri ilə tanış oldum</span></label>
+            <div class="rq-act">
+              <button type="submit" class="rq-send" id="rqSend">Rezervasiya sorğusu göndər</button>
+              <span class="rq-alt">Və ya: <a id="altWa" href="#" target="_blank" rel="noopener">WhatsApp</a> · <a id="altIg" href="#" target="_blank" rel="noopener">Instagram</a> · <a id="altTel" href="#">Zəng</a></span>
+            </div>
+          </form>
+
+          <div class="rq-done" id="rqDone">
+            <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Sorğunuz qəbul edildi</h3>
+            <p id="rqDoneTxt">Menecer 24 saat ərzində sizinlə əlaqə saxlayıb yeri təsdiqləyəcək.</p>
+          </div>
+        </div>
       </div>
 
       <!-- ===== SIDEBAR ===== -->
@@ -467,26 +565,63 @@
         <div class="book reveal">
           <span class="book-label">1 nəfər üçün</span>
           <div class="book-price"><b>2 790</b><span>AZN</span></div>
-          <div class="book-date"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</div>
+          <div class="book-sub" id="bookSub">Qiymətə uyğun otaqda yerləşmə · ödəniş manatla</div>
+          <div class="book-hr"></div>
+
+          <span class="book-lab">Tarix</span>
           <select class="book-sel" id="bookDate" hidden></select>
+          <div class="book-date"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</div>
+
+          <span class="book-lab">Otaq tipi</span>
+          <div class="seg" id="roomSeg">
+            <button type="button" class="on" data-room="2 nəfərlik">2 nəfərlik</button>
+            <button type="button" data-room="3 nəfərlik">3 nəfərlik</button>
+          </div>
+
+          <span class="book-lab">Nəfər sayı</span>
           <div class="book-pax">
             <button type="button" data-pax="-1">−</button>
             <b><span id="bookPax">1</span> nəfər</b>
             <button type="button" data-pax="1">+</button>
           </div>
-          <div class="book-total" id="bookTotalWrap" hidden><span>Cəmi</span><b id="bookTotal">—</b></div>
+
+          <div class="book-total" id="bookTotalWrap" hidden><span id="bookTotalLab">Cəmi</span><b id="bookTotal">—</b></div>
+          <div class="book-approx" id="bookApprox" hidden></div>
+
           <div class="visa">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 7-9 9-5-2-9-4-9-9V5l9-3 9 3z"/></svg>
             <p><b>Visum.az</b> bu tura <em>ödənişsiz viza dəstəyi</em> xidməti göstərir.</p>
           </div>
+
           <div class="book-cta">
-            <button class="btn-primary" onclick="openReg()">Tura qeydiyyat</button>
-            <a class="btn-wa" href="https://wa.me/994120000000" target="_blank" rel="noopener">
+            <button class="btn-primary" onclick="goReq()">Rezervasiya et</button>
+            <a class="btn-wa" id="waLink" href="https://wa.me/994120000000" target="_blank" rel="noopener">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="#1FA463"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.4-1.5-.8-2.1-1.8-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.5-.3z"/></svg>
               WhatsApp ilə yaz
             </a>
           </div>
-          <div class="book-note">Yerlər məhduddur · təsdiq 24 saat ərzində</div>
+
+          <div class="book-warn" id="bookWarn" hidden><b>!</b><span id="bookWarnTxt"></span></div>
+        </div>
+
+        <div class="book reveal" id="mgrCard">
+          <div class="block-h" style="font-size:17px;margin-bottom:0">Sualınız var?</div>
+          <div class="mgr-row">
+            <span class="mgr-ava">BTS</span>
+            <div><b>BTS Group Travel</b><span>Tur üzrə mütəxəssis</span></div>
+          </div>
+          <a class="mgr-tel" id="mgrTel" href="#"></a>
+          <div class="book-cta"><button class="btn-primary" onclick="goReq()">Geri zəng sifariş et</button></div>
+        </div>
+
+        <div class="book reveal" id="whyCard">
+          <div class="block-h" style="font-size:17px;margin-bottom:0">Niyə BTS Group?</div>
+          <div class="why">
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rəsmi müqavilə və qəbz</div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>44 ölkədə tur təcrübəsi</div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Aviabilet və otel bir paketdə</div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Peşəkar tur rəhbəri qrupla birlikdə</div>
+          </div>
         </div>
 
         <div class="mini reveal">
@@ -513,28 +648,11 @@
   <!-- ===== BOTTOM ===== -->
   <section class="more">
     <div class="container">
-      <div class="more-grid">
-        <div class="reveal">
-          <h2 class="more-h">İyul ayında digər turlar</h2>
-          <div class="mini-list" style="margin-top:18px">
-            <div class="mini-item">
-              <div><div class="d">13–19 İyul, 2026</div><div class="n">Skandinaviya turu</div></div>
-              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-            <div class="mini-item">
-              <div><div class="d">4–12 İyul, 2026</div><div class="n">Benelüks turu</div></div>
-              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </div>
-        </div>
-        <div class="reveal">
-          <h2 class="more-h">Bu istiqamətdə təcrübəmiz</h2>
-          <p class="more-stat">Bu günə kimi bu istiqamətdə <b>11</b> turumuz olub.</p>
-          <a href="Turlar.html?cat=Avropa" class="more-link">Keçmiş turlar səhifəsində daha ətraflı
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
+      <div class="rel-head">
+        <h2 class="more-h">Bənzər turlar</h2>
+        <a href="Turlar.html">Bütün turlar →</a>
       </div>
+      <div class="rel-grid" id="relGrid"></div>
     </div>
   </section>
 </main>
@@ -626,6 +744,7 @@ addEventListener('scroll',()=>_h.classList.toggle('scrolled',scrollY>50),{passiv
 
 /* ===== TURA QEYDIYYAT (modal) ===== */
 var _ov=document.getElementById('regOverlay');
+function goReq(){var el=document.getElementById("s-req");if(!el)return;el.scrollIntoView({behavior:"smooth",block:"start"});var f=el.querySelector("input[name=name]");if(f)setTimeout(function(){f.focus();},600);}
 function openReg(){_ov.classList.add('open');document.body.style.overflow='hidden';}
 function closeReg(){_ov.classList.remove('open');document.body.style.overflow='';setTimeout(resetReg,250);}
 function resetReg(){document.getElementById('regForm').style.display='';document.getElementById('regSuccess').classList.remove('show');document.getElementById('regError').classList.remove('show');document.getElementById('regSubmit').classList.remove('loading');document.getElementById('regSubmit').disabled=false;}
@@ -676,76 +795,68 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
 })();
 </script>
 <script>
-/* ===== Varfreym B: tur səhifəsinin əlavə blokları =====
-   Bloklar yalnız content.json-da uyğun məlumat olduqda görünür.
-   Məlumat yoxdursa blok ümumiyyətlə çıxmır (boş şablon göstərilmir). */
+/* ===== Varfreym B: tur səhifəsinin blokları =====
+   Bloklar yalnız content.json-da uyğun məlumat olduqda görünür. */
 (function () {
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]; }); };
   var money = function (n) { return Number(n).toLocaleString('ru-RU').replace(/,/g, ' ') + ' AZN'; };
   var $ = function (s) { return document.querySelector(s); };
+  var slug = function (s) { return String(s).replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,'i').replace(/ə/g,'e').replace(/Ə/g,'e').replace(/ç/g,'c').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ğ/g,'g').toLowerCase().replace(/[–—]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); };
 
-  var PAX = 1, PRICE = 0;
+  var PAX = 1, PRICE = 0, ROOM = '2 nəfərlik', TOUR = null;
 
-  function show(id, html) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.innerHTML = html;
-    el.hidden = false;
+  function show(id, html) { var el = document.getElementById(id); if (!el) return; el.innerHTML = html; el.hidden = false; }
+  function setTxt(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+
+  function sync() {
+    setTxt('bookPax', PAX);
+    setTxt('bookTotal', PRICE ? money(PRICE * PAX) : '—');
+    setTxt('bookTotalLab', 'Cəmi (' + PAX + ' nəfər)');
+    var d = $('#bookDate'), dv = d && !d.hidden ? d.value : (TOUR ? TOUR.date : '');
+    setTxt('rqRecap', [dv, PAX + ' nəfər', ROOM].filter(Boolean).join('  ·  '));
+    setTxt('rqRecapSum', PRICE ? money(PRICE * PAX) : '—');
+    var rp = $('#rqPax'); if (rp) rp.value = PAX > 4 ? '5+' : String(PAX);
+    var rr = $('#rqRoom'); if (rr) rr.value = ROOM;
+    var rd = $('#rqDate'); if (rd && dv) rd.value = dv;
   }
 
-  function total() {
-    var el = $('#bookTotal');
-    if (el) el.textContent = money(PRICE * PAX);
-    var p = $('#bookPax');
-    if (p) p.textContent = PAX;
-  }
-
-  window.renderTourExtras = function (t) {
+  window.renderTourExtras = function (t, C) {
     if (!t) return;
-    PRICE = t.price || 0;
+    TOUR = t; PRICE = t.price || 0;
+    C = C || {};
+    var contacts = C.contacts || {};
 
-    /* --- başlıq: bec-lər, fakt plitələri, CTA --- */
+    /* --- başlıq --- */
     var badges = [];
     if (t.discount) badges.push('<span style="background:#E5484D">' + esc(t.discount) + '</span>');
     if (t.seats)    badges.push('<span style="background:' + (t.status === 'last' ? '#E5484D' : '#3534F0') + '">' + esc(t.seats) + '</span>');
     if (t.cat)      badges.push('<span class="ghost">' + esc(t.cat) + '</span>');
-    var bEl = $('.ttl-badges');
-    if (bEl) bEl.innerHTML = badges.join('');
+    var bEl = $('.ttl-badges'); if (bEl) bEl.innerHTML = badges.join('');
 
-    var facts = [
-      ['Müddət', t.days],
-      ['İstiqamət', t.cities],
-      ['Tarix', t.date],
-      ['Qiymət', t.price ? money(t.price) + ' / 1 nəfər' : null]
-    ].filter(function (f) { return f[1]; });
+    var facts = [['Müddət', t.days], ['İstiqamət', t.cities], ['Tarix', t.date],
+                 ['Qiymət', t.price ? money(t.price) + ' / 1 nəfər' : null]].filter(function (f) { return f[1]; });
     var fEl = $('.ttl-facts');
-    if (fEl) fEl.innerHTML = facts.map(function (f) {
-      return '<div class="fact"><span>' + esc(f[0]) + '</span><b>' + esc(f[1]) + '</b></div>';
-    }).join('');
+    if (fEl) fEl.innerHTML = facts.map(function (f) { return '<div class="fact"><span>' + esc(f[0]) + '</span><b>' + esc(f[1]) + '</b></div>'; }).join('');
 
-    /* --- qalereya: əlavə şəkillər --- */
+    /* --- qalereya --- */
     if (t.gallery && t.gallery.length) {
-      var g = t.gallery.slice(0, 2);
-      var extra = t.gallery.length - 2;
-      var side = $('.tgal-side');
+      var g = t.gallery.slice(0, 2), extra = t.gallery.length - 2, side = $('.tgal-side');
       if (side) side.innerHTML = g.map(function (src, i) {
         return '<div class="g"><img src="' + esc(src) + '" alt="" loading="lazy">' +
           (i === 1 && extra > 0 ? '<span class="tgal-more">+' + extra + ' şəkil</span>' : '') + '</div>';
       }).join('');
     }
 
-    /* --- tarixlər və qiymətlər --- */
+    /* --- tarixlər --- */
     if (t.dates && t.dates.length) {
-      var rows = t.dates.map(function (d) {
-        return '<tr><td>' + esc(d.range) + '</td>' +
-          '<td>' + (d.tag ? '<span class="dt-tag">' + esc(d.tag) + '</span>' : '—') + '</td>' +
-          '<td>' + esc(d.seats || '—') + '</td>' +
-          '<td class="r p">' + (d.price ? money(d.price) : '—') + '</td>' +
-          '<td class="r"><button class="dt-pick" type="button" data-date="' + esc(d.range) + '">Seç</button></td></tr>';
-      }).join('');
       show('s-dates',
         '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Tarixlər və qiymətlər</div>' +
-        '<div class="dt-scroll"><table class="dt"><thead><tr><th>Tarix</th><th>Qeyd</th><th>Yer</th><th class="r">Qiymət</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        '<div class="dt-scroll"><table class="dt"><thead><tr><th>Tarix</th><th>Qeyd</th><th>Yer vəziyyəti</th><th class="r">Qiymət</th><th></th></tr></thead><tbody>' +
+        t.dates.map(function (d) {
+          return '<tr><td>' + esc(d.range) + '</td><td>' + (d.tag ? '<span class="dt-tag">' + esc(d.tag) + '</span>' : '—') + '</td>' +
+            '<td>' + esc(d.seats || '—') + '</td><td class="r p">' + (d.price ? money(d.price) : '—') + '</td>' +
+            '<td class="r"><button class="dt-pick" type="button" data-date="' + esc(d.range) + '">Seç</button></td></tr>';
+        }).join('') + '</tbody></table></div>' +
         (t.datesNote ? '<p class="dt-note">' + esc(t.datesNote) + '</p>' : ''));
 
       var sel = $('#bookDate');
@@ -753,77 +864,145 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
         sel.innerHTML = t.dates.map(function (d) { return '<option>' + esc(d.range) + '</option>'; }).join('');
         sel.hidden = false;
         var bd = $('.book-date'); if (bd) bd.style.display = 'none';
+        sel.addEventListener('change', sync);
       }
+      var rd = $('#rqDate');
+      if (rd) rd.innerHTML = t.dates.map(function (d) { return '<option>' + esc(d.range) + '</option>'; }).join('');
       document.querySelectorAll('.dt-pick').forEach(function (b) {
         b.addEventListener('click', function () {
-          var s = $('#bookDate'); if (s) s.value = b.dataset.date;
-          var side = $('.side'); if (side) side.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          var s2 = $('#bookDate'); if (s2) s2.value = b.dataset.date;
+          sync();
+          var sd = $('.side'); if (sd) sd.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
       });
+    } else {
+      var rd0 = $('#rqDate');
+      if (rd0) rd0.innerHTML = '<option>' + esc(t.date || '') + '</option>';
     }
 
-    /* --- ekskursiyalar --- */
+    /* --- ekskursiyalar / proqram / otel / qeydlər / faq --- */
     if (t.excursions && t.excursions.length) {
-      show('s-exc',
-        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>Ekskursiyalar</div>' +
+      show('s-exc', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>Ekskursiyalar</div>' +
         '<div class="exc-grid">' + t.excursions.map(function (e) {
           return '<div class="exc">' + (e.image ? '<img src="' + esc(e.image) + '" alt="' + esc(e.name) + '" loading="lazy">' : '') +
             '<div class="exc-b"><b>' + esc(e.name) + '</b>' + (e.desc ? '<p>' + esc(e.desc) + '</p>' : '') + '</div></div>';
         }).join('') + '</div>');
     }
-
-    /* --- tur proqramı --- */
     if (t.program && t.program.length) {
-      show('s-prog',
-        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>Tur proqramı</div>' +
-        t.program.map(function (d, i) {
-          return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary>' + esc(d.title) + '</summary><div class="acc-b">' + esc(d.text) + '</div></details>';
-        }).join(''));
+      show('s-prog', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>Tur proqramı</div>' +
+        t.program.map(function (d, i) { return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary>' + esc(d.title) + '</summary><div class="acc-b">' + esc(d.text) + '</div></details>'; }).join(''));
     }
-
-    /* --- otel --- */
     if (t.hotel && t.hotel.name) {
       var h = t.hotel;
-      show('s-hotel',
-        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>Otel və yerləşmə</div>' +
-        (h.images && h.images.length ? '<div class="hotel-imgs">' + h.images.slice(0, 3).map(function (s) { return '<img src="' + esc(s) + '" alt="' + esc(h.name) + '" loading="lazy">'; }).join('') + '</div>' : '') +
+      show('s-hotel', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>Otel və yerləşmə</div>' +
+        (h.images && h.images.length ? '<div class="hotel-imgs">' + h.images.slice(0, 3).map(function (x) { return '<img src="' + esc(x) + '" alt="' + esc(h.name) + '" loading="lazy">'; }).join('') + '</div>' : '') +
         '<div class="block-h" style="font-size:17px;margin-bottom:8px">' + esc(h.name) + '</div>' +
         (h.desc ? '<p class="lead">' + esc(h.desc) + '</p>' : '') +
         (h.amenities && h.amenities.length ? '<div class="hotel-chips">' + h.amenities.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</div>' : ''));
     }
-
-    /* --- vacib qeydlər --- */
     if (t.notes && t.notes.length) {
-      show('s-notes',
-        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></span>Vacib qeydlər və şərtlər</div>' +
+      show('s-notes', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></span>Vacib qeydlər və şərtlər</div>' +
         '<ul class="notes">' + t.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>');
     }
-
-    /* --- FAQ --- */
     if (t.faq && t.faq.length) {
-      show('s-faq',
-        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1-1.3 1.8v.5M12 17h.01"/></svg></span>Tez-tez verilən suallar</div>' +
-        t.faq.map(function (f) {
-          return '<details class="acc"><summary>' + esc(f.q) + '</summary><div class="acc-b">' + esc(f.a) + '</div></details>';
-        }).join(''));
+      show('s-faq', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1-1.3 1.8v.5M12 17h.01"/></svg></span>Tez-tez verilən suallar</div>' +
+        t.faq.map(function (f) { return '<details class="acc"><summary>' + esc(f.q) + '</summary><div class="acc-b">' + esc(f.a) + '</div></details>'; }).join(''));
     }
 
-    /* --- yan paneldə cəmi --- */
-    var tw = $('#bookTotalWrap');
-    if (tw && PRICE) { tw.hidden = false; total(); }
+    /* --- yan panel --- */
+    var tw = $('#bookTotalWrap'); if (tw && PRICE) tw.hidden = false;
+    setTxt('tabPrice', PRICE ? money(PRICE) : '');
+    if (t.seats) { var w = $('#bookWarn'); if (w) { setTxt('bookWarnTxt', t.seats); w.hidden = false; } }
+    setTxt('bookSub', (t.days ? t.days + ' · ' : '') + '1 nəfər üçün qiymət · ödəniş manatla');
 
-    /* --- lipki tab-larda qiymət --- */
-    var tp = $('#tabPrice');
-    if (tp && PRICE) tp.textContent = money(PRICE);
+    /* --- əlaqə --- */
+    var waNum = (contacts.whatsapp || contacts.phone || '').replace(/[^\d]/g, '');
+    var wa = $('#waLink'); if (wa && waNum) wa.href = 'https://wa.me/' + waNum;
+    var aw = $('#altWa'); if (aw && waNum) aw.href = 'https://wa.me/' + waNum;
+    var ai = $('#altIg'); if (ai && contacts.instagram) ai.href = 'https://instagram.com/' + String(contacts.instagram).replace('@', '');
+    var at = $('#altTel'); if (at && contacts.phone) at.href = 'tel:' + contacts.phone.replace(/\s/g, '');
+    var mt = $('#mgrTel');
+    if (mt && contacts.phone) { mt.textContent = contacts.phone; mt.href = 'tel:' + contacts.phone.replace(/\s/g, ''); }
+
+    /* --- bənzər turlar --- */
+    var rel = $('#relGrid'), all = C.tours || [];
+    if (rel && all.length) {
+      var list = all.filter(function (x) { return x !== t && x.cat === t.cat; });
+      if (list.length < 3) list = list.concat(all.filter(function (x) { return x !== t && list.indexOf(x) < 0; }));
+      rel.innerHTML = list.slice(0, 3).map(function (x) {
+        return '<a class="rel-card" href="tur.html?id=' + esc(x.id || slug(x.name)) + '">' +
+          '<img src="' + esc(x.image) + '" alt="' + esc(x.name) + '" loading="lazy">' +
+          '<div class="rel-b"><div class="m">' + esc(x.cat) + ' · ' + esc(x.date) + '</div><div class="n">' + esc(x.name) + '</div>' +
+          '<div class="rel-f"><span class="p">' + money(x.price) + '</span><span class="go">Ətraflı</span></div></div></a>';
+      }).join('');
+    }
+
+    sync();
   };
 
-  /* nəfər sayı */
+  /* nəfər sayı / otaq tipi */
   document.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-pax]');
-    if (!b) return;
-    PAX = Math.max(1, Math.min(20, PAX + (+b.dataset.pax)));
-    total();
+    var p = e.target.closest('[data-pax]');
+    if (p) { PAX = Math.max(1, Math.min(20, PAX + (+p.dataset.pax))); sync(); return; }
+    var r = e.target.closest('[data-room]');
+    if (r) {
+      ROOM = r.dataset.room;
+      document.querySelectorAll('#roomSeg button').forEach(function (b) { b.classList.toggle('on', b === r); });
+      sync();
+    }
   });
+
+  /* lipki anker: aktiv bölmə */
+  var links = [].slice.call(document.querySelectorAll('.tabs-in a'));
+  function spy() {
+    var best = null, bestTop = -1e9;
+    links.forEach(function (a) {
+      var el = document.querySelector(a.getAttribute('href'));
+      if (!el || el.hidden) { a.style.display = 'none'; return; }
+      a.style.display = '';
+      var top = el.getBoundingClientRect().top - 160;
+      if (top <= 0 && top > bestTop) { bestTop = top; best = a; }
+    });
+    links.forEach(function (a) { a.classList.toggle('on', a === best); });
+  }
+  addEventListener('scroll', spy, { passive: true });
+  addEventListener('load', spy);
+  var tb = document.getElementById('tabBook');
+  if (tb) tb.addEventListener('click', function () { if (window.goReq) window.goReq(); });
+
+  /* rezervasiya sorğusu */
+  var form = document.getElementById('reqForm');
+  if (form) {
+    ['#rqPax', '#rqRoom', '#rqDate'].forEach(function (s) {
+      var el = document.querySelector(s);
+      if (el) el.addEventListener('change', function () {
+        if (s === '#rqRoom') {
+          ROOM = el.value;
+          document.querySelectorAll('#roomSeg button').forEach(function (b) { b.classList.toggle('on', b.dataset.room === ROOM); });
+        }
+        if (s === '#rqPax') PAX = el.value === '5+' ? 5 : +el.value;
+        if (s === '#rqDate') { var bd = document.querySelector('#bookDate'); if (bd && !bd.hidden) bd.value = el.value; }
+        sync();
+      });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var g = function (n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
+      var btn = document.getElementById('rqSend');
+      if (btn) { btn.disabled = true; btn.textContent = 'Göndərilir…'; }
+      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'tur', tour: TOUR ? TOUR.name : '', name: g('name'), whatsapp: g('phone'),
+          email: g('email'), date: g('date'), pax: g('pax'), room: g('room'), note: g('note') }) })
+        .then(function (r) { return r.ok; }).catch(function () { return false; })
+        .then(function (ok) {
+          if (!ok) setTxt('rqDoneTxt', 'Sorğunu birbaşa göndərə bilmədik. Zəhmət olmasa WhatsApp və ya zəng ilə əlaqə saxlayın.');
+          form.style.display = 'none';
+          var d = document.getElementById('rqDone'); if (d) d.classList.add('on');
+          document.getElementById('s-req').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+  }
 })();
 </script>
 <script src="cms.js"></script>
