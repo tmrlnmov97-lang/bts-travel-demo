@@ -151,6 +151,7 @@
     if (pills[1]) setPill(pills[1], t.cat + ' · ' + t.days);
     setPill($('.book-date'), t.date);
     txt('.reg-title', t.cities);
+    if (typeof window.renderTourExtras === 'function') window.renderTourExtras(t);
   }
 
   /* ---------- BOOKING -> /api/leads ---------- */

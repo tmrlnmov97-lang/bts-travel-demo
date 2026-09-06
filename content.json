@@ -83,7 +83,133 @@
       "days": "8 gün",
       "featured": true,
       "timer": 19343,
-      "desc": "Roma · Milan · Paris — 8 gün ərzində diqqətlə qurulmuş marşrut. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə unudulmaz təcrübə."
+      "desc": "Roma · Milan · Paris — 8 gün ərzində diqqətlə qurulmuş marşrut. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə unudulmaz təcrübə.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=900&q=80&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=80&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520440229-6469a149ac59?w=900&q=80&auto=format&fit=crop"
+      ],
+      "dates": [
+        {
+          "range": "8–15 Avqust, 2026",
+          "price": 2790,
+          "seats": "Son 2 yer",
+          "tag": "−25%"
+        }
+      ],
+      "datesNote": "Qiymət 2 nəfərlik otaqda 1 nəfər üçün nəzərdə tutulub. Ödənişlər manatla, günün məzənnəsinə uyğun qəbul edilir.",
+      "excursions": [
+        {
+          "name": "Kolizey",
+          "desc": "Qədim Romanın simvolu — amfiteatr və Forum ərazisi.",
+          "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80&auto=format&fit=crop"
+        },
+        {
+          "name": "Vatikan",
+          "desc": "Müqəddəs Pyotr bazilikası və Vatikan muzeyləri.",
+          "image": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=600&q=80&auto=format&fit=crop"
+        },
+        {
+          "name": "Duomo katedralı",
+          "desc": "Milanın mərkəzindəki qotik katedral və dam terrası.",
+          "image": "https://images.unsplash.com/photo-1520440229-6469a149ac59?w=600&q=80&auto=format&fit=crop"
+        },
+        {
+          "name": "Galleria Vittorio Emanuele II",
+          "desc": "Milanın tarixi alış-veriş qalereyası.",
+          "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80&auto=format&fit=crop"
+        },
+        {
+          "name": "Eyfel qülləsi",
+          "desc": "Parisin simvolu və Trocadéro meydanından mənzərə.",
+          "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80&auto=format&fit=crop"
+        },
+        {
+          "name": "Luvr muzeyi",
+          "desc": "Dünyanın ən böyük muzeylərindən biri.",
+          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80&auto=format&fit=crop"
+        }
+      ],
+      "program": [
+        {
+          "title": "1-ci gün — Bakı → Roma",
+          "text": "Uçuş, hava limanında qarşılanma və otelə transfer. Yerləşmə, sərbəst vaxt və axşam qısa şəhər gəzintisi."
+        },
+        {
+          "title": "2-ci gün — Roma",
+          "text": "Kolizey, Roma Forumu və Palatin təpəsi. Trevi fəvvarəsi və İspan pillələri."
+        },
+        {
+          "title": "3-cü gün — Vatikan",
+          "text": "Müqəddəs Pyotr bazilikası, Vatikan muzeyləri. Günün ikinci yarısı sərbəst."
+        },
+        {
+          "title": "4-cü gün — Roma → Milan",
+          "text": "Qatarla Milana keçid, otelə yerləşmə, Duomo meydanı ətrafında gəzinti."
+        },
+        {
+          "title": "5-ci gün — Milan",
+          "text": "Duomo katedralı, Galleria Vittorio Emanuele II, Sforza qəsri."
+        },
+        {
+          "title": "6-cı gün — Milan → Paris",
+          "text": "Parisə keçid və otelə yerləşmə. Sena çayı boyunca axşam gəzintisi."
+        },
+        {
+          "title": "7-ci gün — Paris",
+          "text": "Eyfel qülləsi, Trocadéro, Luvr muzeyi və Şanzelize."
+        },
+        {
+          "title": "8-ci gün — Paris → Bakı",
+          "text": "Sərbəst vaxt, hava limanına transfer və qayıdış uçuşu."
+        }
+      ],
+      "hotel": {
+        "name": "4★ otel — şəhər mərkəzində",
+        "desc": "Hər üç şəhərdə mərkəzə yaxın 4 ulduzlu otellərdə yerləşmə. Səhər yeməyi qiymətə daxildir. Konkret otel adları tur təsdiqlənəndə göndərilir.",
+        "amenities": [
+          "Səhər yeməyi",
+          "Wi-Fi",
+          "Mərkəzə yaxın",
+          "2 nəfərlik otaq",
+          "24/7 resepşn"
+        ],
+        "images": [
+          "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=80&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80&auto=format&fit=crop"
+        ]
+      },
+      "notes": [
+        "Qiymət 2 nəfərlik otaqda 1 nəfər üçündür.",
+        "Şəhərdaxili nəqliyyat və giriş biletləri qiymətə daxil deyil.",
+        "Nahar və şam yeməyi qiymətə daxil deyil.",
+        "Viza dəstəyi Visum.az tərəfindən ödənişsiz göstərilir.",
+        "Yerlər məhduddur — rezervasiya ardıcıllıqla təsdiqlənir.",
+        "Qrup turu olduğu üçün proqramda kiçik dəyişikliklər ola bilər."
+      ],
+      "faq": [
+        {
+          "q": "Qiymətə aviabilet daxildirmi?",
+          "a": "Bəli, gediş–gəliş aviabileti qiymətə daxildir."
+        },
+        {
+          "q": "Giriş biletləri qiymətə daxildirmi?",
+          "a": "Xeyr, muzey və məkanların giriş biletləri ayrıca ödənilir."
+        },
+        {
+          "q": "Viza necə rəsmiləşdirilir?",
+          "a": "Visum.az bu tura ödənişsiz viza dəstəyi göstərir — sənədlərin hazırlanmasında kömək edirlər."
+        },
+        {
+          "q": "Qiymət neçə nəfər üçündür?",
+          "a": "Qiymət 2 nəfərlik otaqda yerləşən 1 nəfər üçün nəzərdə tutulub."
+        },
+        {
+          "q": "Rezervasiya necə təsdiqlənir?",
+          "a": "Sorğudan sonra menecer 24 saat ərzində əlaqə saxlayır və yeri təsdiqləyir."
+        }
+      ]
     },
     {
       "name": "Skandinaviya turu",

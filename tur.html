@@ -230,6 +230,85 @@
   .reg-result .reg-submit{flex:1;margin-top:0}
   .reg-retry{flex:1;height:54px;border:1.5px solid #E8EBF2;border-radius:14px;background:#fff;color:#0D2035;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:border-color .2s,background .2s}
   .reg-retry:hover{border-color:#3534F0;background:#F4F6FB}
+
+  /* ===== TUR SƏHİFƏSİ — varfreym B ===== */
+  .tgal{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+  .tgal .hero-media{aspect-ratio:16/10}
+  .tgal-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+  .tgal-side .g{position:relative;border-radius:18px;overflow:hidden;background:var(--mist);border:1px solid var(--line)}
+  .tgal-side .g img{width:100%;height:100%;object-fit:cover;display:block}
+  .tgal-more{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,32,53,.5);color:#fff;font-size:15px;font-weight:800}
+  @media(max-width:760px){.tgal{grid-template-columns:1fr}.tgal-side{grid-template-columns:1fr 1fr;grid-template-rows:none}}
+
+  .ttl-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .ttl-badges span{padding:6px 12px;border-radius:999px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .ttl-badges span.ghost{background:var(--mist);border:1px solid var(--line);color:var(--muted)}
+  .ttl-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+  .fact{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff}
+  .fact span{display:block;color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .fact b{display:block;color:var(--navy);font-size:16px;font-weight:800;margin-top:5px;letter-spacing:-.01em}
+  @media(max-width:860px){.ttl-facts{grid-template-columns:1fr 1fr}}
+  .ttl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
+  .ttl-cta .btn-primary,.ttl-cta .btn-wa{width:auto;padding:0 26px}
+  .ttl-cta small{color:var(--muted2);font-size:12.5px;font-weight:600}
+
+  .tabs{position:sticky;top:88px;z-index:40;margin:26px calc(var(--gutter) * -1) 0;padding:0 var(--gutter);background:rgba(244,246,251,.92);backdrop-filter:blur(14px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs-in{display:flex;align-items:center;gap:26px;overflow-x:auto;scrollbar-width:none}
+  .tabs-in::-webkit-scrollbar{display:none}
+  .tabs-in a{padding:16px 0;color:var(--muted);font-size:13.5px;font-weight:700;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+  .tabs-in a:hover{color:var(--navy);border-color:var(--indigo)}
+  .tabs-cta{margin-left:auto;display:flex;align-items:center;gap:12px;padding:9px 0}
+  .tabs-cta b{color:var(--navy);font-size:15px;font-weight:800;white-space:nowrap}
+  .tabs-cta button{height:40px;padding:0 20px;border:none;border-radius:11px;background:var(--indigo);color:#fff;font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap}
+  .tabs-cta button:hover{background:var(--indigo-d)}
+  @media(max-width:900px){.tabs{top:78px}.tabs-cta{display:none}}
+
+  .dt-scroll{overflow-x:auto}
+  .dt{width:100%;min-width:520px;border-collapse:collapse}
+  .dt th{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .dt td{padding:14px 12px;border-bottom:1px solid var(--line);color:var(--ink);font-size:14.5px;font-weight:600;white-space:nowrap}
+  .dt tr:last-child td{border-bottom:none}
+  .dt .r{text-align:right}
+  .dt .p{color:var(--indigo);font-size:17px;font-weight:800}
+  .dt-tag{display:inline-flex;padding:5px 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--muted);font-size:11.5px;font-weight:700}
+  .dt-pick{height:36px;padding:0 16px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+  .dt-pick:hover{background:var(--indigo);border-color:var(--indigo);color:#fff}
+  .dt-note{color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:14px}
+
+  .exc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .exc{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .exc img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--mist)}
+  .exc-b{padding:14px}
+  .exc-b b{display:block;color:var(--navy);font-size:14.5px;font-weight:800}
+  .exc-b p{color:var(--muted);font-size:12.5px;line-height:1.5;margin-top:6px}
+  @media(max-width:860px){.exc-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.exc-grid{grid-template-columns:1fr}}
+
+  .acc{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;color:var(--navy);font-size:15px;font-weight:800}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary::after{content:'+';color:var(--muted);font-size:20px;font-weight:600;line-height:1}
+  .acc[open] summary::after{content:'−'}
+  .acc-b{padding:0 18px 18px;color:var(--muted);font-size:14px;line-height:1.65}
+
+  .hotel-imgs{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:18px}
+  .hotel-imgs img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;background:var(--mist)}
+  .hotel-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .hotel-chips span{padding:6px 12px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:#42505F;font-size:12.5px;font-weight:600}
+  @media(max-width:760px){.hotel-imgs{grid-template-columns:1fr 1fr}}
+
+  .notes{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .notes li{position:relative;padding-left:17px;color:var(--muted);font-size:14px;line-height:1.6}
+  .notes li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--muted2)}
+
+  .book-sel{width:100%;height:46px;margin-top:12px;padding:0 38px 0 14px;border-radius:12px;border:1px solid var(--line);color:var(--ink);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 13px center}
+  .book-pax{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding:8px;border:1px solid var(--line);border-radius:12px}
+  .book-pax button{width:38px;height:34px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-size:17px;font-family:inherit;cursor:pointer}
+  .book-pax button:hover{border-color:var(--indigo);color:var(--indigo)}
+  .book-pax b{color:var(--navy);font-size:15px;font-weight:800}
+  .book-total{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .book-total span{color:var(--muted);font-size:14px;font-weight:600}
+  .book-total b{color:var(--navy);font-size:20px;font-weight:800}
 </style>
 <link rel="stylesheet" href="mobile.css">
 <link rel="stylesheet" href="grid.css">
@@ -270,19 +349,42 @@
 
     <div class="ttl-row reveal">
       <div>
+        <div class="ttl-badges"></div>
         <h1 class="ttl-h1">Roma–Milan–Paris turu</h1>
         <div class="ttl-meta">
           <span class="meta-pill"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</span>
           <span class="meta-pill"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avropa · 3 ölkə</span>
         </div>
+        <div class="ttl-facts"></div>
+        <div class="ttl-cta">
+          <button class="btn-primary" onclick="openReg()">Tura qeydiyyat</button>
+          <a class="btn-wa" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə soruş</a>
+          <small>Yerlər məhduddur · təsdiq 24 saat ərzində</small>
+        </div>
       </div>
     </div>
 
+    <div class="tabs">
+      <div class="tabs-in">
+        <a href="#s-dates">Tarixlər</a>
+        <a href="#s-incl">Qiymətə daxildir</a>
+        <a href="#s-exc">Ekskursiyalar</a>
+        <a href="#s-prog">Tur proqramı</a>
+        <a href="#s-hotel">Otel</a>
+        <a href="#s-notes">Qeydlər</a>
+        <a href="#s-faq">FAQ</a>
+        <div class="tabs-cta"><b id="tabPrice"></b><button type="button" onclick="openReg()">Rezerv et</button></div>
+      </div>
+    </div>
+    
     <div class="layout">
       <!-- ===== MAIN ===== -->
       <div>
-        <div class="hero-media reveal">
+        <div class="tgal reveal">
+          <div class="hero-media">
           <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1400&q=80&auto=format&fit=crop" alt="Roma–Milan–Paris">
+        </div>
+          <div class="tgal-side"></div>
         </div>
 
         <div class="block reveal">
@@ -290,7 +392,8 @@
           <p class="lead">Üç böyük Avropa paytaxtı bir səyahətdə — antik Romanın küçələri, Milanın moda və memarlıq ruhu və Parisin romantikası. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə 8 günlük diqqətlə qurulmuş marşrut.</p>
         </div>
 
-        <div class="block reveal">
+        <div class="block reveal" id="s-dates" hidden></div>
+        <div class="block reveal" id="s-incl">
           <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Qiymətə nələr daxildir</div>
           <div class="incl-grid">
             <div class="incl-card">
@@ -351,6 +454,12 @@
             </div>
           </div>
         </div>
+      
+        <div class="block reveal" id="s-exc" hidden></div>
+        <div class="block reveal" id="s-prog" hidden></div>
+        <div class="block reveal" id="s-hotel" hidden></div>
+        <div class="block reveal" id="s-notes" hidden></div>
+        <div class="block reveal" id="s-faq" hidden></div>
       </div>
 
       <!-- ===== SIDEBAR ===== -->
@@ -359,6 +468,13 @@
           <span class="book-label">1 nəfər üçün</span>
           <div class="book-price"><b>2 790</b><span>AZN</span></div>
           <div class="book-date"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</div>
+          <select class="book-sel" id="bookDate" hidden></select>
+          <div class="book-pax">
+            <button type="button" data-pax="-1">−</button>
+            <b><span id="bookPax">1</span> nəfər</b>
+            <button type="button" data-pax="1">+</button>
+          </div>
+          <div class="book-total" id="bookTotalWrap" hidden><span>Cəmi</span><b id="bookTotal">—</b></div>
           <div class="visa">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 7-9 9-5-2-9-4-9-9V5l9-3 9 3z"/></svg>
             <p><b>Visum.az</b> bu tura <em>ödənişsiz viza dəstəyi</em> xidməti göstərir.</p>
@@ -557,6 +673,157 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
   if(pills[1])setPill(pills[1],t.cat+' · '+t.days);
   setPill(document.querySelector('.book-date'),t.date);
   var rt=document.querySelector('.reg-title'); if(rt)rt.textContent=t.cities;
+})();
+</script>
+<script>
+/* ===== Varfreym B: tur səhifəsinin əlavə blokları =====
+   Bloklar yalnız content.json-da uyğun məlumat olduqda görünür.
+   Məlumat yoxdursa blok ümumiyyətlə çıxmır (boş şablon göstərilmir). */
+(function () {
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]; }); };
+  var money = function (n) { return Number(n).toLocaleString('ru-RU').replace(/,/g, ' ') + ' AZN'; };
+  var $ = function (s) { return document.querySelector(s); };
+
+  var PAX = 1, PRICE = 0;
+
+  function show(id, html) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = html;
+    el.hidden = false;
+  }
+
+  function total() {
+    var el = $('#bookTotal');
+    if (el) el.textContent = money(PRICE * PAX);
+    var p = $('#bookPax');
+    if (p) p.textContent = PAX;
+  }
+
+  window.renderTourExtras = function (t) {
+    if (!t) return;
+    PRICE = t.price || 0;
+
+    /* --- başlıq: bec-lər, fakt plitələri, CTA --- */
+    var badges = [];
+    if (t.discount) badges.push('<span style="background:#E5484D">' + esc(t.discount) + '</span>');
+    if (t.seats)    badges.push('<span style="background:' + (t.status === 'last' ? '#E5484D' : '#3534F0') + '">' + esc(t.seats) + '</span>');
+    if (t.cat)      badges.push('<span class="ghost">' + esc(t.cat) + '</span>');
+    var bEl = $('.ttl-badges');
+    if (bEl) bEl.innerHTML = badges.join('');
+
+    var facts = [
+      ['Müddət', t.days],
+      ['İstiqamət', t.cities],
+      ['Tarix', t.date],
+      ['Qiymət', t.price ? money(t.price) + ' / 1 nəfər' : null]
+    ].filter(function (f) { return f[1]; });
+    var fEl = $('.ttl-facts');
+    if (fEl) fEl.innerHTML = facts.map(function (f) {
+      return '<div class="fact"><span>' + esc(f[0]) + '</span><b>' + esc(f[1]) + '</b></div>';
+    }).join('');
+
+    /* --- qalereya: əlavə şəkillər --- */
+    if (t.gallery && t.gallery.length) {
+      var g = t.gallery.slice(0, 2);
+      var extra = t.gallery.length - 2;
+      var side = $('.tgal-side');
+      if (side) side.innerHTML = g.map(function (src, i) {
+        return '<div class="g"><img src="' + esc(src) + '" alt="" loading="lazy">' +
+          (i === 1 && extra > 0 ? '<span class="tgal-more">+' + extra + ' şəkil</span>' : '') + '</div>';
+      }).join('');
+    }
+
+    /* --- tarixlər və qiymətlər --- */
+    if (t.dates && t.dates.length) {
+      var rows = t.dates.map(function (d) {
+        return '<tr><td>' + esc(d.range) + '</td>' +
+          '<td>' + (d.tag ? '<span class="dt-tag">' + esc(d.tag) + '</span>' : '—') + '</td>' +
+          '<td>' + esc(d.seats || '—') + '</td>' +
+          '<td class="r p">' + (d.price ? money(d.price) : '—') + '</td>' +
+          '<td class="r"><button class="dt-pick" type="button" data-date="' + esc(d.range) + '">Seç</button></td></tr>';
+      }).join('');
+      show('s-dates',
+        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Tarixlər və qiymətlər</div>' +
+        '<div class="dt-scroll"><table class="dt"><thead><tr><th>Tarix</th><th>Qeyd</th><th>Yer</th><th class="r">Qiymət</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        (t.datesNote ? '<p class="dt-note">' + esc(t.datesNote) + '</p>' : ''));
+
+      var sel = $('#bookDate');
+      if (sel) {
+        sel.innerHTML = t.dates.map(function (d) { return '<option>' + esc(d.range) + '</option>'; }).join('');
+        sel.hidden = false;
+        var bd = $('.book-date'); if (bd) bd.style.display = 'none';
+      }
+      document.querySelectorAll('.dt-pick').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var s = $('#bookDate'); if (s) s.value = b.dataset.date;
+          var side = $('.side'); if (side) side.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    }
+
+    /* --- ekskursiyalar --- */
+    if (t.excursions && t.excursions.length) {
+      show('s-exc',
+        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>Ekskursiyalar</div>' +
+        '<div class="exc-grid">' + t.excursions.map(function (e) {
+          return '<div class="exc">' + (e.image ? '<img src="' + esc(e.image) + '" alt="' + esc(e.name) + '" loading="lazy">' : '') +
+            '<div class="exc-b"><b>' + esc(e.name) + '</b>' + (e.desc ? '<p>' + esc(e.desc) + '</p>' : '') + '</div></div>';
+        }).join('') + '</div>');
+    }
+
+    /* --- tur proqramı --- */
+    if (t.program && t.program.length) {
+      show('s-prog',
+        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>Tur proqramı</div>' +
+        t.program.map(function (d, i) {
+          return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary>' + esc(d.title) + '</summary><div class="acc-b">' + esc(d.text) + '</div></details>';
+        }).join(''));
+    }
+
+    /* --- otel --- */
+    if (t.hotel && t.hotel.name) {
+      var h = t.hotel;
+      show('s-hotel',
+        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>Otel və yerləşmə</div>' +
+        (h.images && h.images.length ? '<div class="hotel-imgs">' + h.images.slice(0, 3).map(function (s) { return '<img src="' + esc(s) + '" alt="' + esc(h.name) + '" loading="lazy">'; }).join('') + '</div>' : '') +
+        '<div class="block-h" style="font-size:17px;margin-bottom:8px">' + esc(h.name) + '</div>' +
+        (h.desc ? '<p class="lead">' + esc(h.desc) + '</p>' : '') +
+        (h.amenities && h.amenities.length ? '<div class="hotel-chips">' + h.amenities.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</div>' : ''));
+    }
+
+    /* --- vacib qeydlər --- */
+    if (t.notes && t.notes.length) {
+      show('s-notes',
+        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></span>Vacib qeydlər və şərtlər</div>' +
+        '<ul class="notes">' + t.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>');
+    }
+
+    /* --- FAQ --- */
+    if (t.faq && t.faq.length) {
+      show('s-faq',
+        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1-1.3 1.8v.5M12 17h.01"/></svg></span>Tez-tez verilən suallar</div>' +
+        t.faq.map(function (f) {
+          return '<details class="acc"><summary>' + esc(f.q) + '</summary><div class="acc-b">' + esc(f.a) + '</div></details>';
+        }).join(''));
+    }
+
+    /* --- yan paneldə cəmi --- */
+    var tw = $('#bookTotalWrap');
+    if (tw && PRICE) { tw.hidden = false; total(); }
+
+    /* --- lipki tab-larda qiymət --- */
+    var tp = $('#tabPrice');
+    if (tp && PRICE) tp.textContent = money(PRICE);
+  };
+
+  /* nəfər sayı */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-pax]');
+    if (!b) return;
+    PAX = Math.max(1, Math.min(20, PAX + (+b.dataset.pax)));
+    total();
+  });
 })();
 </script>
 <script src="cms.js"></script>
