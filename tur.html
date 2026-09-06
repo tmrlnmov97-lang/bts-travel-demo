@@ -205,37 +205,8 @@
   .fact span{display:block;color:var(--muted2);font-size:12px;font-weight:600}
   .fact b{display:block;color:var(--navy);font-size:16.5px;font-weight:800;margin-top:6px;letter-spacing:-.01em}
   @media(max-width:900px){.ttl-facts{grid-template-columns:1fr 1fr}}
-  .ttl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px}
-  .ttl-cta .btn-primary{width:auto;padding:0 26px}
-  .ttl-cta .btn-wa{width:auto;padding:0 26px;justify-content:center}
-  .ttl-cta small{color:var(--muted2);font-size:13px}
 
-  .tabs{position:sticky;top:88px;z-index:40;margin:30px calc(var(--gutter) * -1) 0;padding:0 var(--gutter);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .tabs-in{display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none}
-  .tabs-in::-webkit-scrollbar{display:none}
-  .tabs-in a{padding:17px 0;color:var(--muted);font-size:13.5px;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent}
-  .tabs-in a:hover{color:var(--navy)}
-  .tabs-in a.on{color:var(--navy);font-weight:800;border-color:var(--navy)}
-  .tabs-cta{margin-left:auto;padding:10px 0}
-  .tabs-cta button{height:42px;padding:0 22px;border:none;border-radius:11px;background:var(--navy);color:#fff;font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap}
-  .tabs-cta button:hover{background:#0A1929}
-  @media(max-width:900px){.tabs{top:78px}.tabs-cta{display:none}}
 
-  .dt-card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .dt-scroll{overflow-x:auto}
-  .dt{width:100%;min-width:560px;border-collapse:collapse}
-  .dt th{text-align:left;padding:13px 18px;background:var(--mist);border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;font-weight:600}
-  .dt td{padding:16px 18px;border-bottom:1px solid var(--line);color:var(--navy);font-size:15px;font-weight:700;white-space:nowrap}
-  .dt td.mut{color:var(--muted2);font-size:13px;font-weight:500}
-  .dt td.p{font-size:17px;font-weight:800}
-  .dt td.r{text-align:right}
-  .dt-tag{display:inline-flex;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:600}
-  .dt-pick{height:36px;padding:0 18px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
-  .dt-pick:hover{border-color:var(--navy)}
-  .dt-pick.on{background:var(--navy);border-color:var(--navy);color:#fff}
-  .dt-foot{padding:16px 18px;background:var(--mist)}
-  .dt-foot p{color:var(--muted);font-size:13px;line-height:1.55}
-  .dt-foot p+p{color:var(--muted2);margin-top:4px}
 
   .incl-note{color:var(--muted2);font-size:12px;margin-top:14px}
   .incl-list .ic{display:inline-flex;width:18px;justify-content:center;font-weight:800}
@@ -327,15 +298,6 @@
   .btn-outline{width:100%;height:50px;border:1px solid var(--navy);border-radius:12px;background:#fff;color:var(--navy);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer}
   .btn-outline:hover{background:var(--mist)}
 
-  .mgr-row{display:flex;align-items:center;gap:13px;margin-top:14px}
-  .mgr-ava{width:48px;height:48px;border-radius:50%;background:var(--mist);border:1px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:10px;font-weight:700}
-  .mgr-row b{display:block;color:var(--navy);font-size:14.5px;font-weight:800}
-  .mgr-row span{display:block;color:var(--muted2);font-size:12.5px;margin-top:2px}
-  .mgr-tel{margin-top:16px;color:var(--navy);font-size:14px;font-weight:700}
-  .mgr-tel a{color:var(--navy)}
-  .why{display:flex;flex-direction:column;gap:11px;margin-top:14px}
-  .why div{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:13.5px;line-height:1.5}
-  .why svg{flex:none;margin-top:3px;stroke:var(--navy)}
 
   .rel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
   .rel-head a{color:var(--navy);font-size:14px;font-weight:700}
@@ -351,7 +313,6 @@
   .rel-f .go{height:38px;padding:0 18px;border:1px solid var(--line);border-radius:9px;color:var(--navy);font-size:13px;font-weight:700;display:inline-flex;align-items:center}
   @media(max-width:900px){.rel-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.rel-grid{grid-template-columns:1fr}}
-  .dt tr:last-child td{border-bottom:none}
   .book-pax button:hover{border-color:var(--navy);color:var(--navy)}
   .rq-alt a:hover{text-decoration:underline}
 </style>
@@ -409,32 +370,14 @@
         <h1 class="ttl-h1">Tur</h1>
         <p class="ttl-lead"></p>
         <div class="ttl-facts"></div>
-        <div class="ttl-cta">
-          <button class="btn-primary" onclick="goDates()">Tarix seç və rezerv et</button>
-          <a class="btn-wa" id="waTop" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə soruş</a>
-          <small>Ödəniş yalnız manatla, günün məzənnəsi ilə</small>
-        </div>
       </div>
     </div>
 
     <!-- ===== ANCHOR TABS ===== -->
-    <div class="tabs">
-      <div class="tabs-in">
-        <a href="#s-dates">Tarixlər və qiymətlər</a>
-        <a href="#s-incl">Qiymətə daxildir</a>
-        <a href="#s-exc">Ekskursiyalar</a>
-        <a href="#s-prog">Tur proqramı</a>
-        <a href="#s-hotel">Otel</a>
-        <a href="#s-notes">Vacib qeydlər</a>
-        <a href="#s-faq">FAQ</a>
-        <div class="tabs-cta"><button type="button" id="tabBook"><span id="tabPrice"></span> · Rezerv et</button></div>
-      </div>
-    </div>
 
     <div class="layout">
       <!-- ===== MAIN COLUMN ===== -->
       <div>
-        <div class="block reveal" id="s-dates"></div>
 
         <div class="block reveal" id="s-incl">
           <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Qiymətə nə daxildir</div>
@@ -455,7 +398,6 @@
         <div class="block reveal" id="s-prog"></div>
         <div class="block reveal" id="s-hotel"></div>
         <div class="block reveal" id="s-notes"></div>
-        <div class="block reveal" id="s-faq"></div>
 
         <div class="block reveal" id="s-req">
           <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Rezervasiya sorğusu</div>
@@ -526,25 +468,7 @@
           <div class="book-warn"><b>!</b><span id="bookWarnTxt">Məhdud yer — [CRM: X yer qalıb]</span></div>
         </div>
 
-        <div class="book reveal" id="mgrCard">
-          <div class="card-h">Sualınız var?</div>
-          <div class="mgr-row">
-            <span class="mgr-ava">FOTO</span>
-            <div><b id="mgrName">[Menecerin adı]</b><span>Fərdi turlar üzrə mütəxəssis</span></div>
-          </div>
-          <div class="mgr-tel"><a id="mgrTel" href="#">[+994 XX XXX XX XX]</a> &nbsp;·&nbsp; 09:00–19:00</div>
-          <div class="book-cta"><button class="btn-outline" onclick="goReq()">Geri zəng sifariş et</button></div>
-        </div>
 
-        <div class="book reveal" id="whyCard">
-          <div class="card-h">Niyə BTS Group?</div>
-          <div class="why">
-            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rəsmi müqavilə və qəbz</div>
-            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>44 ölkədə tur təcrübəsi</div>
-            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Aviabilet və otel bir paketdə</div>
-            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Peşəkar tur rəhbəri qrupla birlikdə</div>
-          </div>
-        </div>
       </aside>
     </div>
   </div>
@@ -664,7 +588,6 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
     var rr = $('#rqRoom'); if (rr) rr.value = ROOM;
     var rd = $('#rqDate'); if (rd && dv) rd.value = dv;
     document.querySelectorAll('#roomSeg button').forEach(function (b) { b.classList.toggle('on', b.dataset.room === ROOM); });
-    document.querySelectorAll('.dt-pick').forEach(function (b) { b.classList.toggle('on', b.dataset.date === dv); });
   }
 
   window.renderTourExtras = function (t, C) {
@@ -710,32 +633,11 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
 
     /* ---- §1 tarixlər ---- */
     var rows = (t.dates && t.dates.length) ? t.dates : [{ range: t.date, price: t.price, seats: t.seats, tag: t.discount }];
-    put('s-dates',
-      '<div class="block-h">' + ICO('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>') + 'Tarixlər və qiymətlər</div>' +
-      '<p class="sec-sub">Tarixi seçin — qiymət və qalan yer sayı avtomatik yenilənir.</p>' +
-      '<div class="dt-card"><div class="dt-scroll"><table class="dt"><thead><tr><th>Tarix</th><th>Qeyd</th><th>Yer vəziyyəti</th><th>Qiymət</th><th></th></tr></thead><tbody>' +
-      rows.map(function (d) {
-        return '<tr><td>' + E(d.range || '[tarix]') + '</td>' +
-          '<td>' + (d.tag ? '<span class="dt-tag">' + E(d.tag) + '</span>' : '—') + '</td>' +
-          '<td class="mut">' + E(d.seats || '[CRM: yer sayı]') + '</td>' +
-          '<td class="p">' + (d.price ? money(d.price) : '[000 AZN]') + '</td>' +
-          '<td class="r"><button class="dt-pick" type="button" data-date="' + E(d.range || '') + '">Seç</button></td></tr>';
-      }).join('') +
-      '</tbody></table></div>' +
-      '<div class="dt-foot"><p>Qiymətlər dinamikdir və məhdud yerlər mövcuddur.</p>' +
-      '<p>Qiymət 2 və ya 3 nəfərlik otaqda 1 nəfər üçün nəzərdə tutulub. Ödənişlər yalnız manatla, günün məzənnəsinə uyğun qəbul edilir.</p></div></div>');
 
     var sel = $('#bookDate'), rq = $('#rqDate');
     var opts = rows.map(function (d) { return '<option>' + E(d.range || '') + '</option>'; }).join('');
     if (sel) { sel.innerHTML = opts; sel.addEventListener('change', sync); }
     if (rq) rq.innerHTML = opts;
-    document.querySelectorAll('.dt-pick').forEach(function (b) {
-      b.addEventListener('click', function () {
-        if (sel) sel.value = b.dataset.date;
-        sync();
-        var sd = $('.side'); if (sd) sd.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-    });
 
     /* ---- §2 daxildir ---- */
     var yes = t.included || ['Aviabilet (gediş–gəliş)', 'Otel', 'Səhər yeməyi', 'Səyahət sığortası'];
@@ -792,14 +694,8 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
       '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/>') + 'Vacib qeydlər və şərtlər</div>' +
       '<div class="notes-card">' + nt.map(function (n) { return '<div class="note-row"><i></i>' + E(n) + '</div>'; }).join('') + '</div>');
 
-    /* ---- §7 faq ---- */
-    var fq = t.faq || [{ q: '[Sual — məzmun tələb olunur]', a: '[Cavab tələb olunur]' }];
-    put('s-faq',
-      '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1-1.3 1.8v.5M12 17h.01"/>') + 'Tez-tez verilən suallar</div>' +
-      fq.map(function (f, i) { return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary><span>' + E(f.q) + '</span></summary><div class="acc-b">' + E(f.a) + '</div></details>'; }).join(''));
 
     /* ---- yan panel ---- */
-    set('tabPrice', PRICE ? money(PRICE) : '[000 AZN]');
     set('bookWarnTxt', 'Məhdud yer — ' + (t.seats || '[CRM: X yer qalıb]'));
 
     /* ---- əlaqə ---- */
@@ -844,31 +740,12 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
     });
   });
 
-  /* aktiv anker */
-  var links = [].slice.call(document.querySelectorAll('.tabs-in a'));
-  function spy() {
-    var best = null, bt = -1e9;
-    links.forEach(function (a) {
-      var el = document.querySelector(a.getAttribute('href'));
-      if (!el) return;
-      var top = el.getBoundingClientRect().top - 170;
-      if (top <= 0 && top > bt) { bt = top; best = a; }
-    });
-    links.forEach(function (a) { a.classList.toggle('on', a === best); });
-  }
-  addEventListener('scroll', spy, { passive: true });
-  addEventListener('load', spy);
 
   window.goReq = function () {
     var el = document.getElementById('s-req'); if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     var f = el.querySelector('input[name=name]'); if (f) setTimeout(function () { f.focus(); }, 600);
   };
-  window.goDates = function () {
-    var el = document.getElementById('s-dates'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  var tb = document.getElementById('tabBook');
-  if (tb) tb.addEventListener('click', window.goReq);
 
   /* göndərmə */
   var form = document.getElementById('reqForm');
