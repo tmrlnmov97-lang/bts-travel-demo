@@ -179,6 +179,18 @@
   @media(max-width:460px){
     .tour-grid{grid-template-columns:1fr}
   }
+
+  /* ===== FİLTRLƏR (Fərdi turlar səhifəsi ilə eyni) ===== */
+  .ft-filters{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+  .ft-sel{display:flex;flex-direction:column;gap:6px;flex:1 1 180px;min-width:150px}
+  .ft-sel>span{color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .ft-sel select{appearance:none;-webkit-appearance:none;width:100%;height:46px;padding:0 38px 0 15px;border-radius:11px;border:1px solid var(--line);color:var(--ink);font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;transition:border-color .2s;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 13px center}
+  .ft-sel select:hover,.ft-sel select:focus{outline:none;border-color:var(--indigo)}
+  .ft-search{flex:0 0 auto;height:46px;padding:0 30px;border:none;border-radius:11px;background:var(--indigo);color:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 12px 26px -12px rgba(53,52,240,.7);transition:background .2s,transform .2s}
+  .ft-search:hover{background:var(--indigo-d);transform:translateY(-1px)}
+  .ft-resultrow{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px}
+  .ft-resultrow .result-line{margin-bottom:0}
+  @media(max-width:620px){ .ft-sel{flex:1 1 100%} .ft-search{width:100%} }
 </style>
 <link rel="stylesheet" href="mobile.css">
 <link rel="stylesheet" href="grid.css">
@@ -223,22 +235,51 @@
 <!-- ===== TOOLBAR ===== -->
 <div class="toolbar" id="toolbar">
   <div class="container">
-    <div class="toolbar-row">
-      <div class="filters" id="filterBar">
-        <button class="chip active" data-cat="all">Bütün turlar</button>
-        <button class="chip" data-cat="Afrika">Afrika turları</button>
-        <button class="chip" data-cat="Amerika">Amerika ölkələri</button>
-        <button class="chip" data-cat="Asiya">Asiya turları</button>
-        <button class="chip" data-cat="Avropa">Avropa turları</button>
-        <button class="chip" data-cat="Passiv">Passiv istirahət</button>
-      </div>
+    <div class="ft-filters">
+      <label class="ft-sel">
+        <span>İstiqamət / Ölkə</span>
+        <select id="fCat">
+          <option value="all">Bütün istiqamətlər</option>
+          <option value="Afrika">Afrika</option>
+          <option value="Amerika">Amerika</option>
+          <option value="Asiya">Asiya</option>
+          <option value="Avropa">Avropa</option>
+          <option value="Passiv">Passiv istirahət</option>
+        </select>
+      </label>
+      <label class="ft-sel">
+        <span>Tarix aralığı</span>
+        <select id="fDate"><option value="all">İstənilən tarix</option></select>
+      </label>
+      <label class="ft-sel">
+        <span>Qiymət</span>
+        <select id="fPrice">
+          <option value="all">Fərq etməz</option>
+          <option value="0-2500">2 500 AZN-ə qədər</option>
+          <option value="2500-4000">2 500 – 4 000 AZN</option>
+          <option value="4000-999999">4 000 AZN-dən yuxarı</option>
+        </select>
+      </label>
+      <label class="ft-sel">
+        <span>Müddət</span>
+        <select id="fDays">
+          <option value="all">Fərq etməz</option>
+          <option value="0-7">7 günə qədər</option>
+          <option value="8-10">8–10 gün</option>
+          <option value="11-99">11 gün və daha çox</option>
+        </select>
+      </label>
+      <button class="ft-search" id="fSearch" type="button">Axtar</button>
+    </div>
+    <div class="ft-resultrow">
+      <div class="result-line"><b id="resCount">0 tur</b><span id="resLabel">— bütün istiqamətlər</span></div>
       <div class="sortwrap">
-        <label for="sortSel">Sıralama</label>
+        <label for="sortSel">Sırala:</label>
         <select class="sortsel" id="sortSel">
+          <option value="date">Tarixə görə</option>
           <option value="featured">Tövsiyə olunan</option>
           <option value="price-asc">Qiymət: aşağıdan yuxarı</option>
           <option value="price-desc">Qiymət: yuxarıdan aşağı</option>
-          <option value="date">Tarixə görə</option>
         </select>
       </div>
     </div>
@@ -248,7 +289,6 @@
 <!-- ===== GRID ===== -->
 <section class="grid-wrap">
   <div class="container">
-    <div class="result-line"><b id="resCount">13 tur</b><span id="resLabel">— bütün istiqamətlər</span></div>
     <div class="tour-grid" id="tourGrid"></div>
   </div>
 </section>
@@ -316,7 +356,6 @@ function _slug(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,'i
 var tours = [
   { name:'Benelüks turu', date:'4–12 İyul, 2026', dateKey:20260704, price:3290, badge:'SON 1 YER', status:'last', cat:'Avropa', src:'https://images.unsplash.com/photo-1459679749680-18eb1eb37418?w=900&q=80&auto=format&fit=crop' },
   { name:'Skandinaviya turu', date:'13–19 İyul, 2026', dateKey:20260713, price:2950, badge:'4 YER QALIB', status:'open', cat:'Avropa', src:'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=900&q=80&auto=format&fit=crop' },
-  { name:'Fransız Rivierası turu', date:'21–31 İyul, 2026', dateKey:20260721, price:3290, badge:'YER QALMAYIB', status:'sold', cat:'Avropa', src:'https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=900&q=80&auto=format&fit=crop' },
   { name:'Roma–Milan–Paris turu', date:'8–15 Avqust, 2026', dateKey:20260808, price:2790, badge:'9 YER QALIB', status:'open', cat:'Avropa', url:'Tur — Roma-Milan-Paris.html', src:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&q=80&auto=format&fit=crop' },
   { name:'Budapeşt–Praqa–Vyana turu', date:'22–30 Avqust, 2026', dateKey:20260822, price:2380, badge:'9 YER QALIB', status:'open', cat:'Avropa', src:'https://images.unsplash.com/photo-1541849546-216549ae216d?w=900&q=80&auto=format&fit=crop' },
   { name:'ABŞ turu', date:'8–18 Avqust, 2026', dateKey:20260808, price:5280, badge:'SON 3 YER', status:'last', cat:'Amerika', src:'https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=900&q=80&auto=format&fit=crop' },
@@ -335,12 +374,41 @@ const dotColor = s => s==='last' ? '#E53935' : s==='sold' ? '#9AA3B0' : '#3534F0
 const badgeBg = s => s==='last' ? '#E5392F' : s==='sold' ? '#8A93A3' : '#3534F0';
 const fmtPrice = p => p.toLocaleString('ru-RU').replace(/,/g,' ') + ' AZN';
 
-let activeCat = 'all';
-let activeSort = 'featured';
+let activeSort = 'date';
+const F = { cat:'all', ym:'all', price:'all', days:'all' };
+const AY = ['Yanvar','Fevral','Mart','Aprel','May','İyun','İyul','Avqust','Sentyabr','Oktyabr','Noyabr','Dekabr'];
+
+/* müddət: "4–12 İyul, 2026" -> 9 gün */
+function daysOf(t){
+  const m = String(t.date||'').match(/^(\d+)\s*[–—-]\s*(\d+)/);
+  if (!m) return null;
+  const d = (+m[2]) - (+m[1]) + 1;
+  return d > 0 ? d : null;
+}
+function ymOf(t){ return t.dateKey ? String(t.dateKey).slice(0,6) : null; }
+
+function applyFilters(list){
+  return list.filter(function(t){
+    if (F.cat !== 'all' && t.cat !== F.cat) return false;
+    if (F.ym !== 'all' && ymOf(t) !== F.ym) return false;
+    if (F.price !== 'all'){
+      const p = F.price.split('-').map(Number);
+      if (!(t.price >= p[0] && t.price < p[1])) return false;
+    }
+    if (F.days !== 'all'){
+      const d = daysOf(t);
+      if (d === null) return false;
+      const g = F.days.split('-').map(Number);
+      if (!(d >= g[0] && d <= g[1])) return false;
+    }
+    return true;
+  });
+}
 
 function render(){
   const grid = document.getElementById('tourGrid');
-  let list = activeCat === 'all' ? tours.slice() : tours.filter(t => t.cat === activeCat);
+  if (!grid) return;
+  let list = applyFilters((window.tours || []).slice());
 
   if (activeSort === 'price-asc')  list.sort((a,b)=>a.price-b.price);
   if (activeSort === 'price-desc') list.sort((a,b)=>b.price-a.price);
@@ -349,59 +417,76 @@ function render(){
 
   grid.innerHTML = '';
   if (!list.length){
-    grid.innerHTML = '<div class="empty-msg">Bu kateqoriyada hələ tur yoxdur. Tezliklə əlavə olunacaq.</div>';
+    grid.innerHTML = '<div class="empty-msg">Bu şərtlərə uyğun tur tapılmadı. Filtri dəyişin.</div>';
   } else {
-    list.forEach((t,i)=>{
+    list.forEach(function(t, i){
       const card = document.createElement('div');
       card.className = 'tcard reveal' + (t.status==='sold' ? ' sold' : '');
-      if(t.status!=='sold') card.addEventListener('click',()=>location.href='tur.html?id='+_slug(t.name));
+      if (t.status!=='sold') card.addEventListener('click', ()=> location.href = 'tur.html?id=' + _slug(t.name));
       card.style.transitionDelay = (i*45) + 'ms';
       const showBadge = t.status === 'sold';
-      card.innerHTML = `
-        <div class="tcard-media">
-          <img class="tcard-img" src="${t.src}" alt="${t.name}" loading="lazy">
-          ${showBadge ? `<span class="tcard-badge" style="background:${badgeBg(t.status)}"><span class="badge-dot"></span><span class="badge-text">${t.badge}</span></span>` : ''}
-        </div>
-        <div class="tcard-body">
-          <div class="tcard-region"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6B7685" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${regionLabel[t.cat]} · ${t.date}</div>
-          <h3 class="tcard-name">${t.name}</h3>
-          <div class="tcard-divider"></div>
-          <div class="tcard-foot">
-            <div class="tcard-price">${fmtPrice(t.price)}</div>
-            <span class="tcard-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D2035" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>`;
+      card.innerHTML =
+        '<div class="tcard-media">' +
+          '<img class="tcard-img" src="' + t.src + '" alt="' + t.name + '" loading="lazy">' +
+          (showBadge ? '<span class="tcard-badge" style="background:' + badgeBg(t.status) + '"><span class="badge-dot"></span><span class="badge-text">' + t.badge + '</span></span>' : '') +
+        '</div>' +
+        '<div class="tcard-body">' +
+          '<div class="tcard-region"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6B7685" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' + regionLabel[t.cat] + ' · ' + t.date + '</div>' +
+          '<h3 class="tcard-name">' + t.name + '</h3>' +
+          '<div class="tcard-divider"></div>' +
+          '<div class="tcard-foot">' +
+            '<div class="tcard-price">' + fmtPrice(t.price) + '</div>' +
+            '<span class="tcard-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D2035" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
+          '</div>' +
+        '</div>';
       grid.appendChild(card);
     });
   }
 
-  const n = list.length;
-  document.getElementById('resCount').textContent = n + ' tur';
-  document.getElementById('resLabel').textContent = activeCat==='all' ? '— bütün istiqamətlər' : '— ' + catNames[activeCat];
-
+  document.getElementById('resCount').textContent = list.length + ' tur';
+  document.getElementById('resLabel').textContent = '— ' + (catNames[F.cat] || 'bütün istiqamətlər');
   revealInView();
 }
 
-function setCat(cat){
-  activeCat = cat;
-  document.querySelectorAll('#filterBar .chip').forEach(x=>x.classList.toggle('active', x.dataset.cat===cat));
-  render();
+/* tarix seçimlərini mövcud turlardan qururuq */
+function buildDateOptions(){
+  const sel = document.getElementById('fDate');
+  if (!sel) return;
+  const cur = sel.value || 'all';
+  const seen = {};
+  (window.tours || []).forEach(function(t){ const y = ymOf(t); if (y) seen[y] = 1; });
+  const opts = Object.keys(seen).sort();
+  sel.innerHTML = '<option value="all">İstənilən tarix</option>' +
+    opts.map(function(v){ return '<option value="' + v + '">' + AY[+v.slice(4,6)-1] + ' ' + v.slice(0,4) + '</option>'; }).join('');
+  sel.value = opts.indexOf(cur) > -1 ? cur : 'all';
 }
 
-// region chip counts + handlers
-document.querySelectorAll('#filterBar .chip').forEach(chip=>{
-  const cat = chip.dataset.cat;
-  const c = cat==='all' ? tours.length : tours.filter(t=>t.cat===cat).length;
-  const s = document.createElement('span'); s.className='cnt'; s.textContent=c; chip.appendChild(s);
-  chip.addEventListener('click', ()=> setCat(cat));
-});
-document.getElementById('sortSel').addEventListener('change', e=>{ activeSort = e.target.value; render(); });
+function bindFilters(){
+  const map = { fCat:'cat', fDate:'ym', fPrice:'price', fDays:'days' };
+  Object.keys(map).forEach(function(id){
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('change', function(){ F[map[id]] = el.value; render(); });
+  });
+  const btn = document.getElementById('fSearch');
+  if (btn) btn.addEventListener('click', function(){ render(); });
+  const ss = document.getElementById('sortSel');
+  if (ss) ss.addEventListener('change', function(e){ activeSort = e.target.value; render(); });
+}
 
-// preselect category from ?cat= param
+/* ?cat= ilə gələn kateqoriyanı seçirik */
 const _params = new URLSearchParams(location.search);
 const _cat = _params.get('cat');
-if (_cat && catNames[_cat]) activeCat = _cat;
-document.querySelectorAll('#filterBar .chip').forEach(x=>x.classList.toggle('active', x.dataset.cat===activeCat));
+if (_cat && catNames[_cat]) F.cat = _cat;
+
+buildDateOptions();
+bindFilters();
+const _fc = document.getElementById('fCat');
+if (_fc) _fc.value = F.cat;
+
+/* cms.js kataloqu yüklədikdən sonra tarix siyahısını yeniləyirik */
+const _origRender = render;
+window.render = function(){ buildDateOptions(); _origRender(); };
 
 /* Reveal-on-scroll */
 function revealNow(el){ el.classList.add('in'); const clean=()=>{el.classList.remove('reveal','in');el.style.transitionDelay='';}; el.addEventListener('transitionend',clean,{once:true}); setTimeout(clean,1100); }

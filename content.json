@@ -137,23 +137,6 @@
       "desc": "Budapeşt · Praqa · Vyana — 9 gün ərzində diqqətlə qurulmuş marşrut. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə unudulmaz təcrübə."
     },
     {
-      "id": "fransiz-rivierasi-turu",
-      "name": "Fransız Rivierası turu",
-      "cat": "Avropa",
-      "date": "21–31 İyul, 2026",
-      "price": 3290,
-      "oldPrice": 0,
-      "discount": "",
-      "seats": "Yer qalmayıb",
-      "status": "sold",
-      "image": "https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=1400&q=80&auto=format&fit=crop",
-      "cities": "Nitsa · Kann · Monako",
-      "days": "6 gün",
-      "featured": false,
-      "timer": 0,
-      "desc": "Nitsa · Kann · Monako — 6 gün ərzində diqqətlə qurulmuş marşrut. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə unudulmaz təcrübə."
-    },
-    {
       "id": "abs-turu",
       "name": "ABŞ turu",
       "cat": "Amerika",
