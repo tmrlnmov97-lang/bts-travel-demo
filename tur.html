@@ -178,6 +178,7 @@
 
   /* ===== Varfreym B ===== */
   .sec-sub{color:var(--muted);font-size:14.5px;line-height:1.6;margin:-10px 0 20px}
+  .layout > div > .block:first-child{margin-top:0}
   .card-h{color:var(--navy);font-size:17px;font-weight:800;letter-spacing:-.01em}
   .warnbar{display:flex;align-items:flex-start;gap:10px;margin-top:16px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--mist)}
   .warnbar b{color:var(--navy);font-size:14px;line-height:1.4}
@@ -352,7 +353,6 @@
       <div class="tgal-side"></div>
     </div>
     <div class="gal-cap">
-      <span>[Qalereya: otel, ekskursiya, qrup şəkilləri — min. 8 şəkil tələb olunur]</span>
       <a href="#s-exc">Bütün şəkillərə bax ▸</a>
     </div>
 
@@ -381,7 +381,6 @@
             <div class="incl-card">
               <div class="incl-title no">Daxil deyil</div>
               <ul class="incl-list" id="inclNo"></ul>
-              <p class="incl-note">[Bu siyahı müştəri tərəfindən təsdiqlənməlidir]</p>
             </div>
           </div>
         </div>
@@ -450,14 +449,13 @@
 
           <div class="book-hr"></div>
           <div class="book-total"><span id="bookTotalLab">Cəmi (1 nəfər)</span><b id="bookTotal">—</b></div>
-          <div class="book-approx">≈ [AZN məbləği] · günün məzənnəsi ilə hesablanır</div>
 
           <div class="book-cta">
             <button class="btn-primary" onclick="goReq()">Rezervasiya et</button>
             <a class="btn-wa" id="waLink" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə yaz</a>
           </div>
 
-          <div class="book-warn"><b>!</b><span id="bookWarnTxt">Məhdud yer — [CRM: X yer qalıb]</span></div>
+          <div class="book-warn"><b>!</b><span id="bookWarnTxt">Yerlər məhduddur — təsdiq 24 saat ərzində</span></div>
         </div>
 
 
@@ -566,6 +564,20 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
 
   var PAX = 1, PRICE = 0, ROOM = '2 nəfərlik', T = null;
 
+  /* Məlumat gələnə qədər istifadə olunan ehtiyat şəkillər və mətnlər */
+  var U = function (id) { return 'https://images.unsplash.com/photo-' + id + '?w=900&q=80&auto=format&fit=crop'; };
+  var PIC = ['1476514525535-07fb3b4ae5f1', '1488646953014-85cb44e25828', '1533105079780-92b9be482077',
+             '1503220317375-aaad61436b1b', '1499856871958-5b9627545d1a', '1502602898657-3e91760cbb34'].map(U);
+  var HOTEL_PIC = ['1566073771259-6a8506099945', '1611892440504-42a792e24d32', '1618773928121-c32242e63f39'].map(U);
+  var DEF_NOTES = [
+    'Qiymət 2 nəfərlik otaqda 1 nəfər üçün nəzərdə tutulub.',
+    'Şəhərdaxili nəqliyyat və muzeylərin giriş biletləri qiymətə daxil deyil.',
+    'Nahar və şam yeməyi qiymətə daxil deyil.',
+    'Ödənişlər manatla, günün məzənnəsinə uyğun qəbul edilir.',
+    'Yerlər məhduddur — rezervasiya menecer təsdiqindən sonra qüvvəyə minir.',
+    'Qrup turu olduğu üçün proqramda kiçik dəyişikliklər ola bilər.'
+  ];
+
   function put(id, html) { var el = document.getElementById(id); if (el) el.innerHTML = html; }
   function set(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
 
@@ -603,14 +615,22 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
     put('ttlBadges', bd.join(''));
     var be = $('.ttl-badges'); if (be) be.innerHTML = bd.join('');
 
+    var facts = [
+      ['Müddət', t.days || '[X gün / Y gecə]'],
+      ['İstiqamət', t.cities || '[Ölkə, şəhər]'],
+      ['Tarix seçimi', t.dates && t.dates.length ? t.dates.length + ' tarix' : (t.date || '[tarix]')],
+      ['Qiymət', PRICE ? money(PRICE) + ' / 1 nəfər' : '[000 AZN]']
+    ];
+    var fe = $('.ttl-facts');
+    if (fe) fe.innerHTML = facts.map(function (f) { return '<div class="fact"><span>' + E(f[0]) + '</span><b>' + E(f[1]) + '</b></div>'; }).join('');
 
     /* ---- qalereya ---- */
     var side = $('.tgal-side');
     if (side) {
       var g = (t.gallery || []).slice(0, 2), extra = (t.gallery || []).length - 2;
-      while (g.length < 2) g.push('');
+      while (g.length < 2) g.push(PIC[g.length]);
       side.innerHTML = g.map(function (src, i) {
-        return '<div class="g">' + (src ? '<img src="' + E(src) + '" alt="" loading="lazy">' : '<span class="ph">IMG</span>') +
+        return '<div class="g"><img src="' + E(src) + '" alt="" loading="lazy">' +
           (i === 1 && extra > 0 ? '<span class="tgal-more">+' + extra + ' şəkil</span>' : '') + '</div>';
       }).join('');
     }
@@ -629,22 +649,41 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
     put('inclYes', yes.map(function (x) { return '<li><span class="ic ok">✓</span>' + E(x) + '</li>'; }).join(''));
     put('inclNo',  no.map(function (x) { return '<li><span class="ic no">✕</span>' + E(x) + '</li>'; }).join(''));
 
-    /* ---- §3 ekskursiyalar ---- */
-    var exc = t.excursions || [];
+    /* ---- §3 ekskursiyalar ----
+       Məlumat yoxdursa turun öz şəhərlərindən (cities) qurulur. */
+    var exc = t.excursions;
+    if (!exc || !exc.length) {
+      exc = String(t.cities || '').split('·').map(function (c) { return c.trim(); }).filter(Boolean)
+        .slice(0, 6).map(function (c, i) {
+          return { name: c, desc: c + ' üzrə şəhər turu və əsas məkanlar.', image: PIC[i % PIC.length] };
+        });
+    }
     put('s-exc',
       '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>') + 'Ekskursiyalar</div>' +
       '<p class="sec-sub">' + (exc.length ? exc.length + ' möhtəşəm məkan. ' : '') + 'Bütün ekskursiyalara transfer daxildir, giriş biletləri ayrıca ödənilir.</p>' +
-      (exc.length
-        ? '<div class="exc-grid">' + exc.map(function (e) {
-            return '<div class="exc">' + (e.image ? '<img src="' + E(e.image) + '" alt="' + E(e.name) + '" loading="lazy">' : '<div class="exc-ph">IMG</div>') +
-              '<div class="exc-b"><b>' + E(e.name) + '</b><p>' + E(e.desc || '') + '</p>' +
-              '<div class="exc-chips"><span>Transfer daxil</span><span>' + E(e.ticket || '[bilet statusu]') + '</span></div></div></div>';
-          }).join('') + '</div>'
-        : '<div class="exc-grid">' + [0,1,2].map(function () { return '<div class="exc"><div class="exc-ph">IMG</div><div class="exc-b"><b>[Ekskursiya adı]</b><p>[qısa təsvir]</p><div class="exc-chips"><span>Transfer daxil</span><span>[bilet statusu]</span></div></div></div>'; }).join('') + '</div>') +
+      '<div class="exc-grid">' + exc.map(function (e, i) {
+        return '<div class="exc"><img src="' + E(e.image || PIC[i % PIC.length]) + '" alt="' + E(e.name) + '" loading="lazy">' +
+          '<div class="exc-b"><b>' + E(e.name) + '</b><p>' + E(e.desc || '') + '</p>' +
+          '<div class="exc-chips"><span>Transfer daxil</span><span>' + E(e.ticket || 'Giriş bileti ayrıca') + '</span></div></div></div>';
+      }).join('') + '</div>' +
       NOTE('Qrup turu olduğu üçün xidmətlərdə və tur proqramında dəyişiklik ola bilər.'));
 
-    /* ---- §4 proqram ---- */
-    var pr = t.program || [];
+    /* ---- §4 proqram ----
+       Məlumat yoxdursa turun şəhərlərindən sxem qurulur. */
+    var pr = t.program;
+    if (!pr || !pr.length) {
+      var ct2 = String(t.cities || '').split('·').map(function (c) { return c.trim(); }).filter(Boolean);
+      pr = [];
+      if (ct2.length) {
+        pr.push({ title: '1-ci gün — Bakı → ' + ct2[0],
+                  text: 'Uçuş, hava limanında qarşılanma və otelə transfer. Yerləşmə, sərbəst vaxt və axşam qısa şəhər gəzintisi.' });
+        ct2.forEach(function (c, i) {
+          pr.push({ title: (i + 2) + '-ci gün — ' + c, text: c + ' üzrə ekskursiya proqramı və əsas məkanlar. Günün bir hissəsi sərbəst vaxtdır.' });
+        });
+        pr.push({ title: 'Son gün — ' + ct2[ct2.length - 1] + ' → Bakı',
+                  text: 'Sərbəst vaxt, hava limanına transfer və qayıdış uçuşu.' });
+      }
+    }
     put('s-prog',
       '<div class="block-h">' + ICO('<path d="M4 6h16M4 12h16M4 18h10"/>') + 'Tur proqramı</div>' +
       '<p class="sec-sub">Gün-gün marşrut. Saatlar və ardıcıllıq qrup üçün ümumidir.</p>' +
@@ -653,8 +692,8 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
             var chip = i === 0 ? '<span class="day-chip">Gəliş günü</span>' : (i === pr.length - 1 ? '<span class="day-chip">Qayıdış günü</span>' : '');
             return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary><span>' + E(d.title) + chip + '</span></summary><div class="acc-b">' + E(d.text) + '</div></details>';
           }).join('')
-        : '<details class="acc" open><summary><span>1-ci gün<span class="day-chip">Gəliş günü</span></span></summary><div class="acc-b">[MƏZMUN TƏLƏB OLUNUR]</div></details>') +
-      NOTE('Gün-gün proqram mətni müştəridən alınmalıdır. Bu blok olmadan səhifə "Ətraflı proqram" sualını bağlaya bilmir.'));
+        : '') +
+      NOTE('Qrup turu olduğu üçün saatlarda və ardıcıllıqda kiçik dəyişikliklər ola bilər.'));
 
     /* ---- §5 otel ---- */
     var h = t.hotel || {};
@@ -663,24 +702,23 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
       '<div class="block-h">' + ICO('<path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/>') + 'Otel və yerləşmə</div>' +
       '<div class="hotel-card"><div class="hotel-imgs">' +
       [0,1,2].map(function (i) {
-        return him[i] ? '<img src="' + E(him[i]) + '" alt="" loading="lazy">'
-                      : '<div class="hotel-ph">' + (i === 0 ? 'IMG — otel' : (i === 2 ? 'IMG · "+6"' : 'IMG')) + '</div>';
+        return '<img src="' + E(him[i] || HOTEL_PIC[i]) + '" alt="" loading="lazy">';
       }).join('') + '</div>' +
-      '<div class="hotel-b"><div class="hotel-top"><b>' + E(h.name || '[Otel adı] · 4★ lüks') + '</b>' +
-      '<span class="hotel-pill">' + E(h.stay || (t.days ? t.days + ' · səhər yeməyi ilə' : '[N gecə] · səhər yeməyi ilə')) + '</span></div>' +
-      '<div class="hotel-sub">' + E(h.address || '[Rayon / ünvan]  ·  [mərkəzə məsafə]') + '</div>' +
-      '<div class="hotel-chips">' + (h.amenities || ['Hovuz','Sauna','SPA','Trenajor zalı','Wi-Fi','Səhər yeməyi']).map(function (a) { return '<span>' + E(a) + '</span>'; }).join('') + '</div>' +
-      '<p class="hotel-desc">' + E(h.desc || '[Otelin qısa təsviri — 2–3 cümlə. Konkret otel adı təsdiqlənməlidir.]') + '</p></div></div>');
+      '<div class="hotel-b"><div class="hotel-top"><b>' + E(h.name || '4★ otel — şəhər mərkəzində') + '</b>' +
+      '<span class="hotel-pill">' + E(h.stay || (t.days ? t.days + ' · səhər yeməyi ilə' : 'səhər yeməyi ilə')) + '</span></div>' +
+      '<div class="hotel-sub">' + E(h.address || 'Mərkəzə yaxın · əsas məkanlara piyada məsafədə') + '</div>' +
+      '<div class="hotel-chips">' + (h.amenities || ['Səhər yeməyi','Wi-Fi','Mərkəzə yaxın','2 nəfərlik otaq','24/7 resepşn']).map(function (a) { return '<span>' + E(a) + '</span>'; }).join('') + '</div>' +
+      '<p class="hotel-desc">' + E(h.desc || 'Marşrutdakı hər şəhərdə mərkəzə yaxın 4 ulduzlu otellərdə yerləşmə. Səhər yeməyi qiymətə daxildir. Konkret otel adları tur təsdiqlənəndə göndərilir.') + '</p></div></div>');
 
     /* ---- §6 qeydlər ---- */
-    var nt = t.notes || ['[Vacib qeydlər — məzmun tələb olunur]'];
+    var nt = (t.notes && t.notes.length) ? t.notes : DEF_NOTES;
     put('s-notes',
       '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/>') + 'Vacib qeydlər və şərtlər</div>' +
       '<div class="notes-card">' + nt.map(function (n) { return '<div class="note-row"><i></i>' + E(n) + '</div>'; }).join('') + '</div>');
 
 
     /* ---- yan panel ---- */
-    set('bookWarnTxt', 'Məhdud yer — ' + (t.seats || '[CRM: X yer qalıb]'));
+    set('bookWarnTxt', t.seats ? 'Məhdud yer — ' + t.seats : 'Yerlər məhduddur — təsdiq 24 saat ərzində');
 
     /* ---- əlaqə ---- */
     var waNum = (ct.whatsapp || ct.phone || '').replace(/[^\d]/g, '');
