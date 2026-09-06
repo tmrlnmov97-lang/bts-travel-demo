@@ -176,205 +176,184 @@
     .footer-grid{grid-template-columns:1fr}
   }
 
-  /* ===== TURA QEYDIYYAT (modal) ===== */
-  .reg-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(13,32,53,.55);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
-  .reg-overlay.open{opacity:1;visibility:visible}
-  .reg-sheet{position:relative;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:#fff;border-radius:24px;padding:clamp(28px,4vw,42px);box-shadow:0 50px 100px -40px rgba(13,32,53,.6);transform:translateY(16px) scale(.985);transition:transform .35s var(--ease)}
-  .reg-overlay.open .reg-sheet{transform:none}
-  .reg-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:none;border-radius:11px;background:#F4F6FB;color:#5E6B7D;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s}
-  .reg-close:hover{background:#E8EBF2;color:#0D2035}
-  .reg-head{margin-bottom:20px;padding-right:30px}
-  .reg-eyebrow{display:inline-block;color:#3534F0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-  .reg-title{color:#0D2035;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(30px,3.8vw,42px);line-height:1.1;letter-spacing:-.01em;margin-top:8px}
-  .reg-meta{color:#5E6B7D;font-size:14px;font-weight:500;margin-top:8px}
-  .reg-field{display:block;margin-bottom:15px}
-  .reg-field .fl{display:block;color:#0D2035;font-size:14px;font-weight:700;margin-bottom:8px}
-  .reg-field .fl .req{color:#E5484D;font-style:normal}
-  .reg-field input{width:100%;padding:15px 17px;border:1.5px solid transparent;border-radius:14px;background:#F4F6FB;color:#0D2035;font-family:inherit;font-size:15px;transition:border-color .2s,background .2s}
-  .reg-field input:focus{outline:none;border-color:#3534F0;background:#fff}
-  .reg-field input::placeholder{color:#AEB6C2;transition:color .2s}
-  .reg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .reg-upload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:30px 16px;border:1.6px dashed #CFD6E2;border-radius:16px;background:#F8FAFC;cursor:pointer;text-align:center;transition:border-color .2s,background .2s}
-  .reg-upload:hover{border-color:#3534F0;background:#F4F6FB}
-  .reg-upload b{color:#0D2035;font-size:15px;font-weight:700}
-  .reg-upload .uhint{color:#97A0AE;font-size:12.5px}
-  .reg-upload input[type=file]{display:none}
-  .reg-err-msg{display:none;color:#E5484D;font-size:12px;font-weight:600;margin-top:6px}
-  .reg-field.err input{border-color:#E5484D;background:#FEF2F2}
-  .reg-field.err input::placeholder{color:#E5484D}
-  .reg-field.err .reg-err-msg{display:block}
-  #regForm .reg-submit{width:100%;margin-top:6px}
-  @media(max-width:520px){.reg-row{grid-template-columns:1fr}}
-  .reg-submit{position:relative;height:54px;border:none;border-radius:14px;background:#3534F0;color:#fff;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 16px 34px -16px rgba(53,52,240,.8);transition:transform .2s,background .2s;margin-top:4px}
-  .reg-submit:hover{transform:translateY(-2px);background:#2725C7}
-  .reg-submit:disabled{cursor:default;transform:none;opacity:.92}
-  .reg-submit .reg-spin{display:none;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:regSpin .7s linear infinite;vertical-align:-4px}
-  .reg-submit.loading .reg-btn-text{display:none}
-  .reg-submit.loading .reg-spin{display:inline-block}
-  @keyframes regSpin{to{transform:rotate(360deg)}}
-  .reg-note{color:#97A0AE;font-size:12px;line-height:1.5;text-align:center}
-  .reg-result{display:none;flex-direction:column;align-items:center;text-align:center;padding:18px 6px 6px}
-  .reg-result.show{display:flex;animation:regFade .4s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes regFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  .reg-badge{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:22px;animation:regPop .5s cubic-bezier(.2,1.3,.5,1) both}
-  @keyframes regPop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
-  .reg-badge.ok{background:#1FA463;box-shadow:0 16px 34px -16px rgba(31,164,99,.7)}
-  .reg-badge.err{background:#E5484D;box-shadow:0 16px 34px -16px rgba(229,72,77,.7);animation:regPop .5s cubic-bezier(.2,1.3,.5,1) both,regShake .5s .35s ease both}
-  @keyframes regShake{0%,100%{margin-left:0}15%{margin-left:-9px}30%{margin-left:8px}45%{margin-left:-6px}60%{margin-left:5px}75%{margin-left:-3px}}
-  .reg-badge svg path,.reg-badge svg line{stroke-dasharray:48;stroke-dashoffset:48;animation:regDraw .45s .25s cubic-bezier(.2,.7,.2,1) forwards}
-  .reg-badge.err svg line:last-child{animation-delay:.42s}
-  @keyframes regDraw{to{stroke-dashoffset:0}}
-  .reg-result h3{color:#0D2035;font-family:'Playfair Display',serif;font-weight:600;font-size:26px;letter-spacing:-.01em}
-  .reg-result p{color:#5E6B7D;font-size:14.5px;line-height:1.6;margin:12px 0 26px;max-width:36ch}
-  .reg-result .reg-actions{display:flex;gap:12px;width:100%}
-  .reg-result .reg-submit{flex:1;margin-top:0}
-  .reg-retry{flex:1;height:54px;border:1.5px solid #E8EBF2;border-radius:14px;background:#fff;color:#0D2035;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:border-color .2s,background .2s}
-  .reg-retry:hover{border-color:#3534F0;background:#F4F6FB}
+  /* ===== Varfreym B ===== */
+  .sec-sub{color:var(--muted);font-size:14.5px;line-height:1.6;margin:-10px 0 20px}
+  .card-h{color:var(--navy);font-size:17px;font-weight:800;letter-spacing:-.01em}
+  .warnbar{display:flex;align-items:flex-start;gap:10px;margin-top:16px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--mist)}
+  .warnbar b{color:var(--navy);font-size:14px;line-height:1.4}
+  .warnbar span{color:var(--muted);font-size:13.5px;line-height:1.5}
 
-  /* ===== TUR SƏHİFƏSİ — varfreym B ===== */
-  .tgal{display:grid;grid-template-columns:2fr 1fr;gap:14px}
-  .tgal .hero-media{aspect-ratio:16/10}
+  .tgal{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:10px}
+  .tgal .hero-media{aspect-ratio:16/9}
+  .tgal .hero-media::after{display:none}
   .tgal-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}
-  .tgal-side .g{position:relative;border-radius:18px;overflow:hidden;background:var(--mist);border:1px solid var(--line)}
+  .tgal-side .g{position:relative;border-radius:18px;overflow:hidden;background:var(--mist);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
   .tgal-side .g img{width:100%;height:100%;object-fit:cover;display:block}
+  .tgal-side .ph{color:var(--muted2);font-size:12px;font-weight:700}
   .tgal-more{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,32,53,.5);color:#fff;font-size:15px;font-weight:800}
+  .gal-cap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+  .gal-cap span{color:var(--muted2);font-size:12.5px}
+  .gal-cap a{color:var(--navy);font-size:13px;font-weight:700}
   @media(max-width:760px){.tgal{grid-template-columns:1fr}.tgal-side{grid-template-columns:1fr 1fr;grid-template-rows:none}}
 
-  .ttl-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-  .ttl-badges span{padding:6px 12px;border-radius:999px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-  .ttl-badges span.ghost{background:var(--mist);border:1px solid var(--line);color:var(--muted)}
-  .ttl-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
-  .fact{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff}
-  .fact span{display:block;color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-  .fact b{display:block;color:var(--navy);font-size:16px;font-weight:800;margin-top:5px;letter-spacing:-.01em}
-  @media(max-width:860px){.ttl-facts{grid-template-columns:1fr 1fr}}
-  .ttl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
-  .ttl-cta .btn-primary,.ttl-cta .btn-wa{width:auto;padding:0 26px}
-  .ttl-cta small{color:var(--muted2);font-size:12.5px;font-weight:600}
+  .ttl-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .ttl-badges span{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:11.5px;font-weight:700}
+  .ttl-badges span.solid{background:var(--navy);border-color:var(--navy);color:#fff;letter-spacing:.05em;text-transform:uppercase}
+  .ttl-lead{max-width:70ch;color:var(--muted);font-size:16px;line-height:1.65;margin-top:16px}
+  .ttl-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:26px}
+  .fact{border:1px solid var(--line);border-radius:12px;padding:14px 17px;background:#fff}
+  .fact span{display:block;color:var(--muted2);font-size:12px;font-weight:600}
+  .fact b{display:block;color:var(--navy);font-size:16.5px;font-weight:800;margin-top:6px;letter-spacing:-.01em}
+  @media(max-width:900px){.ttl-facts{grid-template-columns:1fr 1fr}}
+  .ttl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px}
+  .ttl-cta .btn-primary{width:auto;padding:0 26px}
+  .ttl-cta .btn-wa{width:auto;padding:0 26px;justify-content:center}
+  .ttl-cta small{color:var(--muted2);font-size:13px}
 
-  .tabs{position:sticky;top:88px;z-index:40;margin:26px calc(var(--gutter) * -1) 0;padding:0 var(--gutter);background:rgba(244,246,251,.92);backdrop-filter:blur(14px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .tabs-in{display:flex;align-items:center;gap:26px;overflow-x:auto;scrollbar-width:none}
+  .tabs{position:sticky;top:88px;z-index:40;margin:30px calc(var(--gutter) * -1) 0;padding:0 var(--gutter);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs-in{display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none}
   .tabs-in::-webkit-scrollbar{display:none}
-  .tabs-in a{padding:16px 0;color:var(--muted);font-size:13.5px;font-weight:700;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
-  .tabs-in a:hover{color:var(--navy);border-color:var(--indigo)}
-  .tabs-cta{margin-left:auto;display:flex;align-items:center;gap:12px;padding:9px 0}
-  .tabs-cta b{color:var(--navy);font-size:15px;font-weight:800;white-space:nowrap}
-  .tabs-cta button{height:40px;padding:0 20px;border:none;border-radius:11px;background:var(--indigo);color:#fff;font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap}
-  .tabs-cta button:hover{background:var(--indigo-d)}
+  .tabs-in a{padding:17px 0;color:var(--muted);font-size:13.5px;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent}
+  .tabs-in a:hover{color:var(--navy)}
+  .tabs-in a.on{color:var(--navy);font-weight:800;border-color:var(--navy)}
+  .tabs-cta{margin-left:auto;padding:10px 0}
+  .tabs-cta button{height:42px;padding:0 22px;border:none;border-radius:11px;background:var(--navy);color:#fff;font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap}
+  .tabs-cta button:hover{background:#0A1929}
   @media(max-width:900px){.tabs{top:78px}.tabs-cta{display:none}}
 
+  .dt-card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
   .dt-scroll{overflow-x:auto}
-  .dt{width:100%;min-width:520px;border-collapse:collapse}
-  .dt th{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-  .dt td{padding:14px 12px;border-bottom:1px solid var(--line);color:var(--ink);font-size:14.5px;font-weight:600;white-space:nowrap}
-  .dt tr:last-child td{border-bottom:none}
-  .dt .r{text-align:right}
-  .dt .p{color:var(--indigo);font-size:17px;font-weight:800}
-  .dt-tag{display:inline-flex;padding:5px 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--muted);font-size:11.5px;font-weight:700}
-  .dt-pick{height:36px;padding:0 16px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
-  .dt-pick:hover{background:var(--indigo);border-color:var(--indigo);color:#fff}
-  .dt-note{color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:14px}
+  .dt{width:100%;min-width:560px;border-collapse:collapse}
+  .dt th{text-align:left;padding:13px 18px;background:var(--mist);border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;font-weight:600}
+  .dt td{padding:16px 18px;border-bottom:1px solid var(--line);color:var(--navy);font-size:15px;font-weight:700;white-space:nowrap}
+  .dt td.mut{color:var(--muted2);font-size:13px;font-weight:500}
+  .dt td.p{font-size:17px;font-weight:800}
+  .dt td.r{text-align:right}
+  .dt-tag{display:inline-flex;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:600}
+  .dt-pick{height:36px;padding:0 18px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+  .dt-pick:hover{border-color:var(--navy)}
+  .dt-pick.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .dt-foot{padding:16px 18px;background:var(--mist)}
+  .dt-foot p{color:var(--muted);font-size:13px;line-height:1.55}
+  .dt-foot p+p{color:var(--muted2);margin-top:4px}
 
-  .exc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .exc{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
-  .exc img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--mist)}
-  .exc-b{padding:14px}
-  .exc-b b{display:block;color:var(--navy);font-size:14.5px;font-weight:800}
-  .exc-b p{color:var(--muted);font-size:12.5px;line-height:1.5;margin-top:6px}
+  .incl-note{color:var(--muted2);font-size:12px;margin-top:14px}
+  .incl-list .ic{display:inline-flex;width:18px;justify-content:center;font-weight:800}
+  .incl-list .ic.ok{color:var(--green,#1FA463)}
+  .incl-list .ic.no{color:var(--muted2)}
+
+  .exc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .exc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .exc img,.exc-ph{width:100%;aspect-ratio:16/11;object-fit:cover;display:flex;align-items:center;justify-content:center;background:var(--mist);color:var(--muted2);font-size:12px;font-weight:600}
+  .exc-b{padding:15px 16px 16px}
+  .exc-b b{display:block;color:var(--navy);font-size:15px;font-weight:800}
+  .exc-b p{color:var(--muted);font-size:13px;line-height:1.5;margin-top:6px;min-height:38px}
+  .exc-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .exc-chips span{padding:6px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:11.5px;font-weight:600}
   @media(max-width:860px){.exc-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.exc-grid{grid-template-columns:1fr}}
 
-  .acc{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
-  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;color:var(--navy);font-size:15px;font-weight:800}
+  .acc{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:10px}
+  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 20px;color:var(--navy);font-size:15px;font-weight:800}
   .acc summary::-webkit-details-marker{display:none}
-  .acc summary::after{content:'+';color:var(--muted);font-size:20px;font-weight:600;line-height:1}
+  .acc summary::after{content:'+';color:var(--muted);font-size:20px;font-weight:400;line-height:1}
   .acc[open] summary::after{content:'−'}
-  .acc-b{padding:0 18px 18px;color:var(--muted);font-size:14px;line-height:1.65}
+  .acc summary>span{display:inline-flex;align-items:center;gap:12px}
+  .day-chip{padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--mist);color:var(--muted);font-size:11.5px;font-weight:600}
+  .acc-b{padding:0 20px 18px;color:var(--muted);font-size:14px;line-height:1.65}
 
-  .hotel-imgs{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:18px}
-  .hotel-imgs img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;background:var(--mist)}
-  .hotel-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-  .hotel-chips span{padding:6px 12px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:#42505F;font-size:12.5px;font-weight:600}
+  .hotel-card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .hotel-imgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+  .hotel-imgs img,.hotel-ph{width:100%;aspect-ratio:16/11;object-fit:cover;display:flex;align-items:center;justify-content:center;background:var(--mist);color:var(--muted2);font-size:12px;font-weight:600;border-right:1px solid var(--line)}
+  .hotel-b{padding:18px 20px 20px}
+  .hotel-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .hotel-top b{color:var(--navy);font-size:17px;font-weight:800}
+  .hotel-pill{padding:7px 13px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600}
+  .hotel-sub{color:var(--muted2);font-size:13px;margin-top:6px}
+  .hotel-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .hotel-chips span{padding:7px 13px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:12.5px;font-weight:600}
+  .hotel-desc{color:var(--muted2);font-size:13px;line-height:1.6;margin-top:14px}
   @media(max-width:760px){.hotel-imgs{grid-template-columns:1fr 1fr}}
 
-  .notes{list-style:none;display:flex;flex-direction:column;gap:11px}
-  .notes li{position:relative;padding-left:17px;color:var(--muted);font-size:14px;line-height:1.6}
-  .notes li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--muted2)}
+  .notes-card{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .note-row{display:flex;align-items:flex-start;gap:12px;padding:15px 20px;border-bottom:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1.55}
+  .note-row:last-child{border-bottom:none}
+  .note-row i{flex:none;width:5px;height:5px;border-radius:50%;background:var(--muted2);margin-top:8px}
 
-  .book-sel{width:100%;height:46px;margin-top:12px;padding:0 38px 0 14px;border-radius:12px;border:1px solid var(--line);color:var(--ink);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 13px center}
-  .book-pax{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding:8px;border:1px solid var(--line);border-radius:12px}
-  .book-pax button{width:38px;height:34px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-size:17px;font-family:inherit;cursor:pointer}
-  .book-pax button:hover{border-color:var(--indigo);color:var(--indigo)}
-  .book-pax b{color:var(--navy);font-size:15px;font-weight:800}
-  .book-total{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-  .book-total span{color:var(--muted);font-size:14px;font-weight:600}
-  .book-total b{color:var(--navy);font-size:20px;font-weight:800}
-
-  /* ===== Varfreym B — dəqiqləşdirmələr ===== */
-  .book-lab{display:block;margin-top:16px;color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-  .book-sub{color:var(--muted2);font-size:12.5px;font-weight:600;margin-top:6px}
-  .book-hr{height:1px;background:var(--line);margin:18px 0 0}
-  .seg{display:flex;margin-top:8px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  .seg button{flex:1;height:44px;border:none;background:#fff;color:var(--muted);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
-  .seg button.on{background:var(--navy);color:#fff}
-  .book-approx{color:var(--muted2);font-size:12px;font-weight:600;margin-top:8px}
-  .book-warn{display:flex;align-items:flex-start;gap:9px;margin-top:16px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--mist)}
-  .book-warn b{color:var(--navy);font-size:13px;line-height:1.4}
-  .book-warn span{color:var(--muted);font-size:12.5px;font-weight:600;line-height:1.45}
-
-  .mgr-row{display:flex;align-items:center;gap:12px;margin-top:12px}
-  .mgr-ava{width:48px;height:48px;border-radius:50%;background:var(--mist);border:1px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:10px;font-weight:800}
-  .mgr-row b{display:block;color:var(--navy);font-size:14px;font-weight:800}
-  .mgr-row span{display:block;color:var(--muted2);font-size:12px;font-weight:600;margin-top:2px}
-  .mgr-tel{display:block;margin-top:14px;color:var(--ink);font-size:13.5px;font-weight:700}
-  .why{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-  .why div{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-size:13px;line-height:1.5}
-  .why svg{flex:none;margin-top:2px;stroke:var(--indigo)}
-
-  /* rezervasiya sorğusu */
-  .rq-recap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--mist);margin-bottom:20px}
-  .rq-recap span{color:var(--ink);font-size:13.5px;font-weight:700}
-  .rq-recap b{color:var(--navy);font-size:14px;font-weight:800}
-  .rq-recap a{color:var(--indigo);font-size:13px;font-weight:800;cursor:pointer}
-  .rq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .rq-f{display:flex;flex-direction:column;gap:7px}
+  .rq-recap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--mist);margin-bottom:22px}
+  .rq-recap span{color:var(--navy);font-size:14px;font-weight:600}
+  .rq-recap b{font-weight:800}
+  .rq-recap a{color:var(--navy);font-weight:800;cursor:pointer;text-decoration:underline}
+  .rq-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .rq-f{display:flex;flex-direction:column;gap:8px}
   .rq-f.full{grid-column:1/-1}
-  .rq-f>span{color:var(--muted2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-  .rq-f input,.rq-f select,.rq-f textarea{width:100%;padding:14px 15px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:500;transition:border-color .2s}
-  .rq-f textarea{min-height:92px;resize:vertical}
-  .rq-f input::placeholder,.rq-f textarea::placeholder{color:#AEB6C2}
-  .rq-f input:focus,.rq-f select:focus,.rq-f textarea:focus{outline:none;border-color:var(--indigo)}
-  .rq-f select{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;font-weight:700;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 13px center}
-  .rq-check{display:flex;align-items:center;gap:11px;margin-top:18px;color:var(--muted);font-size:13.5px;cursor:pointer}
-  .rq-check input{width:18px;height:18px;flex:none;accent-color:var(--indigo);cursor:pointer}
-  .rq-act{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:20px}
-  .rq-send{height:52px;padding:0 28px;border:none;border-radius:13px;background:var(--indigo);color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 14px 30px -14px rgba(53,52,240,.8)}
-  .rq-send:hover{background:var(--indigo-d)}
-  .rq-alt{color:var(--muted);font-size:13.5px;font-weight:600}
-  .rq-alt a{color:var(--ink);font-weight:800}
-  .rq-alt a:hover{color:var(--indigo)}
-  .rq-done{display:none;flex-direction:column;align-items:center;text-align:center;padding:22px 0}
+  .rq-f>span{color:var(--muted2);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .rq-f input,.rq-f select,.rq-f textarea{width:100%;padding:14px 16px;border-radius:11px;border:1px solid var(--line);background:#fff;color:var(--navy);font-family:inherit;font-size:14.5px;font-weight:600}
+  .rq-f textarea{min-height:96px;resize:vertical;font-weight:500}
+  .rq-f input::placeholder,.rq-f textarea::placeholder{color:var(--muted2);font-weight:500}
+  .rq-f input:focus,.rq-f select:focus,.rq-f textarea:focus{outline:none;border-color:var(--navy)}
+  .rq-f select{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 14px center}
+  .rq-check{display:flex;align-items:center;gap:12px;margin-top:20px;color:var(--muted);font-size:14px;cursor:pointer}
+  .rq-check input{width:18px;height:18px;flex:none;accent-color:var(--navy);cursor:pointer}
+  .rq-act{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:22px}
+  .rq-send{height:52px;padding:0 28px;border:none;border-radius:12px;background:var(--navy);color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer}
+  .rq-send:hover{background:#0A1929}
+  .rq-alt{color:var(--muted);font-size:14px}
+  .rq-alt a{color:var(--navy);font-weight:700}
+  .rq-done{display:none;flex-direction:column;align-items:center;text-align:center;padding:24px 0}
   .rq-done.on{display:flex}
-  .rq-done .ic{width:60px;height:60px;border-radius:50%;background:rgba(53,52,240,.1);color:var(--indigo);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .rq-done .ic{width:60px;height:60px;border-radius:50%;border:2px solid var(--navy);color:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
   .rq-done h3{color:var(--navy);font-size:22px;font-weight:800}
   .rq-done p{color:var(--muted);font-size:15px;line-height:1.6;margin-top:10px;max-width:46ch}
   @media(max-width:700px){.rq-grid{grid-template-columns:1fr}}
 
-  /* bənzər turlar */
-  .rel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-  .rel-head a{color:var(--indigo);font-size:14px;font-weight:800}
-  .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .rel-card{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 44px -34px rgba(13,32,53,.4);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-  .rel-card:hover{transform:translateY(-6px);box-shadow:0 34px 60px -34px rgba(13,32,53,.45)}
-  .rel-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--mist)}
+  .book-sub{color:var(--muted2);font-size:12.5px;margin-top:8px}
+  .book-hr{height:1px;background:var(--line);margin:18px 0 0}
+  .book-lab{display:block;margin-top:16px;color:var(--muted2);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .book-sel{width:100%;height:48px;margin-top:8px;padding:0 38px 0 15px;border-radius:11px;border:1px solid var(--line);color:var(--navy);font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E6B7D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 14px center}
+  .seg{display:flex;margin-top:8px;border:1px solid var(--line);border-radius:11px;overflow:hidden}
+  .seg button{flex:1;height:46px;border:none;background:#fff;color:var(--muted);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+  .seg button.on{background:var(--navy);color:#fff}
+  .book-pax{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding:7px;border:1px solid var(--line);border-radius:11px}
+  .book-pax button{width:40px;height:36px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--navy);font-size:18px;font-family:inherit;cursor:pointer}
+  .book-pax b{color:var(--navy);font-size:15px;font-weight:800}
+  .book-total{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+  .book-total span{color:var(--muted);font-size:14.5px;font-weight:600}
+  .book-total b{color:var(--navy);font-size:22px;font-weight:800}
+  .book-approx{color:var(--muted2);font-size:12px;margin-top:8px}
+  .book-warn{display:flex;align-items:center;gap:10px;margin-top:18px;padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:var(--mist)}
+  .book-warn b{color:var(--navy);font-size:14px}
+  .book-warn span{color:var(--muted);font-size:13px;font-weight:600}
+  .btn-outline{width:100%;height:50px;border:1px solid var(--navy);border-radius:12px;background:#fff;color:var(--navy);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer}
+  .btn-outline:hover{background:var(--mist)}
+
+  .mgr-row{display:flex;align-items:center;gap:13px;margin-top:14px}
+  .mgr-ava{width:48px;height:48px;border-radius:50%;background:var(--mist);border:1px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:10px;font-weight:700}
+  .mgr-row b{display:block;color:var(--navy);font-size:14.5px;font-weight:800}
+  .mgr-row span{display:block;color:var(--muted2);font-size:12.5px;margin-top:2px}
+  .mgr-tel{margin-top:16px;color:var(--navy);font-size:14px;font-weight:700}
+  .mgr-tel a{color:var(--navy)}
+  .why{display:flex;flex-direction:column;gap:11px;margin-top:14px}
+  .why div{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:13.5px;line-height:1.5}
+  .why svg{flex:none;margin-top:3px;stroke:var(--navy)}
+
+  .rel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+  .rel-head a{color:var(--navy);font-size:14px;font-weight:700}
+  .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .rel-card{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .rel-card:hover{border-color:var(--navy)}
+  .rel-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--mist)}
   .rel-b{padding:16px 18px 18px}
-  .rel-b .m{color:var(--muted);font-size:12.5px;font-weight:600}
-  .rel-b .n{color:var(--navy);font-size:16px;font-weight:800;margin-top:6px;letter-spacing:-.01em}
-  .rel-f{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-  .rel-f .p{color:var(--indigo);font-size:17px;font-weight:800}
-  .rel-f .go{height:38px;padding:0 18px;border-radius:10px;background:var(--indigo);color:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center}
+  .rel-b .n{color:var(--navy);font-size:16px;font-weight:800}
+  .rel-b .m{color:var(--muted2);font-size:12.5px;margin-top:6px}
+  .rel-f{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+  .rel-f .p{color:var(--navy);font-size:17px;font-weight:800}
+  .rel-f .go{height:38px;padding:0 18px;border:1px solid var(--line);border-radius:9px;color:var(--navy);font-size:13px;font-weight:700;display:inline-flex;align-items:center}
   @media(max-width:900px){.rel-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.rel-grid{grid-template-columns:1fr}}
+  .dt tr:last-child td{border-bottom:none}
+  .book-pax button:hover{border-color:var(--navy);color:var(--navy)}
+  .rq-alt a:hover{text-decoration:underline}
 </style>
 <link rel="stylesheet" href="mobile.css">
 <link rel="stylesheet" href="grid.css">
@@ -406,30 +385,39 @@
 <main class="page">
   <div class="container">
     <nav class="crumbs reveal">
-      <a href="hilal.html#top">Əsas səhifə</a>
+      <a href="hilal.html#top">Ana səhifə</a>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      <a href="Avropa turları.html">Avropa turları</a>
+      <a href="Turlar.html">Turlar</a>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      <span class="cur">Roma–Milan–Paris turu</span>
+      <span class="cur">Tur</span>
     </nav>
 
+    <!-- ===== GALLERY ===== -->
+    <div class="tgal reveal">
+      <div class="hero-media"><img src="" alt=""></div>
+      <div class="tgal-side"></div>
+    </div>
+    <div class="gal-cap">
+      <span>[Qalereya: otel, ekskursiya, qrup şəkilləri — min. 8 şəkil tələb olunur]</span>
+      <a href="#s-exc">Bütün şəkillərə bax ▸</a>
+    </div>
+
+    <!-- ===== TITLE ===== -->
     <div class="ttl-row reveal">
       <div>
         <div class="ttl-badges"></div>
-        <h1 class="ttl-h1">Roma–Milan–Paris turu</h1>
-        <div class="ttl-meta">
-          <span class="meta-pill"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</span>
-          <span class="meta-pill"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avropa · 3 ölkə</span>
-        </div>
+        <h1 class="ttl-h1">Tur</h1>
+        <p class="ttl-lead"></p>
         <div class="ttl-facts"></div>
         <div class="ttl-cta">
-          <button class="btn-primary" onclick="goReq()">Tura qeydiyyat</button>
-          <a class="btn-wa" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə soruş</a>
-          <small>Yerlər məhduddur · təsdiq 24 saat ərzində</small>
+          <button class="btn-primary" onclick="goDates()">Tarix seç və rezerv et</button>
+          <a class="btn-wa" id="waTop" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə soruş</a>
+          <small>Ödəniş yalnız manatla, günün məzənnəsi ilə</small>
         </div>
       </div>
     </div>
 
+    <!-- ===== ANCHOR TABS ===== -->
     <div class="tabs">
       <div class="tabs-in">
         <a href="#s-dates">Tarixlər və qiymətlər</a>
@@ -442,97 +430,40 @@
         <div class="tabs-cta"><button type="button" id="tabBook"><span id="tabPrice"></span> · Rezerv et</button></div>
       </div>
     </div>
-    
+
     <div class="layout">
-      <!-- ===== MAIN ===== -->
+      <!-- ===== MAIN COLUMN ===== -->
       <div>
-        <div class="tgal reveal">
-          <div class="hero-media">
-          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1400&q=80&auto=format&fit=crop" alt="Roma–Milan–Paris">
-        </div>
-          <div class="tgal-side"></div>
-        </div>
+        <div class="block reveal" id="s-dates"></div>
 
-        <div class="block reveal">
-          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>Tur haqqında</div>
-          <p class="lead">Üç böyük Avropa paytaxtı bir səyahətdə — antik Romanın küçələri, Milanın moda və memarlıq ruhu və Parisin romantikası. Kiçik qrup, əl ilə seçilmiş otellər və yerli bələdçi ilə 8 günlük diqqətlə qurulmuş marşrut.</p>
-        </div>
-
-        <div class="block reveal" id="s-dates" hidden></div>
         <div class="block reveal" id="s-incl">
-          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Qiymətə nələr daxildir</div>
+          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Qiymətə nə daxildir</div>
           <div class="incl-grid">
             <div class="incl-card">
-              <div class="incl-title ok">Qiymətə daxildir</div>
-              <ul class="incl-list">
-                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Aviabilet</li>
-                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Hotel</li>
-                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Səhər yeməyi</li>
-                <li><span class="ic ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FA463" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Səyahət sığortası</li>
-              </ul>
-              <div class="guide">
-                <span class="guide-av">RM</span>
-                <div><b>Renat Majidov</b><span>Tur rəhbəri</span></div>
-              </div>
+              <div class="incl-title ok">Daxildir</div>
+              <ul class="incl-list" id="inclYes"></ul>
             </div>
             <div class="incl-card">
-              <div class="incl-title no">Qiymətə daxil deyil</div>
-              <ul class="incl-list">
-                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Şəhərdaxili nəqliyyat</li>
-                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Giriş biletləri</li>
-                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Qidalanma</li>
-                <li><span class="ic no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Şəxsi xərclər</li>
-              </ul>
+              <div class="incl-title no">Daxil deyil</div>
+              <ul class="incl-list" id="inclNo"></ul>
+              <p class="incl-note">[Bu siyahı müştəri tərəfindən təsdiqlənməlidir]</p>
             </div>
           </div>
         </div>
 
-        <div class="block reveal">
-          <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Gedəcəyimiz yerlərin bir hissəsi</div>
+        <div class="block reveal" id="s-exc"></div>
+        <div class="block reveal" id="s-prog"></div>
+        <div class="block reveal" id="s-hotel"></div>
+        <div class="block reveal" id="s-notes"></div>
+        <div class="block reveal" id="s-faq"></div>
 
-          <div class="city">
-            <div class="city-h"><span class="city-no">1</span><span class="city-name">Roma</span></div>
-            <div class="spots">
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Kolizey</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Vatikan</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Trevi fəvvarəsi</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>İspan pilləkənləri</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Panteon</span>
-            </div>
-          </div>
-          <div class="city">
-            <div class="city-h"><span class="city-no">2</span><span class="city-name">Milan</span></div>
-            <div class="spots">
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Duomo katedralı</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Galleria Vittorio Emanuele II</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>La Scala teatrı</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Sforza qəsri</span>
-            </div>
-          </div>
-          <div class="city">
-            <div class="city-h"><span class="city-no">3</span><span class="city-name">Paris</span></div>
-            <div class="spots">
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Eyfel qülləsi</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Luvr muzeyi</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Notr-Dam</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Şanzelize</span>
-              <span class="spot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Monmartr</span>
-            </div>
-          </div>
-        </div>
-      
-        <div class="block reveal" id="s-exc" hidden></div>
-        <div class="block reveal" id="s-prog" hidden></div>
-        <div class="block reveal" id="s-hotel" hidden></div>
-        <div class="block reveal" id="s-notes" hidden></div>
-        <div class="block reveal" id="s-faq" hidden></div>
         <div class="block reveal" id="s-req">
           <div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Rezervasiya sorğusu</div>
-          <p class="lead" style="margin-bottom:20px">Formu doldurun — menecer 24 saat ərzində əlaqə saxlayıb yeri təsdiqləyir.</p>
+          <p class="sec-sub">Formu doldurun — menecer 24 saat ərzində əlaqə saxlayıb yeri təsdiqləyir.</p>
 
           <div class="rq-recap">
-            <span>Seçiminiz: <b id="rqRecap">—</b></span>
-            <span><b id="rqRecapSum">—</b> · <a onclick="document.querySelector('.side').scrollIntoView({behavior:'smooth',block:'center'})">Dəyiş</a></span>
+            <span>Seçiminiz:&nbsp; <b id="rqRecap">—</b></span>
+            <span><b id="rqRecapSum">—</b> &nbsp;·&nbsp; <a onclick="document.querySelector('.side').scrollIntoView({behavior:'smooth',block:'center'})">Dəyiş</a></span>
           </div>
 
           <form id="reqForm" novalidate>
@@ -543,7 +474,7 @@
               <label class="rq-f"><span>Tarix *</span><select name="date" id="rqDate"></select></label>
               <label class="rq-f"><span>Nəfər sayı</span><select name="pax" id="rqPax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
               <label class="rq-f"><span>Otaq tipi</span><select name="room" id="rqRoom"><option>2 nəfərlik</option><option>3 nəfərlik</option></select></label>
-              <label class="rq-f full"><span>Əlavə qeyd</span><textarea name="note" placeholder="Uşaq, yaş, xüsusi tələblər…"></textarea></label>
+              <label class="rq-f full"><span>Əlavə qeyd</span><textarea name="note" placeholder="Uşaq, yaş, xüsusi tələblər..."></textarea></label>
             </div>
             <label class="rq-check"><input type="checkbox" name="agree" required><span>Vacib qeydlər və ləğvetmə şərtləri ilə tanış oldum</span></label>
             <div class="rq-act">
@@ -563,14 +494,12 @@
       <!-- ===== SIDEBAR ===== -->
       <aside class="side">
         <div class="book reveal">
-          <span class="book-label">1 nəfər üçün</span>
-          <div class="book-price"><b>2 790</b><span>AZN</span></div>
-          <div class="book-sub" id="bookSub">Qiymətə uyğun otaqda yerləşmə · ödəniş manatla</div>
+          <div class="book-price"><b>—</b><span id="bookCur">-dan / 1 nəfər</span></div>
+          <div class="book-sub">2 və ya 3 nəfərlik otaqda · ödəniş manatla</div>
           <div class="book-hr"></div>
 
           <span class="book-lab">Tarix</span>
-          <select class="book-sel" id="bookDate" hidden></select>
-          <div class="book-date"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>8–15 Avqust, 2026</div>
+          <select class="book-sel" id="bookDate"></select>
 
           <span class="book-lab">Otaq tipi</span>
           <div class="seg" id="roomSeg">
@@ -581,41 +510,34 @@
           <span class="book-lab">Nəfər sayı</span>
           <div class="book-pax">
             <button type="button" data-pax="-1">−</button>
-            <b><span id="bookPax">1</span> nəfər</b>
+            <b><span id="bookPax">1</span></b>
             <button type="button" data-pax="1">+</button>
           </div>
 
-          <div class="book-total" id="bookTotalWrap" hidden><span id="bookTotalLab">Cəmi</span><b id="bookTotal">—</b></div>
-          <div class="book-approx" id="bookApprox" hidden></div>
-
-          <div class="visa">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 7-9 9-5-2-9-4-9-9V5l9-3 9 3z"/></svg>
-            <p><b>Visum.az</b> bu tura <em>ödənişsiz viza dəstəyi</em> xidməti göstərir.</p>
-          </div>
+          <div class="book-hr"></div>
+          <div class="book-total"><span id="bookTotalLab">Cəmi (1 nəfər)</span><b id="bookTotal">—</b></div>
+          <div class="book-approx">≈ [AZN məbləği] · günün məzənnəsi ilə hesablanır</div>
 
           <div class="book-cta">
             <button class="btn-primary" onclick="goReq()">Rezervasiya et</button>
-            <a class="btn-wa" id="waLink" href="https://wa.me/994120000000" target="_blank" rel="noopener">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="#1FA463"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.4-1.5-.8-2.1-1.8-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.5-.3z"/></svg>
-              WhatsApp ilə yaz
-            </a>
+            <a class="btn-wa" id="waLink" href="https://wa.me/994120000000" target="_blank" rel="noopener">WhatsApp ilə yaz</a>
           </div>
 
-          <div class="book-warn" id="bookWarn" hidden><b>!</b><span id="bookWarnTxt"></span></div>
+          <div class="book-warn"><b>!</b><span id="bookWarnTxt">Məhdud yer — [CRM: X yer qalıb]</span></div>
         </div>
 
         <div class="book reveal" id="mgrCard">
-          <div class="block-h" style="font-size:17px;margin-bottom:0">Sualınız var?</div>
+          <div class="card-h">Sualınız var?</div>
           <div class="mgr-row">
-            <span class="mgr-ava">BTS</span>
-            <div><b>BTS Group Travel</b><span>Tur üzrə mütəxəssis</span></div>
+            <span class="mgr-ava">FOTO</span>
+            <div><b id="mgrName">[Menecerin adı]</b><span>Fərdi turlar üzrə mütəxəssis</span></div>
           </div>
-          <a class="mgr-tel" id="mgrTel" href="#"></a>
-          <div class="book-cta"><button class="btn-primary" onclick="goReq()">Geri zəng sifariş et</button></div>
+          <div class="mgr-tel"><a id="mgrTel" href="#">[+994 XX XXX XX XX]</a> &nbsp;·&nbsp; 09:00–19:00</div>
+          <div class="book-cta"><button class="btn-outline" onclick="goReq()">Geri zəng sifariş et</button></div>
         </div>
 
         <div class="book reveal" id="whyCard">
-          <div class="block-h" style="font-size:17px;margin-bottom:0">Niyə BTS Group?</div>
+          <div class="card-h">Niyə BTS Group?</div>
           <div class="why">
             <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rəsmi müqavilə və qəbz</div>
             <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>44 ölkədə tur təcrübəsi</div>
@@ -623,34 +545,16 @@
             <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Peşəkar tur rəhbəri qrupla birlikdə</div>
           </div>
         </div>
-
-        <div class="mini reveal">
-          <div class="mini-h">Bu istiqamətdə gələcək turlar</div>
-          <div class="mini-list">
-            <div class="mini-item">
-              <div><div class="d">5–12 Sentyabr, 2026</div><div class="n">İtaliya–Amalfi sahilləri turu</div></div>
-              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-            <div class="mini-item">
-              <div><div class="d">22–30 Avqust, 2026</div><div class="n">Budapeşt–Praqa–Vyana turu</div></div>
-              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-            <div class="mini-item">
-              <div><div class="d">26 Sentyabr – 4 Oktyabr, 2026</div><div class="n">Avropa yol sərgüzəştləri turu</div></div>
-              <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </div>
-        </div>
       </aside>
     </div>
   </div>
 
-  <!-- ===== BOTTOM ===== -->
+  <!-- ===== BƏNZƏR TURLAR ===== -->
   <section class="more">
     <div class="container">
       <div class="rel-head">
-        <h2 class="more-h">Bənzər turlar</h2>
-        <a href="Turlar.html">Bütün turlar →</a>
+        <h2 class="more-h">Bənzər fərdi turlar</h2>
+        <a href="Turlar.html">Bütün fərdi turlar ▸</a>
       </div>
       <div class="rel-grid" id="relGrid"></div>
     </div>
@@ -688,72 +592,10 @@
   </div>
 </footer>
 
-<!-- ===== TURA QEYDIYYAT (modal) ===== -->
-<div class="reg-overlay" id="regOverlay">
-  <div class="reg-sheet">
-    <button class="reg-close" onclick="closeReg()" aria-label="Bağla"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
-    <form id="regForm" onsubmit="submitReg(event)">
-      <div class="reg-head">
-        <span class="reg-eyebrow">Tura qeydiyyat</span>
-        <h3 class="reg-title">Roma · Milan · Paris</h3>
-        <p class="reg-meta">Formu doldurun — komandamız 24 saat ərzində sizinlə əlaqə saxlayacaq.</p>
-      </div>
-      <div class="reg-field"><span class="fl">Ad, Soyad <i class="req">*</i></span><input type="text" name="name" required autocomplete="name" placeholder="Adınız və soyadınız"></div>
-      <div class="reg-row">
-        <div class="reg-field"><span class="fl">Passport nömrəsi <i class="req">*</i></span><input type="text" name="passport" required placeholder="C01234567"></div>
-        <div class="reg-field"><span class="fl">FİN kod <i class="req">*</i></span><input type="text" name="fin" required maxlength="7" placeholder="7 simvol"></div>
-      </div>
-      <div class="reg-row">
-        <div class="reg-field"><span class="fl">E-poçt <i class="req">*</i></span><input type="email" name="email" required inputmode="email" autocomplete="email" placeholder="ad@email.com"></div>
-        <div class="reg-field"><span class="fl">WhatsApp nömrəsi <i class="req">*</i></span><input type="tel" name="whatsapp" required inputmode="tel" autocomplete="tel" placeholder="+994 50 000 00 00" oninput="validatePhone(this)"><small class="reg-err-msg" role="alert">Yalnız rəqəm daxil edin</small></div>
-      </div>
-      <div class="reg-field">
-        <span class="fl">Pasportunuzun şəkli <i class="req">*</i></span>
-        <label class="reg-upload">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M7 8l5-5 5 5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
-          <b id="regUploadText">Şəkli yükləyin</b>
-          <span class="uhint">JPG və ya PNG · maks. 10MB</span>
-          <input type="file" name="passportPhoto" accept="image/png,image/jpeg" onchange="onFile(this)">
-        </label>
-      </div>
-      <button type="submit" class="reg-submit" id="regSubmit"><span class="reg-btn-text">Müraciəti göndər</span><span class="reg-spin"></span></button>
-      <p class="reg-note" style="margin-top:14px">Məlumatlarınız yalnız qeydiyyat üçün istifadə olunur və gizli saxlanılır.</p>
-    </form>
-    <div class="reg-result" id="regSuccess">
-      <div class="reg-badge ok"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h3>Müraciətiniz qəbul edildi!</h3>
-      <p>Komandamız 24 saat ərzində sizinlə əlaqə saxlayacaq. Təşəkkür edirik.</p>
-      <button class="reg-submit" style="width:100%" onclick="closeReg()">Bağla</button>
-    </div>
-    <div class="reg-result" id="regError">
-      <div class="reg-badge err"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></div>
-      <h3>Nəsə səhv getdi</h3>
-      <p>Müraciətinizi göndərə bilmədik. Zəhmət olmasa yenidən cəhd edin və ya bizə zəng edin.</p>
-      <div class="reg-actions">
-        <button class="reg-retry" onclick="retryReg()">Yenidən cəhd et</button>
-        <button class="reg-submit" onclick="closeReg()">Bağla</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <script>
 const _h=document.getElementById('siteHeader');
 addEventListener('scroll',()=>_h.classList.toggle('scrolled',scrollY>50),{passive:true});
 
-/* ===== TURA QEYDIYYAT (modal) ===== */
-var _ov=document.getElementById('regOverlay');
-function goReq(){var el=document.getElementById("s-req");if(!el)return;el.scrollIntoView({behavior:"smooth",block:"start"});var f=el.querySelector("input[name=name]");if(f)setTimeout(function(){f.focus();},600);}
-function openReg(){_ov.classList.add('open');document.body.style.overflow='hidden';}
-function closeReg(){_ov.classList.remove('open');document.body.style.overflow='';setTimeout(resetReg,250);}
-function resetReg(){document.getElementById('regForm').style.display='';document.getElementById('regSuccess').classList.remove('show');document.getElementById('regError').classList.remove('show');document.getElementById('regSubmit').classList.remove('loading');document.getElementById('regSubmit').disabled=false;}
-function retryReg(){document.getElementById('regError').classList.remove('show');document.getElementById('regForm').style.display='';}
-function submitReg(e){e.preventDefault();var btn=document.getElementById('regSubmit');btn.classList.add('loading');btn.disabled=true;setTimeout(function(){var ok=true;document.getElementById('regForm').style.display='none';var el=document.getElementById(ok?'regSuccess':'regError');el.classList.remove('show');void el.offsetWidth;el.classList.add('show');btn.classList.remove('loading');btn.disabled=false;},1400);}
-function validatePhone(el){var f=el.closest('.reg-field');var bad=/[^\d+\s()\-]/.test(el.value)&&el.value.length>0;f.classList.toggle('err',bad);}
-function onFile(input){var t=document.getElementById('regUploadText');t.textContent=(input.files&&input.files[0])?input.files[0].name:'Şəkli yükləyin';}
-_ov.addEventListener('click',function(e){if(e.target===_ov)closeReg();});
-addEventListener('keydown',function(e){if(e.key==='Escape'&&_ov.classList.contains('open'))closeReg();});
 
 /* ===== DINAMIK TUR (data + ?id) ===== */
 var TOURS=[
@@ -795,144 +637,187 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
 })();
 </script>
 <script>
-/* ===== Varfreym B: tur səhifəsinin blokları =====
-   Bloklar yalnız content.json-da uyğun məlumat olduqda görünür. */
+/* ===== Tur səhifəsi — varfreym B (Figma 440:8) =====
+   Məlumat content.json-dan gəlir; sahə yoxdursa varfreymdəki
+   mötərizəli placeholder olduğu kimi göstərilir. */
 (function () {
-  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]; }); };
+  var E = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]; }); };
   var money = function (n) { return Number(n).toLocaleString('ru-RU').replace(/,/g, ' ') + ' AZN'; };
   var $ = function (s) { return document.querySelector(s); };
-  var slug = function (s) { return String(s).replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,'i').replace(/ə/g,'e').replace(/Ə/g,'e').replace(/ç/g,'c').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ğ/g,'g').toLowerCase().replace(/[–—]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); };
+  var slug = function (s) { return String(s).replace(/İ|I|ı/g,'i').replace(/ə|Ə/g,'e').replace(/ç/g,'c').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ğ/g,'g').toLowerCase().replace(/[–—]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); };
+  var ICO = function (d) { return '<span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg></span>'; };
+  var NOTE = function (txt) { return '<div class="warnbar"><b>!</b><span>' + E(txt) + '</span></div>'; };
 
-  var PAX = 1, PRICE = 0, ROOM = '2 nəfərlik', TOUR = null;
+  var PAX = 1, PRICE = 0, ROOM = '2 nəfərlik', T = null;
 
-  function show(id, html) { var el = document.getElementById(id); if (!el) return; el.innerHTML = html; el.hidden = false; }
-  function setTxt(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+  function put(id, html) { var el = document.getElementById(id); if (el) el.innerHTML = html; }
+  function set(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
 
   function sync() {
-    setTxt('bookPax', PAX);
-    setTxt('bookTotal', PRICE ? money(PRICE * PAX) : '—');
-    setTxt('bookTotalLab', 'Cəmi (' + PAX + ' nəfər)');
-    var d = $('#bookDate'), dv = d && !d.hidden ? d.value : (TOUR ? TOUR.date : '');
-    setTxt('rqRecap', [dv, PAX + ' nəfər', ROOM].filter(Boolean).join('  ·  '));
-    setTxt('rqRecapSum', PRICE ? money(PRICE * PAX) : '—');
+    set('bookPax', PAX + ' nəfər');
+    set('bookTotal', PRICE ? money(PRICE * PAX) : '—');
+    set('bookTotalLab', 'Cəmi (' + PAX + ' nəfər)');
+    var d = $('#bookDate'), dv = d && d.value ? d.value : (T ? T.date : '');
+    set('rqRecap', [dv, PAX + ' nəfər', ROOM].filter(Boolean).join('  ·  '));
+    set('rqRecapSum', PRICE ? money(PRICE * PAX) : '—');
     var rp = $('#rqPax'); if (rp) rp.value = PAX > 4 ? '5+' : String(PAX);
     var rr = $('#rqRoom'); if (rr) rr.value = ROOM;
     var rd = $('#rqDate'); if (rd && dv) rd.value = dv;
+    document.querySelectorAll('#roomSeg button').forEach(function (b) { b.classList.toggle('on', b.dataset.room === ROOM); });
+    document.querySelectorAll('.dt-pick').forEach(function (b) { b.classList.toggle('on', b.dataset.date === dv); });
   }
 
   window.renderTourExtras = function (t, C) {
     if (!t) return;
-    TOUR = t; PRICE = t.price || 0;
-    C = C || {};
-    var contacts = C.contacts || {};
+    T = t; PRICE = t.price || 0; C = C || {};
+    var ct = C.contacts || {};
 
-    /* --- başlıq --- */
-    var badges = [];
-    if (t.discount) badges.push('<span style="background:#E5484D">' + esc(t.discount) + '</span>');
-    if (t.seats)    badges.push('<span style="background:' + (t.status === 'last' ? '#E5484D' : '#3534F0') + '">' + esc(t.seats) + '</span>');
-    if (t.cat)      badges.push('<span class="ghost">' + esc(t.cat) + '</span>');
-    var bEl = $('.ttl-badges'); if (bEl) bEl.innerHTML = badges.join('');
+    /* ---- başlıq ---- */
+    set('bookCur', '-dan / 1 nəfər');
+    var pb = $('.book-price b'); if (pb) pb.textContent = PRICE ? money(PRICE).replace(' AZN', '') + ' AZN' : '—';
+    document.title = t.name + ' — BTS Group Travel';
+    var h1 = $('.ttl-h1'); if (h1) h1.textContent = t.name;
+    var cur = $('.cur'); if (cur) cur.textContent = t.name;
+    var ld = $('.ttl-lead'); if (ld) ld.textContent = t.desc || '';
+    var im = $('.hero-media img'); if (im) { im.src = t.image; im.alt = t.name; }
 
-    var facts = [['Müddət', t.days], ['İstiqamət', t.cities], ['Tarix', t.date],
-                 ['Qiymət', t.price ? money(t.price) + ' / 1 nəfər' : null]].filter(function (f) { return f[1]; });
-    var fEl = $('.ttl-facts');
-    if (fEl) fEl.innerHTML = facts.map(function (f) { return '<div class="fact"><span>' + esc(f[0]) + '</span><b>' + esc(f[1]) + '</b></div>'; }).join('');
+    var bd = [];
+    if (t.discount) bd.push('<span class="solid">' + E(t.discount) + '</span>');
+    if (t.cat) bd.push('<span>' + E(t.cat) + '</span>');
+    if (t.seats) bd.push('<span>' + E(t.seats) + '</span>');
+    put('ttlBadges', bd.join(''));
+    var be = $('.ttl-badges'); if (be) be.innerHTML = bd.join('');
 
-    /* --- qalereya --- */
-    if (t.gallery && t.gallery.length) {
-      var g = t.gallery.slice(0, 2), extra = t.gallery.length - 2, side = $('.tgal-side');
-      if (side) side.innerHTML = g.map(function (src, i) {
-        return '<div class="g"><img src="' + esc(src) + '" alt="" loading="lazy">' +
+    var facts = [
+      ['Müddət', t.days || '[X gün / Y gecə]'],
+      ['İstiqamət', t.cities || '[Ölkə, şəhər]'],
+      ['Tarix seçimi', t.dates && t.dates.length ? t.dates.length + ' tarix' : (t.date || '[tarix]')],
+      ['Qiymət', PRICE ? money(PRICE) + ' / 1 nəfər' : '[000 AZN]']
+    ];
+    var fe = $('.ttl-facts');
+    if (fe) fe.innerHTML = facts.map(function (f) { return '<div class="fact"><span>' + E(f[0]) + '</span><b>' + E(f[1]) + '</b></div>'; }).join('');
+
+    /* ---- qalereya ---- */
+    var side = $('.tgal-side');
+    if (side) {
+      var g = (t.gallery || []).slice(0, 2), extra = (t.gallery || []).length - 2;
+      while (g.length < 2) g.push('');
+      side.innerHTML = g.map(function (src, i) {
+        return '<div class="g">' + (src ? '<img src="' + E(src) + '" alt="" loading="lazy">' : '<span class="ph">IMG</span>') +
           (i === 1 && extra > 0 ? '<span class="tgal-more">+' + extra + ' şəkil</span>' : '') + '</div>';
       }).join('');
     }
 
-    /* --- tarixlər --- */
-    if (t.dates && t.dates.length) {
-      show('s-dates',
-        '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Tarixlər və qiymətlər</div>' +
-        '<div class="dt-scroll"><table class="dt"><thead><tr><th>Tarix</th><th>Qeyd</th><th>Yer vəziyyəti</th><th class="r">Qiymət</th><th></th></tr></thead><tbody>' +
-        t.dates.map(function (d) {
-          return '<tr><td>' + esc(d.range) + '</td><td>' + (d.tag ? '<span class="dt-tag">' + esc(d.tag) + '</span>' : '—') + '</td>' +
-            '<td>' + esc(d.seats || '—') + '</td><td class="r p">' + (d.price ? money(d.price) : '—') + '</td>' +
-            '<td class="r"><button class="dt-pick" type="button" data-date="' + esc(d.range) + '">Seç</button></td></tr>';
-        }).join('') + '</tbody></table></div>' +
-        (t.datesNote ? '<p class="dt-note">' + esc(t.datesNote) + '</p>' : ''));
+    /* ---- §1 tarixlər ---- */
+    var rows = (t.dates && t.dates.length) ? t.dates : [{ range: t.date, price: t.price, seats: t.seats, tag: t.discount }];
+    put('s-dates',
+      '<div class="block-h">' + ICO('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>') + 'Tarixlər və qiymətlər</div>' +
+      '<p class="sec-sub">Tarixi seçin — qiymət və qalan yer sayı avtomatik yenilənir.</p>' +
+      '<div class="dt-card"><div class="dt-scroll"><table class="dt"><thead><tr><th>Tarix</th><th>Qeyd</th><th>Yer vəziyyəti</th><th>Qiymət</th><th></th></tr></thead><tbody>' +
+      rows.map(function (d) {
+        return '<tr><td>' + E(d.range || '[tarix]') + '</td>' +
+          '<td>' + (d.tag ? '<span class="dt-tag">' + E(d.tag) + '</span>' : '—') + '</td>' +
+          '<td class="mut">' + E(d.seats || '[CRM: yer sayı]') + '</td>' +
+          '<td class="p">' + (d.price ? money(d.price) : '[000 AZN]') + '</td>' +
+          '<td class="r"><button class="dt-pick" type="button" data-date="' + E(d.range || '') + '">Seç</button></td></tr>';
+      }).join('') +
+      '</tbody></table></div>' +
+      '<div class="dt-foot"><p>Qiymətlər dinamikdir və məhdud yerlər mövcuddur.</p>' +
+      '<p>Qiymət 2 və ya 3 nəfərlik otaqda 1 nəfər üçün nəzərdə tutulub. Ödənişlər yalnız manatla, günün məzənnəsinə uyğun qəbul edilir.</p></div></div>');
 
-      var sel = $('#bookDate');
-      if (sel) {
-        sel.innerHTML = t.dates.map(function (d) { return '<option>' + esc(d.range) + '</option>'; }).join('');
-        sel.hidden = false;
-        var bd = $('.book-date'); if (bd) bd.style.display = 'none';
-        sel.addEventListener('change', sync);
-      }
-      var rd = $('#rqDate');
-      if (rd) rd.innerHTML = t.dates.map(function (d) { return '<option>' + esc(d.range) + '</option>'; }).join('');
-      document.querySelectorAll('.dt-pick').forEach(function (b) {
-        b.addEventListener('click', function () {
-          var s2 = $('#bookDate'); if (s2) s2.value = b.dataset.date;
-          sync();
-          var sd = $('.side'); if (sd) sd.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
+    var sel = $('#bookDate'), rq = $('#rqDate');
+    var opts = rows.map(function (d) { return '<option>' + E(d.range || '') + '</option>'; }).join('');
+    if (sel) { sel.innerHTML = opts; sel.addEventListener('change', sync); }
+    if (rq) rq.innerHTML = opts;
+    document.querySelectorAll('.dt-pick').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (sel) sel.value = b.dataset.date;
+        sync();
+        var sd = $('.side'); if (sd) sd.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
-    } else {
-      var rd0 = $('#rqDate');
-      if (rd0) rd0.innerHTML = '<option>' + esc(t.date || '') + '</option>';
-    }
+    });
 
-    /* --- ekskursiyalar / proqram / otel / qeydlər / faq --- */
-    if (t.excursions && t.excursions.length) {
-      show('s-exc', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>Ekskursiyalar</div>' +
-        '<div class="exc-grid">' + t.excursions.map(function (e) {
-          return '<div class="exc">' + (e.image ? '<img src="' + esc(e.image) + '" alt="' + esc(e.name) + '" loading="lazy">' : '') +
-            '<div class="exc-b"><b>' + esc(e.name) + '</b>' + (e.desc ? '<p>' + esc(e.desc) + '</p>' : '') + '</div></div>';
-        }).join('') + '</div>');
-    }
-    if (t.program && t.program.length) {
-      show('s-prog', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>Tur proqramı</div>' +
-        t.program.map(function (d, i) { return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary>' + esc(d.title) + '</summary><div class="acc-b">' + esc(d.text) + '</div></details>'; }).join(''));
-    }
-    if (t.hotel && t.hotel.name) {
-      var h = t.hotel;
-      show('s-hotel', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>Otel və yerləşmə</div>' +
-        (h.images && h.images.length ? '<div class="hotel-imgs">' + h.images.slice(0, 3).map(function (x) { return '<img src="' + esc(x) + '" alt="' + esc(h.name) + '" loading="lazy">'; }).join('') + '</div>' : '') +
-        '<div class="block-h" style="font-size:17px;margin-bottom:8px">' + esc(h.name) + '</div>' +
-        (h.desc ? '<p class="lead">' + esc(h.desc) + '</p>' : '') +
-        (h.amenities && h.amenities.length ? '<div class="hotel-chips">' + h.amenities.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</div>' : ''));
-    }
-    if (t.notes && t.notes.length) {
-      show('s-notes', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></span>Vacib qeydlər və şərtlər</div>' +
-        '<ul class="notes">' + t.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>');
-    }
-    if (t.faq && t.faq.length) {
-      show('s-faq', '<div class="block-h"><span class="hi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3534F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1-1.3 1.8v.5M12 17h.01"/></svg></span>Tez-tez verilən suallar</div>' +
-        t.faq.map(function (f) { return '<details class="acc"><summary>' + esc(f.q) + '</summary><div class="acc-b">' + esc(f.a) + '</div></details>'; }).join(''));
-    }
+    /* ---- §2 daxildir ---- */
+    var yes = t.included || ['Aviabilet (gediş–gəliş)', 'Otel', 'Səhər yeməyi', 'Səyahət sığortası'];
+    var no  = t.excluded || ['Şəhərdaxili nəqliyyat', 'Giriş biletləri', 'Qidalanma', 'Şəxsi xərclər'];
+    put('inclYes', yes.map(function (x) { return '<li><span class="ic ok">✓</span>' + E(x) + '</li>'; }).join(''));
+    put('inclNo',  no.map(function (x) { return '<li><span class="ic no">✕</span>' + E(x) + '</li>'; }).join(''));
 
-    /* --- yan panel --- */
-    var tw = $('#bookTotalWrap'); if (tw && PRICE) tw.hidden = false;
-    setTxt('tabPrice', PRICE ? money(PRICE) : '');
-    if (t.seats) { var w = $('#bookWarn'); if (w) { setTxt('bookWarnTxt', t.seats); w.hidden = false; } }
-    setTxt('bookSub', (t.days ? t.days + ' · ' : '') + '1 nəfər üçün qiymət · ödəniş manatla');
+    /* ---- §3 ekskursiyalar ---- */
+    var exc = t.excursions || [];
+    put('s-exc',
+      '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>') + 'Ekskursiyalar</div>' +
+      '<p class="sec-sub">' + (exc.length ? exc.length + ' möhtəşəm məkan. ' : '') + 'Bütün ekskursiyalara transfer daxildir, giriş biletləri ayrıca ödənilir.</p>' +
+      (exc.length
+        ? '<div class="exc-grid">' + exc.map(function (e) {
+            return '<div class="exc">' + (e.image ? '<img src="' + E(e.image) + '" alt="' + E(e.name) + '" loading="lazy">' : '<div class="exc-ph">IMG</div>') +
+              '<div class="exc-b"><b>' + E(e.name) + '</b><p>' + E(e.desc || '') + '</p>' +
+              '<div class="exc-chips"><span>Transfer daxil</span><span>' + E(e.ticket || '[bilet statusu]') + '</span></div></div></div>';
+          }).join('') + '</div>'
+        : '<div class="exc-grid">' + [0,1,2].map(function () { return '<div class="exc"><div class="exc-ph">IMG</div><div class="exc-b"><b>[Ekskursiya adı]</b><p>[qısa təsvir]</p><div class="exc-chips"><span>Transfer daxil</span><span>[bilet statusu]</span></div></div></div>'; }).join('') + '</div>') +
+      NOTE('Qrup turu olduğu üçün xidmətlərdə və tur proqramında dəyişiklik ola bilər.'));
 
-    /* --- əlaqə --- */
-    var waNum = (contacts.whatsapp || contacts.phone || '').replace(/[^\d]/g, '');
-    var wa = $('#waLink'); if (wa && waNum) wa.href = 'https://wa.me/' + waNum;
-    var aw = $('#altWa'); if (aw && waNum) aw.href = 'https://wa.me/' + waNum;
-    var ai = $('#altIg'); if (ai && contacts.instagram) ai.href = 'https://instagram.com/' + String(contacts.instagram).replace('@', '');
-    var at = $('#altTel'); if (at && contacts.phone) at.href = 'tel:' + contacts.phone.replace(/\s/g, '');
-    var mt = $('#mgrTel');
-    if (mt && contacts.phone) { mt.textContent = contacts.phone; mt.href = 'tel:' + contacts.phone.replace(/\s/g, ''); }
+    /* ---- §4 proqram ---- */
+    var pr = t.program || [];
+    put('s-prog',
+      '<div class="block-h">' + ICO('<path d="M4 6h16M4 12h16M4 18h10"/>') + 'Tur proqramı</div>' +
+      '<p class="sec-sub">Gün-gün marşrut. Saatlar və ardıcıllıq qrup üçün ümumidir.</p>' +
+      (pr.length
+        ? pr.map(function (d, i) {
+            var chip = i === 0 ? '<span class="day-chip">Gəliş günü</span>' : (i === pr.length - 1 ? '<span class="day-chip">Qayıdış günü</span>' : '');
+            return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary><span>' + E(d.title) + chip + '</span></summary><div class="acc-b">' + E(d.text) + '</div></details>';
+          }).join('')
+        : '<details class="acc" open><summary><span>1-ci gün<span class="day-chip">Gəliş günü</span></span></summary><div class="acc-b">[MƏZMUN TƏLƏB OLUNUR]</div></details>') +
+      NOTE('Gün-gün proqram mətni müştəridən alınmalıdır. Bu blok olmadan səhifə "Ətraflı proqram" sualını bağlaya bilmir.'));
 
-    /* --- bənzər turlar --- */
+    /* ---- §5 otel ---- */
+    var h = t.hotel || {};
+    var him = (h.images || []).slice(0, 3);
+    put('s-hotel',
+      '<div class="block-h">' + ICO('<path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/>') + 'Otel və yerləşmə</div>' +
+      '<div class="hotel-card"><div class="hotel-imgs">' +
+      [0,1,2].map(function (i) {
+        return him[i] ? '<img src="' + E(him[i]) + '" alt="" loading="lazy">'
+                      : '<div class="hotel-ph">' + (i === 0 ? 'IMG — otel' : (i === 2 ? 'IMG · "+6"' : 'IMG')) + '</div>';
+      }).join('') + '</div>' +
+      '<div class="hotel-b"><div class="hotel-top"><b>' + E(h.name || '[Otel adı] · 4★ lüks') + '</b>' +
+      '<span class="hotel-pill">' + E(h.stay || (t.days ? t.days + ' · səhər yeməyi ilə' : '[N gecə] · səhər yeməyi ilə')) + '</span></div>' +
+      '<div class="hotel-sub">' + E(h.address || '[Rayon / ünvan]  ·  [mərkəzə məsafə]') + '</div>' +
+      '<div class="hotel-chips">' + (h.amenities || ['Hovuz','Sauna','SPA','Trenajor zalı','Wi-Fi','Səhər yeməyi']).map(function (a) { return '<span>' + E(a) + '</span>'; }).join('') + '</div>' +
+      '<p class="hotel-desc">' + E(h.desc || '[Otelin qısa təsviri — 2–3 cümlə. Konkret otel adı təsdiqlənməlidir.]') + '</p></div></div>');
+
+    /* ---- §6 qeydlər ---- */
+    var nt = t.notes || ['[Vacib qeydlər — məzmun tələb olunur]'];
+    put('s-notes',
+      '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/>') + 'Vacib qeydlər və şərtlər</div>' +
+      '<div class="notes-card">' + nt.map(function (n) { return '<div class="note-row"><i></i>' + E(n) + '</div>'; }).join('') + '</div>');
+
+    /* ---- §7 faq ---- */
+    var fq = t.faq || [{ q: '[Sual — məzmun tələb olunur]', a: '[Cavab tələb olunur]' }];
+    put('s-faq',
+      '<div class="block-h">' + ICO('<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1-1.3 1.8v.5M12 17h.01"/>') + 'Tez-tez verilən suallar</div>' +
+      fq.map(function (f, i) { return '<details class="acc"' + (i === 0 ? ' open' : '') + '><summary><span>' + E(f.q) + '</span></summary><div class="acc-b">' + E(f.a) + '</div></details>'; }).join(''));
+
+    /* ---- yan panel ---- */
+    set('tabPrice', PRICE ? money(PRICE) : '[000 AZN]');
+    set('bookWarnTxt', 'Məhdud yer — ' + (t.seats || '[CRM: X yer qalıb]'));
+
+    /* ---- əlaqə ---- */
+    var waNum = (ct.whatsapp || ct.phone || '').replace(/[^\d]/g, '');
+    ['#waLink', '#waTop', '#altWa'].forEach(function (s) { var e = $(s); if (e && waNum) e.href = 'https://wa.me/' + waNum; });
+    var ai = $('#altIg'); if (ai && ct.instagram) ai.href = 'https://instagram.com/' + String(ct.instagram).replace('@', '');
+    var at = $('#altTel'); if (at && ct.phone) at.href = 'tel:' + ct.phone.replace(/\s/g, '');
+
+    /* ---- bənzər turlar ---- */
     var rel = $('#relGrid'), all = C.tours || [];
-    if (rel && all.length) {
+    if (rel) {
       var list = all.filter(function (x) { return x !== t && x.cat === t.cat; });
       if (list.length < 3) list = list.concat(all.filter(function (x) { return x !== t && list.indexOf(x) < 0; }));
       rel.innerHTML = list.slice(0, 3).map(function (x) {
-        return '<a class="rel-card" href="tur.html?id=' + esc(x.id || slug(x.name)) + '">' +
-          '<img src="' + esc(x.image) + '" alt="' + esc(x.name) + '" loading="lazy">' +
-          '<div class="rel-b"><div class="m">' + esc(x.cat) + ' · ' + esc(x.date) + '</div><div class="n">' + esc(x.name) + '</div>' +
+        return '<a class="rel-card" href="tur.html?id=' + E(x.id || slug(x.name)) + '">' +
+          '<img src="' + E(x.image) + '" alt="' + E(x.name) + '" loading="lazy">' +
+          '<div class="rel-b"><div class="n">' + E(x.name) + '</div>' +
+          '<div class="m">' + E(x.cat) + ' · ' + E(x.days || '') + ' · ' + E(x.date) + '</div>' +
           '<div class="rel-f"><span class="p">' + money(x.price) + '</span><span class="go">Ətraflı</span></div></div></a>';
       }).join('');
     }
@@ -940,69 +825,70 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
     sync();
   };
 
-  /* nəfər sayı / otaq tipi */
+  /* nəfər / otaq */
   document.addEventListener('click', function (e) {
     var p = e.target.closest('[data-pax]');
     if (p) { PAX = Math.max(1, Math.min(20, PAX + (+p.dataset.pax))); sync(); return; }
     var r = e.target.closest('[data-room]');
-    if (r) {
-      ROOM = r.dataset.room;
-      document.querySelectorAll('#roomSeg button').forEach(function (b) { b.classList.toggle('on', b === r); });
-      sync();
-    }
+    if (r) { ROOM = r.dataset.room; sync(); }
   });
 
-  /* lipki anker: aktiv bölmə */
+  /* forma <-> panel */
+  ['#rqPax', '#rqRoom', '#rqDate'].forEach(function (s) {
+    document.addEventListener('change', function (e) {
+      if (!e.target.matches(s)) return;
+      if (s === '#rqRoom') ROOM = e.target.value;
+      if (s === '#rqPax') PAX = e.target.value === '5+' ? 5 : +e.target.value;
+      if (s === '#rqDate') { var b = document.querySelector('#bookDate'); if (b) b.value = e.target.value; }
+      sync();
+    });
+  });
+
+  /* aktiv anker */
   var links = [].slice.call(document.querySelectorAll('.tabs-in a'));
   function spy() {
-    var best = null, bestTop = -1e9;
+    var best = null, bt = -1e9;
     links.forEach(function (a) {
       var el = document.querySelector(a.getAttribute('href'));
-      if (!el || el.hidden) { a.style.display = 'none'; return; }
-      a.style.display = '';
-      var top = el.getBoundingClientRect().top - 160;
-      if (top <= 0 && top > bestTop) { bestTop = top; best = a; }
+      if (!el) return;
+      var top = el.getBoundingClientRect().top - 170;
+      if (top <= 0 && top > bt) { bt = top; best = a; }
     });
     links.forEach(function (a) { a.classList.toggle('on', a === best); });
   }
   addEventListener('scroll', spy, { passive: true });
   addEventListener('load', spy);
-  var tb = document.getElementById('tabBook');
-  if (tb) tb.addEventListener('click', function () { if (window.goReq) window.goReq(); });
 
-  /* rezervasiya sorğusu */
+  window.goReq = function () {
+    var el = document.getElementById('s-req'); if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var f = el.querySelector('input[name=name]'); if (f) setTimeout(function () { f.focus(); }, 600);
+  };
+  window.goDates = function () {
+    var el = document.getElementById('s-dates'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  var tb = document.getElementById('tabBook');
+  if (tb) tb.addEventListener('click', window.goReq);
+
+  /* göndərmə */
   var form = document.getElementById('reqForm');
-  if (form) {
-    ['#rqPax', '#rqRoom', '#rqDate'].forEach(function (s) {
-      var el = document.querySelector(s);
-      if (el) el.addEventListener('change', function () {
-        if (s === '#rqRoom') {
-          ROOM = el.value;
-          document.querySelectorAll('#roomSeg button').forEach(function (b) { b.classList.toggle('on', b.dataset.room === ROOM); });
-        }
-        if (s === '#rqPax') PAX = el.value === '5+' ? 5 : +el.value;
-        if (s === '#rqDate') { var bd = document.querySelector('#bookDate'); if (bd && !bd.hidden) bd.value = el.value; }
-        sync();
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var g = function (n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
+    var btn = document.getElementById('rqSend');
+    if (btn) { btn.disabled = true; btn.textContent = 'Göndərilir...'; }
+    fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'tur', tour: T ? T.name : '', name: g('name'), whatsapp: g('phone'),
+        email: g('email'), date: g('date'), pax: g('pax'), room: g('room'), note: g('note') }) })
+      .then(function (r) { return r.ok; }).catch(function () { return false; })
+      .then(function (ok) {
+        if (!ok) set('rqDoneTxt', 'Sorğunu birbaşa göndərə bilmədik. Zəhmət olmasa WhatsApp və ya zəng ilə əlaqə saxlayın.');
+        form.style.display = 'none';
+        var d = document.getElementById('rqDone'); if (d) d.classList.add('on');
+        document.getElementById('s-req').scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
-    });
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      var g = function (n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
-      var btn = document.getElementById('rqSend');
-      if (btn) { btn.disabled = true; btn.textContent = 'Göndərilir…'; }
-      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'tur', tour: TOUR ? TOUR.name : '', name: g('name'), whatsapp: g('phone'),
-          email: g('email'), date: g('date'), pax: g('pax'), room: g('room'), note: g('note') }) })
-        .then(function (r) { return r.ok; }).catch(function () { return false; })
-        .then(function (ok) {
-          if (!ok) setTxt('rqDoneTxt', 'Sorğunu birbaşa göndərə bilmədik. Zəhmət olmasa WhatsApp və ya zəng ilə əlaqə saxlayın.');
-          form.style.display = 'none';
-          var d = document.getElementById('rqDone'); if (d) d.classList.add('on');
-          document.getElementById('s-req').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    });
-  }
+  });
 })();
 </script>
 <script src="cms.js"></script>
