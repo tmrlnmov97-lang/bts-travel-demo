@@ -69,6 +69,79 @@
   },
   "tours": [
     {
+      "id": "dubay-turu",
+      "name": "Lüks & macəra dolu Dubay turu",
+      "cat": "Asiya",
+      "date": "5–9 Sentyabr, 2026",
+      "price": 1358,
+      "seats": "Məhdud yer",
+      "status": "open",
+      "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=80&auto=format&fit=crop",
+      "cities": "Dubay",
+      "days": "5 gün",
+      "desc": "Qızıl şəhərdə unudulmaz anlar: VIP xidmət, əyləncə və rahatlıq — hamısı bir turda. Metrosuz, piyada gəzintisiz, tam VIP nəqliyyat xidməti ilə.",
+      "included": [
+        "Aviabilet",
+        "4★ lüks oteldə gecələmə",
+        "Otel xidmətləri: hovuz, sauna, spa, trenajor",
+        "VIP qrup transferi",
+        "Gündəlik səhər yeməyi",
+        "Peşəkar tur rəhbəri"
+      ],
+      "excluded": [
+        "Şəhər vergisi (torpaq basdı)",
+        "Ekskursiyaların giriş biletləri",
+        "Nahar və şam yeməyi",
+        "Şəxsi xərclər"
+      ],
+      "excursions": [
+        {
+          "name": "Burj Khalifa",
+          "desc": "Dünyanın ən hündür göydələni."
+        },
+        {
+          "name": "Dubai Mall",
+          "desc": "Alış-veriş cənnəti."
+        },
+        {
+          "name": "Cruise gəzintisi",
+          "desc": "Dənizdə romantik axşam."
+        },
+        {
+          "name": "Miracle Garden & Butterfly Garden",
+          "desc": "Təbiətin sehrli möcüzəsi."
+        },
+        {
+          "name": "Jumeirah Beach & Marina Walk",
+          "desc": "Günəş, qum və dəniz."
+        },
+        {
+          "name": "Səhra safari turu",
+          "desc": "Adrenalin dolu səhrada macəra."
+        },
+        {
+          "name": "Global Village",
+          "desc": "Ölkələrin mədəniyyəti, bazarları və yeməkləri."
+        },
+        {
+          "name": "Aya Universe",
+          "desc": "Texnologiya və virtual reallıqla dolu dünya."
+        },
+        {
+          "name": "The View at The Palm",
+          "desc": "Dubayın panoramik mənzərəsi."
+        }
+      ],
+      "notes": [
+        "Şəhər vergisi (torpaq basdı) qiymətə daxil deyil.",
+        "Ödənişli ekskursiyalara transfer daxildir, lakin giriş biletləri daxil deyil.",
+        "Qiymət 2 və ya 3 nəfərlik otaqda 1 nəfər üçün nəzərdə tutulub.",
+        "Ödənişlər yalnız manatla, günün məzənnəsinə uyğun qəbul edilir.",
+        "Məhdud yerlər — rezervasiya ardıcıllıqla təsdiqlənir.",
+        "Qrup turu olduğu üçün xidmətlərdə və tur proqramında dəyişiklik ola bilər."
+      ]
+    },
+    {
       "id": "roma-milan-paris-turu",
       "name": "Roma–Milan–Paris turu",
       "cat": "Avropa",

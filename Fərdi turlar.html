@@ -540,15 +540,6 @@ var tours = [
 ];
 
 /* Fərdi tur — səhifənin öz təklifi, kataloqdan asılı deyil */
-const FERDI = {
-  name:'Lüks & macəra dolu Dubay turu',
-  date:'5–9 Sentyabr, 2026',
-  dateKey:20260905, days:5,
-  price:1358,
-  badge:'ERKƏN REZERVASİYA', status:'open', cat:'Asiya',
-  url:'Fərdi tur — Dubay.html',
-  src:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80&auto=format&fit=crop'
-};
 
 const catNames = { all:'bütün istiqamətlər', Afrika:'Afrika turları', Amerika:'Amerika ölkələri', Asiya:'Asiya turları', Avropa:'Avropa turları', Passiv:'Passiv istirahət' };
 const regionLabel = { Afrika:'Afrika', Amerika:'Amerika', Asiya:'Asiya', Avropa:'Avropa', Passiv:'İstirahət' };
@@ -574,7 +565,7 @@ let shown = PAGE;
 let activeSort = 'date';
 const F = { cat:'all', ym:'all', price:'all', days:'all' };
 
-function allTours(){ return [FERDI].concat(window.tours || []); }
+function allTours(){ return (window.tours || []).slice(); }
 
 function applyFilters(list){
   return list.filter(t => {
@@ -598,8 +589,8 @@ function cardHTML(t, i){
   const sold = t.status === 'sold';
   const days = daysOf(t);
   const meta = [regionLabel[t.cat] || t.region, days ? days + ' gün' : null].filter(Boolean).join(' · ');
-  const href = t.url || ('tur.html?id=' + _slug(t.name));
-  return '<' + 'div class="tcard reveal' + (sold ? ' sold' : '') + '" style="transition-delay:' + (i*45) + 'ms">' +
+  const href = 'tur.html?id=' + (t.id || _slug(t.name));
+  return '<a class="tcard reveal' + (sold ? ' sold' : '') + '" href="' + (sold ? 'javascript:void(0)' : href) + '" style="transition-delay:' + (i*45) + 'ms">' +
     '<div class="tcard-media"><img class="tcard-img" src="' + t.src + '" alt="' + t.name + '" loading="lazy"></div>' +
     '<div class="tcard-body">' +
       '<div class="tcard-badges">' +
@@ -613,18 +604,18 @@ function cardHTML(t, i){
       '<div class="tcard-divider"></div>' +
       '<div class="tcard-foot">' +
         '<div><div class="tcard-price">' + fmtPrice(t) + '</div><div class="tcard-price-sub">' + (t.priceSub || '1 nəfər üçün') + '</div></div>' +
-        (sold ? '<span class="tcard-btn">Yer yoxdur</span>' : '<a class="tcard-btn" href="' + href + '">Ətraflı</a>') +
+        '<span class="tcard-btn">' + (sold ? 'Yer yoxdur' : 'Ətraflı') + '</span>' +
       '</div>' +
     '</div>' +
-  '</div>';
+  '</a>';
 }
 
 function render(){
   const grid = document.getElementById('tourGrid');
   if (!grid) return;
   let list = applyFilters(allTours());
-  const pin = list.filter(t => t === FERDI);
-  list = list.filter(t => t !== FERDI);
+  const pin = list.filter(t => (t.id || '') === 'dubay-turu');
+  list = list.filter(t => (t.id || '') !== 'dubay-turu');
 
   if (activeSort === 'price-asc')  list.sort((a,b)=>a.price-b.price);
   if (activeSort === 'price-desc') list.sort((a,b)=>b.price-a.price);

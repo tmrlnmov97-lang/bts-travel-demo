@@ -422,7 +422,7 @@ function render(){
     list.forEach(function(t, i){
       const card = document.createElement('div');
       card.className = 'tcard reveal' + (t.status==='sold' ? ' sold' : '');
-      if (t.status!=='sold') card.addEventListener('click', ()=> location.href = 'tur.html?id=' + _slug(t.name));
+      if (t.status!=='sold') card.addEventListener('click', ()=> location.href = 'tur.html?id=' + (t.id || _slug(t.name)));
       card.style.transitionDelay = (i*45) + 'ms';
       const showBadge = t.status === 'sold';
       card.innerHTML =

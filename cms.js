@@ -120,7 +120,7 @@
   function renderCatalog(C) {
     if (typeof window.render !== 'function') return;
     window.tours = (C.tours || []).map(function (t) {
-      return { name: t.name, date: t.date, dateKey: dateKey(t.date), price: t.price,
+      return { id: t.id || slugify(t.name), name: t.name, date: t.date, dateKey: dateKey(t.date), price: t.price,
         badge: (t.seats || '').toUpperCase(), status: t.status, cat: t.cat, src: t.image };
     });
     // chip counts
