@@ -445,6 +445,28 @@
       ['Во всех трёх городах — размещение в 4-звёздочных отелях рядом с центром. Завтрак включён в цену. Названия конкретных отелей присылаются при подтверждении тура.',
        'In all three cities, accommodation in 4-star hotels near the centre. Breakfast is included. Exact hotel names are sent once the tour is confirmed.'],
 
+
+    /* adlar: turlar */
+    'Lüks & macəra dolu Dubay turu': ['Роскошный тур в Дубай с приключениями', 'Luxury & adventure Dubai tour'],
+    'Roma–Milan–Paris turu': ['Тур Рим–Милан–Париж', 'Rome–Milan–Paris tour'],
+    'Skandinaviya turu': ['Тур по Скандинавии', 'Scandinavia tour'],
+    'Benelüks turu': ['Тур по Бенилюксу', 'Benelux tour'],
+    'Budapeşt–Praqa–Vyana turu': ['Тур Будапешт–Прага–Вена', 'Budapest–Prague–Vienna tour'],
+    'ABŞ turu': ['Тур в США', 'USA tour'],
+    'Braziliya–Argentina turu': ['Тур Бразилия–Аргентина', 'Brazil–Argentina tour'],
+    'Keniya–Tanzaniya safari': ['Сафари Кения–Танзания', 'Kenya–Tanzania safari'],
+    'Mərakeş–Səhra turu': ['Тур Марракеш–Сахара', 'Marrakesh–Sahara tour'],
+    'Bali macərası': ['Приключение на Бали', 'Bali adventure'],
+    'Tailand macərası': ['Приключение в Таиланде', 'Thailand adventure'],
+    'Maldiv lüksü': ['Мальдивы, люкс', 'Maldives luxury'],
+    'Antalya istirahəti': ['Отдых в Анталье', 'Antalya holiday'],
+    'İspaniya turu': ['Тур по Испании', 'Spain tour'],
+    'İsveçrə Alpları turu': ['Тур по Швейцарским Альпам', 'Swiss Alps tour'],
+    'London–Edinburq turu': ['Тур Лондон–Эдинбург', 'London–Edinburgh tour'],
+    'Yunanıstan adaları turu': ['Тур по островам Греции', 'Greek islands tour'],
+    'Hazır proqramlar sizə uyğun gəlmirsə — turu sıfırdan sizin üçün qururuq. İstiqaməti, tarixi, oteli və büdcəni siz seçirsiniz, marşrutu, biletləri və transferi biz düzəldirik.':
+      ['Если готовые программы вам не подходят — соберём тур с нуля. Направление, даты, отель и бюджет выбираете вы, а маршрут, билеты и трансфер берём на себя.',
+       'If the ready-made programmes do not suit you, we will build the tour from scratch. You choose the destination, dates, hotel and budget; we arrange the route, tickets and transfers.'],
     /* səhifə başlıqları (<title>) */
     'Turlar — BTS Group Travel': ['Туры — BTS Group Travel', 'Tours — BTS Group Travel'],
     'Fərdi turlar — BTS Group Travel': ['Индивидуальные туры — BTS Group Travel', 'Private Tours — BTS Group Travel'],
@@ -478,6 +500,13 @@
     if (d >= 2 && d <= 4 && (h < 10 || h >= 20)) return few;
     return many;
   }
+  /* «Asiya · 5 gün» -> «Азия · 5 дней»; левая часть может быть пустой */
+  function comp(m, lang) {
+    var l = m[1].trim(), r = m[2].trim();
+    var R = translate(r, lang);
+    return l ? (translate(l, lang) + ' · ' + R) : ('· ' + R);
+  }
+
 
   /* ── Şablonlar: rəqəmli sətirlər («13 tur», «Cəmi (2 nəfər)») ──────── */
   var RULES = [
@@ -524,7 +553,16 @@
       en: function (m) { return 'Limited seats — ' + translate(m[1], 'en'); } },
     { re: /^(\d+)\s+möhtəşəm məkan\.\s*([\s\S]*)$/,
       ru: function (m) { return m[1] + ' ' + ruPlural(+m[1], 'великолепное место', 'великолепных места', 'великолепных мест') + '. ' + translate(m[2], 'ru'); },
-      en: function (m) { return m[1] + ' remarkable place' + (+m[1] === 1 ? '' : 's') + '. ' + translate(m[2], 'en'); } }
+      en: function (m) { return m[1] + ' remarkable place' + (+m[1] === 1 ? '' : 's') + '. ' + translate(m[2], 'en'); } },
+    /* бейдж в каталоге строится через toUpperCase() */
+    { re: /^(\d+)\s+YER\s+QALIB$/,
+      ru: function (m) { return 'ОСТАЛОСЬ ' + m[1] + ' ' + ruPlural(+m[1], 'МЕСТО', 'МЕСТА', 'МЕСТ'); },
+      en: function (m) { return m[1] + ' SEAT' + (+m[1] === 1 ? '' : 'S') + ' LEFT'; } },
+    /* составные строки вида «Asiya · 5 gün» — переводим части по отдельности.
+       Должно идти последним: точные правила выше имеют приоритет. */
+    { re: /^([^·]*)·([\s\S]+)$/,
+      ru: function (m) { return comp(m, 'ru'); },
+      en: function (m) { return comp(m, 'en'); } }
   ];
 
   /* ── Tərcümə nüvəsi ─────────────────────────────────────────────────── */
