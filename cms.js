@@ -177,6 +177,8 @@
 
   /* ---------- boot ---------- */
   function boot(C) {
+    /* карточки «Yer qalmayıb» не показываем нигде */
+    if (C && Array.isArray(C.tours)) C.tours = C.tours.filter(function (t) { return t.status !== 'sold'; });
     var page = (document.body && document.body.dataset.cms) || '';
     try {
       if (page === 'home') renderHome(C);

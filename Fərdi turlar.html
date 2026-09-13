@@ -615,6 +615,7 @@ function render(){
   const grid = document.getElementById('tourGrid');
   if (!grid) return;
   let list = applyFilters(allTours());
+  list = list.filter(function (t) { return t.status !== 'sold'; });
   const pin = list.filter(t => (t.id || '') === 'dubay-turu');
   list = list.filter(t => (t.id || '') !== 'dubay-turu');
 

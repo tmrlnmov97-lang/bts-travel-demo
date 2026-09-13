@@ -410,6 +410,7 @@ function render(){
   const grid = document.getElementById('tourGrid');
   if (!grid) return;
   let list = applyFilters((window.tours || []).slice());
+  list = list.filter(function (t) { return t.status !== 'sold'; });
 
   if (activeSort === 'price-asc')  list.sort((a,b)=>a.price-b.price);
   if (activeSort === 'price-desc') list.sort((a,b)=>b.price-a.price);
