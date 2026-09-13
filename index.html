@@ -743,9 +743,9 @@ const _poll = setInterval(() => {
 /* Yanan turlar — geri sayım */
 (function(){var p=function(n){return String(n).padStart(2,'0');};var fmt=function(s){return p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60);};var els=[].slice.call(document.querySelectorAll('.deal-time'));if(!els.length)return;els.forEach(function(el){el.textContent=fmt(parseInt(el.dataset.secs,10)||0);});setInterval(function(){els.forEach(function(el){var s=parseInt(el.dataset.secs,10);if(isNaN(s))return;if(s>0){s--;el.dataset.secs=s;el.textContent=fmt(s);}else{el.textContent='00:00:00';}});},1000);})();
 </script>
-<script src="cms.js"></script>
-<script src="mobile.js"></script>
-<script src="lang.js"></script>
-<script src="i18n.js"></script>
+<script src="cms.js?v=2"></script>
+<script src="mobile.js?v=2"></script>
+<script src="lang.js?v=2"></script>
+<script src="i18n.js?v=2"></script>
 </body>
 </html>
