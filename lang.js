@@ -144,6 +144,7 @@
     cur = lang;
     try { localStorage.setItem(KEY, lang); } catch (e) {}
     sync();
+    if (window.btsI18n) window.btsI18n.apply(cur);
   }
 
   function init() {
@@ -153,6 +154,7 @@
     try { cur = localStorage.getItem(KEY) || 'az'; } catch (e) { cur = 'az'; }
     if (LANGS.indexOf(cur) < 0) cur = 'az';
     sync();
+    if (window.btsI18n) window.btsI18n.apply(cur);
   }
 
   window.btsLang = { set: set, get: function () { return cur; } };
