@@ -576,6 +576,13 @@
     'Şabran': ['Шабран', 'Shabran'],
 
     'VIP qrup transferi': ['VIP-трансфер для группы', 'VIP group transfer'],
+
+    /* sahələrin ipucları (placeholder) */
+    'Uşaq, yaş, xüsusi tələblər...': ['Дети, возраст, особые пожелания...', 'Children, age, special requests...'],
+    'Uşaq, yaş, otel tələbləri, xüsusi istəklər…': ['Дети, возраст, пожелания к отелю, особые просьбы…', 'Children, age, hotel preferences, special requests…'],
+    'Səyahət planınız, tarixlər, sual…': ['Ваш план поездки, даты, вопрос…', 'Your travel plan, dates, a question…'],
+    'Məsələn: Dubay, İtaliya…': ['Например: Дубай, Италия…', 'For example: Dubai, Italy…'],
+    'ad@nümunə.az': ['имя@пример.az', 'name@example.az'],
     /* səhifə başlıqları (<title>) */
     'Turlar — BTS Group Travel': ['Туры — BTS Group Travel', 'Tours — BTS Group Travel'],
     'Fərdi turlar — BTS Group Travel': ['Индивидуальные туры — BTS Group Travel', 'Private Tours — BTS Group Travel'],
@@ -731,7 +738,8 @@
      Ona görə tərcümə vaxtı müşahidəçini tamamilə söndürürük. */
   var mo = null;
   // characterData da lazımdır: cms.js mətni fetch-dən sonra mövcud düyünə yazır
-  var OPTS = { childList: true, subtree: true, characterData: true };
+  var OPTS = { childList: true, subtree: true, characterData: true,
+    attributes: true, attributeFilter: ATTRS };
   function pause() { if (mo) mo.disconnect(); }
   function resume() { if (mo) mo.observe(document.body, OPTS); }
 
@@ -814,11 +822,22 @@
     if (window.MutationObserver) {
       mo = new MutationObserver(function (muts) {
         if (current === 'az') return;
-        var nodes = [], texts = [];
+        var nodes = [], texts = [], attrs = [];
         muts.forEach(function (m) {
           var host = (m.target && m.target.nodeType === 3) ? m.target.parentElement : m.target;
           /* свои элементы управления не трогаем — иначе бесконечный цикл */
           if (host && host.closest && host.closest('[data-no-i18n], .lang, .lang-seg')) return;
+
+          if (m.type === 'attributes') {
+            /* кто-то (например cms.js) переписал alt/placeholder — переводим заново */
+            var ae = m.target, an = m.attributeName;
+            if (ae && ae.getAttribute) {
+              if (!ae.__azAttr) ae.__azAttr = {};
+              ae.__azAttr[an] = ae.getAttribute(an);
+              attrs.push([ae, an]);
+            }
+            return;
+          }
 
           if (m.type === 'characterData') {
             /* во время своих записей наблюдатель отключён, значит это чужая:
@@ -833,13 +852,19 @@
             else if (n.nodeType === 3 && n.parentElement) nodes.push(n.parentElement);
           });
         });
-        if (!nodes.length && !texts.length) return;
+        if (!nodes.length && !texts.length && !attrs.length) return;
         pause();
         nodes.forEach(function (n) { applyTo(n, current); });
         texts.forEach(function (t) {
           try {
             var next = translate(t.__az, current);
             if (t.nodeValue !== next) t.nodeValue = next;
+          } catch (e) {}
+        });
+        attrs.forEach(function (pair) {
+          try {
+            var next = translate(pair[0].__azAttr[pair[1]], current);
+            if (pair[0].getAttribute(pair[1]) !== next) pair[0].setAttribute(pair[1], next);
           } catch (e) {}
         });
         resume();
