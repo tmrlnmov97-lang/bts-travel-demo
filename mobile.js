@@ -65,7 +65,7 @@
     var reg = document.querySelector('.book .btn-primary, .book-cta .btn-primary');
     if (!reg) return;
     var wa = document.querySelector('.book .btn-wa, .book-cta .btn-wa');
-    var waHref = wa ? wa.getAttribute('href') : 'https://wa.me/994102160557';
+    var waHref = wa ? wa.getAttribute('href') : 'https://wa.me/994103160557';
 
     var bar = document.createElement('div');
     bar.className = 'book-bar';
