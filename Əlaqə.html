@@ -311,6 +311,12 @@ form.addEventListener('submit',e=>{
   let ok=true;
   [name,phone].forEach(f=>{if(!f.value.trim()){f.style.borderColor='#E5484D';ok=false;}else{f.style.borderColor='';}});
   if(!ok)return;
+  var _v = function (id) { var e = document.getElementById(id); return e ? String(e.value || '').trim() : ''; };
+  var _mail = { _subject: 'Yeni mesaj — BTS Group Travel', _template: 'table', _captcha: 'false',
+    ad_soyad: _v('fn'), telefon: _v('fp'), e_poct: _v('fe'), tur: _v('ft'), mesaj: _v('fm') };
+  fetch('https://formsubmit.co/ajax/tour@bts-g.az', { method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(_mail) }).catch(function () {});
   document.getElementById('formOk').classList.add('show');
   form.querySelector('.submit').style.display='none';
   setTimeout(()=>{form.reset();},100);
