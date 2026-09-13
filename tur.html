@@ -777,10 +777,17 @@ function slugify(s){return s.replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,
     var g = function (n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ''; };
     var btn = document.getElementById('rqSend');
     if (btn) { btn.disabled = true; btn.textContent = 'Göndərilir...'; }
-    fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'tur', tour: T ? T.name : '', name: g('name'), whatsapp: g('phone'),
-        email: g('email'), date: g('date'), pax: g('pax'), room: g('room'), note: g('note') }) })
-      .then(function (r) { return r.ok; }).catch(function () { return false; })
+    var lead = { type: 'tur', tour: T ? T.name : '', name: g('name'), whatsapp: g('phone'),
+      email: g('email'), date: g('date'), pax: g('pax'), room: g('room'), note: g('note') };
+    var mail = { _subject: 'Yeni rezervasiya sorğusu — BTS Group Travel', _template: 'table', _captcha: 'false' };
+    for (var k in lead) mail[k] = lead[k];
+    Promise.all([
+      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead) }).then(function (r) { return r.ok; }).catch(function () { return false; }),
+      fetch('https://formsubmit.co/ajax/tour@bts-g.az', { method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(mail) }).then(function (r) { return r.ok; }).catch(function () { return false; })
+    ]).then(function (res) { return res[0] || res[1]; })
       .then(function (ok) {
         if (!ok) set('rqDoneTxt', 'Sorğunu birbaşa göndərə bilmədik. Zəhmət olmasa WhatsApp və ya zəng ilə əlaqə saxlayın.');
         form.style.display = 'none';
